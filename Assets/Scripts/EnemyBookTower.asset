@@ -9,7 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a018fd0557bf2428c5708064439034, type: 3}
-  m_Name: SampleTower
+  m_Name: EnemyBookTower
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
-  SpawnDelayInSeconds: 0
+  EnemyPrefab: {fileID: 1594424120998704, guid: f20f1960a4abcf14795afcc04d498251,
+    type: 2}
+  SpawnDelayInSeconds: 5

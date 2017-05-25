@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a018fd0557bf2428c5708064439034, type: 3}
-  m_Name: DefaultTower
+  m_Name: EnemyDefaultTower
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 0}
-  SpawnDelayInSeconds: 0
+  SpawnDelayInSeconds: 5
