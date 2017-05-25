@@ -10,7 +10,14 @@ public class EnemySpawner : ScriptableObject
 
     public void SpawnEnemy(Vector3 spawn)
     {
-        var enemy = Instantiate(EnemyPrefab);
+        GameObject enemy;
+        if (EnemyPrefab == null)
+        {
+            enemy = Instantiate(Resources.Load("DefaultEnemy")) as GameObject;
+        }
+        else
+            enemy = Instantiate(EnemyPrefab);
+
         enemy.transform.position = spawn;        
     }
 }
