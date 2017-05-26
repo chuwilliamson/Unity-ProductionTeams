@@ -21,18 +21,6 @@ public class NodeBehaviour : MonoBehaviour
     {
         DefaultColor = this.GetComponent<Renderer>().material.color;
         IsSelected = false;
-        if (_NodeType == NodeType.TurrentBase)
-        {
-            this.GetComponent<Renderer>().material.color = Color.white;            
-        }
-        if (_NodeType == NodeType.Wall)
-        {
-            this.GetComponent<Renderer>().material.color = Color.black;
-        }
-        if (_NodeType == NodeType.Path)
-        {
-            this.GetComponent<Renderer>().material.color = Color.green;
-        }
     }
 
     public void Hover(bool isHovering)
