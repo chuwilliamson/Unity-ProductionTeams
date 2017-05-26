@@ -1,0 +1,255 @@
+fileFormatVersion: 2
+guid: 37c79cd10baeedf43a5a04ccf047178e
+timeCreated: 1495821898
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PlayerTowers_concept_001_0
+    21300002: PlayerTowers_concept_001_1
+    21300004: PlayerTowers_concept_001_2
+    21300006: PlayerTowers_concept_001_3
+    21300008: PlayerTowers_concept_001_4
+    21300010: PlayerTowers_concept_001_5
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerTowers_concept_001_0
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 108
+        width: 481
+        height: 620
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 124.393555, y: 252.40887}
+        - {x: 40.441406, y: 289.9828}
+        - {x: -57.595825, y: 298.87744}
+        - {x: -110.15259, y: 271.8227}
+        - {x: -127.11963, y: 213.7254}
+        - {x: -150.82043, y: 138.99713}
+        - {x: -92.96887, y: 112.09442}
+        - {x: -91.31238, y: 75.618835}
+        - {x: -140.53528, y: 64.47748}
+        - {x: -144.81787, y: 38.081604}
+        - {x: -115.837524, y: -0.99328613}
+        - {x: -88.47656, y: -9.771942}
+        - {x: -143.88855, y: -44.45468}
+        - {x: -112.61987, y: -79.8475}
+        - {x: -127.029785, y: -82.97421}
+        - {x: -94.86865, y: -110.63461}
+        - {x: -90.938354, y: -143.7078}
+        - {x: -142.63635, y: -173.86772}
+        - {x: -187.77063, y: -229.18701}
+        - {x: -166.34973, y: -263.0381}
+        - {x: -1.7244873, y: -303.8208}
+        - {x: 64.14697, y: -294.5976}
+        - {x: 150.53479, y: -244.86496}
+        - {x: 144.41614, y: -199.21515}
+        - {x: 84.48657, y: -169.8333}
+        - {x: 79.11926, y: -130.2879}
+        - {x: 168.85278, y: -148.13535}
+        - {x: 195.00476, y: -108.257385}
+        - {x: 97.01282, y: -75.7446}
+        - {x: 138.93921, y: -53.50589}
+        - {x: 184.14563, y: -49.79904}
+        - {x: 195.24951, y: -4.906616}
+        - {x: 84.19641, y: 16.147827}
+        - {x: 142.521, y: 43.936188}
+        - {x: 188.60718, y: 83.59796}
+        - {x: 219.01367, y: 99.540955}
+        - {x: 199.0802, y: 140.94495}
+        - {x: 100.52832, y: 152.49414}
+        - {x: 128.03857, y: 196.30273}
+      tessellationDetail: 0.32
+    - serializedVersion: 2
+      name: PlayerTowers_concept_001_1
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 710
+        width: 355
+        height: 297
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -177.5, y: 148.5}
+        - {x: -177.5, y: -148.5}
+        - {x: 177.5, y: -148.5}
+        - {x: 177.5, y: 148.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTowers_concept_001_2
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 111
+        width: 468
+        height: 505
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 119.77527, y: 126.444336}
+        - {x: 79.52649, y: 154.32263}
+        - {x: 35.691162, y: 178.27136}
+        - {x: 22.209045, y: 235.42987}
+        - {x: -34.35321, y: 238.15363}
+        - {x: -57.274963, y: 175.87799}
+        - {x: -86.33319, y: 231.18915}
+        - {x: -136.05743, y: 205.7279}
+        - {x: -88.3031, y: 46.658752}
+        - {x: -162.72083, y: 0.68185425}
+        - {x: -95.79364, y: -69.00018}
+        - {x: -194.45319, y: -165.99124}
+        - {x: -202.74054, y: -199.37158}
+        - {x: -77.79535, y: -234.22946}
+        - {x: 54.803284, y: -245.08496}
+        - {x: 147.18793, y: -190.43346}
+        - {x: 90.747375, y: -111.07443}
+        - {x: 189.6159, y: -92.543976}
+        - {x: 196.62103, y: -47.549713}
+        - {x: 76.653625, y: -20.157532}
+        - {x: 146.66064, y: 1.6919861}
+        - {x: 82.49536, y: 76.86789}
+        - {x: 219.41113, y: 46.878876}
+        - {x: 220.40576, y: 98.02011}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTowers_concept_001_3
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 97
+        width: 460
+        height: 298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -230, y: 149}
+        - {x: -230, y: -149}
+        - {x: 230, y: -149}
+        - {x: 230, y: 149}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTowers_concept_001_4
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 731
+        width: 219
+        height: 198
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -109.5, y: 99}
+        - {x: -109.5, y: -99}
+        - {x: 109.5, y: -99}
+        - {x: 109.5, y: 99}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerTowers_concept_001_5
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 779
+        width: 185
+        height: 272
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -92.5, y: 136}
+        - {x: -92.5, y: -136}
+        - {x: 92.5, y: -136}
+        - {x: 92.5, y: 136}
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
