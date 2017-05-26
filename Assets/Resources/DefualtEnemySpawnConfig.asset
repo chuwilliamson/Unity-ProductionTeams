@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a018fd0557bf2428c5708064439034, type: 3}
   m_Name: DefualtEnemySpawnConfig
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
-  SpawnDelayInSeconds: 0
+  EnemyPrefab: {fileID: 1840295269702116, guid: 8d1d56419f33b4947a170468a4fa0184,
+    type: 2}
+  SpawnDelayInSeconds: 2
