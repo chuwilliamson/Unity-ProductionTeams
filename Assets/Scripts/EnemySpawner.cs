@@ -7,9 +7,20 @@ public class EnemySpawner : ScriptableObject
 {
     public GameObject EnemyPrefab;
     public float SpawnDelayInSeconds;
+    private bool IsInitialized;
+
+    public void Initialize()
+    {
+        IsInitialized = true;
+    }
 
     public void SpawnEnemy(Vector3 spawn)
     {
+        if (!IsInitialized)
+        {
+            Debug.LogError("Scriptable Object was not Initialized properly. Be sure to invoke the Initialize function");
+            return;
+        }
         GameObject enemy;
         if (EnemyPrefab == null)
         {
