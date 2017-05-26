@@ -8,8 +8,5 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e23f27e2ae8e9418a00653d18252ae, type: 3}
-  m_Name: ExitGameState
+  m_Script: {fileID: 11500000, guid: 49f0afd9248ae334a8c54fde45552a7e, type: 3}
   m_EditorClassIdentifier: 
-  Current: {fileID: 0}
-  Next: {fileID: 11400000, guid: ec8308b731cdaa14e8d18279b37ee0de, type: 2}

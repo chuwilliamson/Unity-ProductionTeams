@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 public class GameStateBehaviour : MonoBehaviour
 {
-    public State Current;
+    
+    public IGameState Current;
+    public GameState fsm;
+    public Text Text;
+
     private void Start()
     {
-        Current = GameState.Instance.Current;
+        DontDestroyOnLoad(this);
+        Current = fsm.Start;
         UnityEngine.Assertions.Assert.IsNotNull(Current, "no");
     }
     private void Update()
     {
-        
-        //Current.UpdateState(this);
+        Current.UpdateState(this);
+    }
+
+    public void SetText(string value)
+    {
+        Text.text = value;
     }
 }
