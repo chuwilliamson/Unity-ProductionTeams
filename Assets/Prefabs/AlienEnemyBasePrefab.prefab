@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 4076802758924328}
   - component: {fileID: 95754137891585814}
   m_Layer: 0
-  m_Name: AlienEnemyBaseMesh
+  m_Name: AlienEnemyBasePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
