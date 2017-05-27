@@ -46,11 +46,19 @@ ModelImporter:
     400036: AlienEnemyBase_Spine_TopSHJnt
     400038: EnemyTowerMesh
     4300000: EnemyTowerMesh
+<<<<<<< HEAD
     7400000: Take 001
     9500000: //RootNode
     13700000: EnemyTowerMesh
   materials:
     importMaterials: 1
+=======
+    7400000: Death
+    9500000: //RootNode
+    13700000: EnemyTowerMesh
+  materials:
+    importMaterials: 0
+>>>>>>> refs/remotes/chuwilliamson/master
     materialName: 0
     materialSearch: 1
   animations:
@@ -71,11 +79,87 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+<<<<<<< HEAD
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
+=======
+    clipAnimations:
+    - serializedVersion: 16
+      name: Death
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_l_MandibleSide_01_01SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_l_MandibleSide_01_01SHJnt/AlienEnemyBase_l_MandibleSide_01_02SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_l_MandibleSide_01_01SHJnt/AlienEnemyBase_l_MandibleSide_01_02SHJnt/AlienEnemyBase_l_MandibleSide_01_03SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_MandibleBack_01_01SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_MandibleBack_01_01SHJnt/AlienEnemyBase_MandibleBack_01_02SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_MandibleBack_01_01SHJnt/AlienEnemyBase_MandibleBack_01_02SHJnt/AlienEnemyBase_MandibleBack_01_03SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_MandibleFront_01_01SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_MandibleFront_01_01SHJnt/AlienEnemyBase_MandibleFront_01_02SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_MandibleFront_01_01SHJnt/AlienEnemyBase_MandibleFront_01_02SHJnt/AlienEnemyBase_MandibleFront_01_03SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_r_MandibleSide_01_01SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_r_MandibleSide_01_01SHJnt/AlienEnemyBase_r_MandibleSide_01_02SHJnt
+        weight: 1
+      - path: AlienEnemyBase_ROOTSHJnt/AlienEnemyBase_Spine_01SHJnt/AlienEnemyBase_Spine_02SHJnt/AlienEnemyBase_Spine_03SHJnt/AlienEnemyBase_Spine_04SHJnt/AlienEnemyBase_Spine_TopSHJnt/AlienEnemyBase_r_MandibleSide_01_01SHJnt/AlienEnemyBase_r_MandibleSide_01_02SHJnt/AlienEnemyBase_r_MandibleSide_01_03SHJnt
+        weight: 1
+      - path: EnemyTowerMesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+>>>>>>> refs/remotes/chuwilliamson/master
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
