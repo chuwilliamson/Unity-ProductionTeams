@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class EditorNodeUpdate : MonoBehaviour
 {
-    [ContextMenu("UpdateNodes")]
-    void UpdateNodes()
+    public void UpdateNodes()
     {
         foreach (var node in FindObjectsOfType<NodeBehaviour>())
         {
-            if (node._NodeType == NodeBehaviour.NodeType.TurrentBase)
+            if (node._NodeType == NodeBehaviour.NodeType.TurretBase)
             {
                 node.GetComponent<Renderer>().material.color = Color.white;
             }
@@ -24,4 +27,19 @@ public class EditorNodeUpdate : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(EditorNodeUpdate))]
+class EditorNode : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        if (GUILayout.Button("Update Nodes"))
+        {
+            var refrence = target as EditorNodeUpdate;
+            refrence.UpdateNodes();
+        }
+    }
+}
+#endif
 

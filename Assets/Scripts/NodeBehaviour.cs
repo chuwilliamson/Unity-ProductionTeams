@@ -8,7 +8,7 @@ public class NodeBehaviour : MonoBehaviour
 {
     public enum NodeType
     {
-        TurrentBase, Wall, Path
+        TurretBase, Wall, Path
     }
     public Color HighlightColor;
     public Color SelectedColor;
@@ -25,19 +25,19 @@ public class NodeBehaviour : MonoBehaviour
 
     public void Hover(bool isHovering)
     {        
-        if(_NodeType != NodeType.TurrentBase)
+        if(_NodeType != NodeType.TurretBase)
             return;
         if(IsSelected)
             return;
-        this.GetComponent<Renderer>().material.color = (isHovering) ? HighlightColor : DefaultColor;
+        GetComponent<Renderer>().material.color = (isHovering) ? HighlightColor : DefaultColor;
     }
 
     public void SelectNode()
     {
-        if(_NodeType != NodeType.TurrentBase)
+        if(_NodeType != NodeType.TurretBase)
             return;
         IsSelected = !IsSelected;
-        this.GetComponent<Renderer>().material.color = (IsSelected) ? SelectedColor : DefaultColor;
+        GetComponent<Renderer>().material.color = (IsSelected) ? SelectedColor : DefaultColor;
         if(!IsSelected)
             Hover(true);
     }
