@@ -13,8 +13,11 @@ public class GameState : State
     {
         get
         {
+            if (!start) start = Resources.FindObjectsOfTypeAll<InitGameState>().FirstOrDefault();
+            if (!start) start = CreateInstance<InitGameState>();
             return start;
         }
+        set { start = (State)value; }
     }
 
     public override void ToState(GameStateBehaviour game, IGameState state)
