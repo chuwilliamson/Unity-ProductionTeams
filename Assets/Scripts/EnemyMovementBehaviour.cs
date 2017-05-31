@@ -40,7 +40,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
         CurrentState = States.idle;
         while (Vector3.Distance(transform.position, PlayerTower.position) < 5.0f)
         {
-            _NavMeshAgent.isStopped = true;
+            _NavMeshAgent.;
             yield return null;
         }
         StartCoroutine("Walk");
