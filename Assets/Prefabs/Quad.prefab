@@ -109,6 +109,7 @@ MonoBehaviour:
   HighlightColor: {r: 1, g: 0, b: 0, a: 1}
   SelectedColor: {r: 0.9862069, g: 1, b: 0, a: 1}
   IsSelected: 0
+  _NodeType: 0
   DefaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114610140630204124
 MonoBehaviour:
