@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,9 +8,10 @@ using UnityEngine.AI;
 public class EnemyMovementBehaviour : MonoBehaviour
 {
     private NavMeshAgent _NavMeshAgent;
-    private Transform PlayerTower;
+    [SerializeField]
+    private Transform TargetTower;
     public float MovementSpeed;
-    public float Display;
+    public float DistanceFromTarget;
 
     enum States
     {
@@ -22,84 +24,88 @@ public class EnemyMovementBehaviour : MonoBehaviour
     void Start()
     {
         _NavMeshAgent = GetComponent<NavMeshAgent>();
-        PlayerTower = GameObject.FindGameObjectWithTag("PlayerTower").transform;
-        _NavMeshAgent.destination = PlayerTower.position;
-        Debug.Log(PlayerTower.position);
+        TargetTower = SearchForClosestTower();
+        _NavMeshAgent.destination = TargetTower.position;
+        Debug.Log(TargetTower.position);
         _NavMeshAgent.speed = MovementSpeed;
         StartCoroutine("Idle");
     }
 
     void Update()
     {
-        Display = Vector3.Distance(transform.position, PlayerTower.position);
+        DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
     }
 
     IEnumerator Idle()
     {
-        StopCoroutines();
+        int LoopCounter = 0;
         CurrentState = States.idle;
-        while (Vector3.Distance(transform.position, PlayerTower.position) < 5.0f)
+        while (LoopCounter <= 1000)
         {
-            _NavMeshAgent.;
+            LoopCounter++;            
+            if (DistanceFromTarget > 3.0f)
+                yield return StartCoroutine("Walk");
             yield return null;
-        }
-        StartCoroutine("Walk");
+        }        
     }
 
     IEnumerator Walk()
     {
-        StopCoroutines();
+        int LoopCounter = 0;
         CurrentState = States.walk;
-        while (Vector3.Distance(transform.position, PlayerTower.position) > 5.0f)
+        TargetTower = SearchForClosestTower();
+        _NavMeshAgent.destination = TargetTower.position;
+        while (LoopCounter <= 1000)
         {
-            _NavMeshAgent.isStopped = false;
+            LoopCounter++;            
+            if (DistanceFromTarget <= 3.0f)
+                yield return StartCoroutine("Attack");
             yield return null;
         }
-        StartCoroutine("Idle");        
     }
 
     IEnumerator Attack()
     {
-        StopCoroutines();
+        int LoopCounter = 0;
         CurrentState = States.attack;
-        if (Vector3.Distance(transform.position, _NavMeshAgent.destination) > 3.0f)
+        int attackTimer = 0;
+        while (LoopCounter <= 1000)
         {
-            StartCoroutine("Walk");
+            LoopCounter++;
+            attackTimer++;
+            if (attackTimer >= 3)
+            {
+                yield return StartCoroutine("Walk");
+            }
+            yield return null;
         }
-        return null;
     }
 
-    IEnumerator Death()
+    Transform SearchForClosestTower()
     {
-        StopCoroutines();
-        CurrentState = States.death;
-        return null;
-    }
-
-    void StopCoroutines()
-    {
-        switch (CurrentState)
+        var towers = GameObject.FindGameObjectsWithTag("PlayerTower").ToList();
+        if (towers.Count == 1)
         {
-            case States.idle:
-                StopCoroutine("Walk");
-                StopCoroutine("Attack");
-                StopCoroutine("Death");
-                break;
-            case States.walk:
-                StopCoroutine("Idle");
-                StopCoroutine("Attack");
-                StopCoroutine("Death");
-                break;
-            case States.attack:
-                StopCoroutine("Walk");
-                StopCoroutine("Idle");
-                StopCoroutine("Death");
-                break;
-            case States.death:
-                StopCoroutine("Walk");
-                StopCoroutine("Attack");
-                StopCoroutine("Idle");
-                break;
+            return towers[0].transform;
         }
+        GameObject closestTower;
+        if (TargetTower)
+        {
+            if (towers.IndexOf(TargetTower.gameObject) == 0)
+                closestTower = towers[1];
+            else
+                closestTower = towers[0];
+        }
+        else        
+            closestTower = towers[0];        
+        var closestTowerDistance = Vector3.Distance(transform.position, towers[0].transform.position);        
+        foreach (var tower in towers)
+        {
+            if (tower.transform == TargetTower)
+                continue;
+            if (Vector3.Distance(transform.position, tower.transform.position) < closestTowerDistance)
+                closestTower = tower;
+        }
+        return closestTower.transform;
     }
 }
