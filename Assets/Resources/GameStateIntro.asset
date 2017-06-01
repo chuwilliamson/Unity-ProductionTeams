@@ -9,6 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecbbff7503adbc74d8c8a414efda0cae, type: 3}
-  m_Name: IntroGameState
+  m_Name: GameStateIntro
   m_EditorClassIdentifier: 
-  Next: {fileID: 11400000, guid: 4a7dee52645eb9744acc05df6ea0a9d8, type: 2}
+  start: {fileID: 0}
+  Next: {fileID: 0}
