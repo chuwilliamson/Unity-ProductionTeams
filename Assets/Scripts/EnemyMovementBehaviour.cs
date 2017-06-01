@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovementBehaviour : MonoBehaviour
@@ -21,30 +22,42 @@ public class EnemyMovementBehaviour : MonoBehaviour
     [SerializeField]
     private States CurrentState;
 
+    public EventEnemyLarvaAttack OnEnemyLarvaAttack;
+
+    void Awake()
+    {
+        EnemyFormationBehaviour.OnUnitStop.AddListener(StopMovement);
+    }
+
     void Start()
     {
-        _NavMeshAgent = GetComponent<NavMeshAgent>();
-        TargetTower = SearchForClosestTower();
-        _NavMeshAgent.destination = TargetTower.position;
-        Debug.Log(TargetTower.position);
+        _NavMeshAgent = GetComponent<NavMeshAgent>();        
+        TargetTower = GameObject.FindGameObjectWithTag("PlayerTower").transform;
+        _NavMeshAgent.destination = TargetTower.position;        
         _NavMeshAgent.speed = MovementSpeed;
         StartCoroutine("Idle");
     }
 
-    void Update()
+    void OnDrawGizmos()
     {
-        DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
+        if(_NavMeshAgent)
+            Gizmos.DrawLine(transform.position, _NavMeshAgent.destination);
     }
 
     IEnumerator Idle()
     {
         int LoopCounter = 0;
         CurrentState = States.idle;
+        _NavMeshAgent.destination = transform.position;
+        _NavMeshAgent.speed = 0;        
         while (LoopCounter <= 1000)
         {
-            LoopCounter++;            
+            LoopCounter++;
+            DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
             if (DistanceFromTarget > 3.0f)
                 yield return StartCoroutine("Walk");
+            else
+                DoDamage();
             yield return null;
         }        
     }
@@ -53,59 +66,35 @@ public class EnemyMovementBehaviour : MonoBehaviour
     {
         int LoopCounter = 0;
         CurrentState = States.walk;
-        TargetTower = SearchForClosestTower();
         _NavMeshAgent.destination = TargetTower.position;
-        while (LoopCounter <= 1000)
-        {
-            LoopCounter++;            
-            if (DistanceFromTarget <= 3.0f)
-                yield return StartCoroutine("Attack");
-            yield return null;
-        }
-    }
-
-    IEnumerator Attack()
-    {
-        int LoopCounter = 0;
-        CurrentState = States.attack;
-        int attackTimer = 0;
+        _NavMeshAgent.speed = MovementSpeed;             
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
-            attackTimer++;
-            if (attackTimer >= 3)
-            {
-                yield return StartCoroutine("Walk");
-            }
+            DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
+            if (DistanceFromTarget <= 3.0f)
+                yield return StartCoroutine("Idle");
             yield return null;
         }
     }
 
-    Transform SearchForClosestTower()
+    void DoDamage(/*Take in IDamageable type*/)
     {
-        var towers = GameObject.FindGameObjectsWithTag("PlayerTower").ToList();
-        if (towers.Count == 1)
-        {
-            return towers[0].transform;
-        }
-        GameObject closestTower;
-        if (TargetTower)
-        {
-            if (towers.IndexOf(TargetTower.gameObject) == 0)
-                closestTower = towers[1];
-            else
-                closestTower = towers[0];
-        }
-        else        
-            closestTower = towers[0];        
-        var closestTowerDistance = Vector3.Distance(transform.position, towers[0].transform.position);        
-        foreach (var tower in towers)
-        {
-            if (tower.transform == TargetTower)
-                continue;
-            if (Vector3.Distance(transform.position, tower.transform.position) < closestTowerDistance)
-                closestTower = tower;
-        }
-        return closestTower.transform;
+        //Waiting for interface to implemented
+        //Debug.Log("I'm da bes");
+    }
+
+    void StopMovement(GameObject obj)
+    {
+        if(obj != this.gameObject)
+            return;
+        StopAllCoroutines();
+        StartCoroutine("Idle");
+    }
+
+    [System.Serializable]
+    public class EventEnemyLarvaAttack : UnityEvent<GameObject>
+    {
+        
     }
 }
