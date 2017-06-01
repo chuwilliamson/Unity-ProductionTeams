@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
     private Transform TargetTower;
     public float MovementSpeed;
     public float DistanceFromTarget;
-
+    public bool CanWalk;
     enum States
     {
         idle, walk, attack, death
@@ -44,18 +45,19 @@ public class EnemyMovementBehaviour : MonoBehaviour
             Gizmos.DrawLine(transform.position, _NavMeshAgent.destination);
     }
 
+    private Vector3 LastKnowVelocity;
+
     IEnumerator Idle()
     {
         int LoopCounter = 0;
         CurrentState = States.idle;
-        _NavMeshAgent.destination = transform.position;
-        _NavMeshAgent.speed = 0;        
+        _NavMeshAgent.destination = transform.position;                        
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget > 3.0f)
-                yield return StartCoroutine("Walk");
+            if (DistanceFromTarget > 3.0f && CanWalk)
+                yield return null;
             else
                 DoDamage();
             yield return null;
@@ -66,13 +68,12 @@ public class EnemyMovementBehaviour : MonoBehaviour
     {
         int LoopCounter = 0;
         CurrentState = States.walk;
-        _NavMeshAgent.destination = TargetTower.position;
-        _NavMeshAgent.speed = MovementSpeed;             
+        _NavMeshAgent.destination = TargetTower.position;          
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget <= 3.0f)
+            if (DistanceFromTarget <= 3.0f && !CanWalk)
                 yield return StartCoroutine("Idle");
             yield return null;
         }
@@ -84,12 +85,11 @@ public class EnemyMovementBehaviour : MonoBehaviour
         //Debug.Log("I'm da bes");
     }
 
-    void StopMovement(GameObject obj)
+    void StopMovement(GameObject obj, bool canMove)
     {
         if(obj != this.gameObject)
-            return;
-        StopAllCoroutines();
-        StartCoroutine("Idle");
+            return;        
+        CanWalk = canMove;
     }
 
     [System.Serializable]

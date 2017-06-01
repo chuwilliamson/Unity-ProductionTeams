@@ -120,6 +120,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2123458297}
     m_Modifications:
+    - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4076802758924328, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.5
@@ -242,6 +247,31 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1060761446}
+    - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddNewUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65483995977873546, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
@@ -291,7 +321,7 @@ GameObject:
   m_TagString: PlayerTower
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &670993330
 Transform:
@@ -508,6 +538,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1060761442 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 235258349}
+--- !u!114 &1060761446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060761442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0076d6af725f02f459f8bd4adb9b51a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDistanceBetweenUnits: 1
+  Enemies: []
 --- !u!1 &1281363873
 GameObject:
   m_ObjectHideFlags: 0

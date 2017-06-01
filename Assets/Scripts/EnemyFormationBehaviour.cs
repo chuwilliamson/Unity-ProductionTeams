@@ -29,14 +29,18 @@ public class EnemyFormationBehaviour : MonoBehaviour
                     if (Vector3.Dot(enemy.transform.position - neighbor.transform.position,
                             neighbor.transform.forward) < 0)
                     {
-                        OnUnitStop.Invoke(enemy.gameObject);
+                        OnUnitStop.Invoke(enemy.gameObject, false);                        
                     }
+                    else
+                        OnUnitStop.Invoke(enemy.gameObject, true);
                 }
+                else                
+                    OnUnitStop.Invoke(enemy.gameObject, true);
             }
         }
     }
 
-    public class EventUnitStop : UnityEvent<GameObject>
+    public class EventUnitStop : UnityEvent<GameObject, bool>
     {
         
     }
