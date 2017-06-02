@@ -11,5 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f0afd9248ae334a8c54fde45552a7e, type: 3}
   m_Name: GameStateMachine
   m_EditorClassIdentifier: 
-  start: {fileID: 11400000, guid: c868745058082314098f400cdacabfa4, type: 2}
-
+  start: {fileID: 11400000, guid: d3c61090cc6f92642a38e95dc1eda0ab, type: 2}
