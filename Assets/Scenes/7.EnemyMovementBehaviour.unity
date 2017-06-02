@@ -261,7 +261,7 @@ Prefab:
         type: 2}
       propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1060761446}
+      objectReference: {fileID: 0}
     - target: {fileID: 114551485225444650, guid: 970655629468b0e4d962f7dc536648b2,
         type: 2}
       propertyPath: OnEnemySpawn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -320,7 +320,7 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: PlayerTower
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &670993330
@@ -538,24 +538,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1060761442 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2,
-    type: 2}
-  m_PrefabInternal: {fileID: 235258349}
---- !u!114 &1060761446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060761442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0076d6af725f02f459f8bd4adb9b51a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinDistanceBetweenUnits: 1
-  Enemies: []
 --- !u!1 &1281363873
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +698,7 @@ GameObject:
   - component: {fileID: 2123458298}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: PlayerTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
