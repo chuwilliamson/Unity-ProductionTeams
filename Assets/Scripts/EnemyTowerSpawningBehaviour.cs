@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyTowerSpawningBehaviour : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
     public Vector3 SpawnOffsetFromRoot;
     [SerializeField]
     private float timer;
+
+    public EventEnemySpawn OnEnemySpawn;
+
 
     void Start()
     {
@@ -26,7 +31,9 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
         if (timer >= SpawnerConfig.SpawnDelayInSeconds)
         {
             timer = 0;
-            SpawnerConfig.SpawnEnemy(this.transform.position + SpawnOffsetFromRoot);   
+            var newSpawn = SpawnerConfig.SpawnEnemy(this.transform.position + SpawnOffsetFromRoot);
+            if(newSpawn != null)
+                OnEnemySpawn.Invoke(newSpawn);
         }
     }
 
@@ -47,4 +54,7 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
             Gizmos.DrawCube(this.transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));
     }
 #endif
+    [System.Serializable]
+    public class EventEnemySpawn : UnityEvent<GameObject>
+    { }
 }

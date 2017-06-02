@@ -171,7 +171,8 @@ GameObject:
   - component: {fileID: 4076802758924328}
   - component: {fileID: 95754137891585814}
   - component: {fileID: 114160171851803496}
-  - component: {fileID: 114669167536435090}
+  - component: {fileID: 114551485225444650}
+  - component: {fileID: 65483995977873546}
   m_Layer: 0
   m_Name: AlienEnemyBasePrefab
   m_TagString: Untagged
@@ -335,9 +336,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704590338252530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -121, y: 0, z: 42.9}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.6571293, y: 0, z: 3.4542577}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4828415731853842}
   - {fileID: 4579903895560342}
@@ -594,6 +595,18 @@ Transform:
   m_Father: {fileID: 4057401759861584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65483995977873546
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704590338252530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: -0.024334908}
 --- !u!95 &95754137891585814
 Animator:
   serializedVersion: 3
@@ -623,7 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
---- !u!114 &114669167536435090
+--- !u!114 &114551485225444650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -634,10 +647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecabaee7b85cd73489372a28789cfc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnerConfig: {fileID: 11400000, guid: 01c2ce836ab858c4591249017aa58b37, type: 2}
-  SpawnOffsetFromRoot: {x: 0, y: 0, z: 0}
+  SpawnerConfig: {fileID: 11400000, guid: e1e217d416908de448d91a3ce7e298d8, type: 2}
+  SpawnOffsetFromRoot: {x: 3.31, y: 0.5, z: 0}
   timer: 0
-  GizmoColor: {r: 0, g: 0, b: 0, a: 0}
+  GizmoColor: {r: 0, g: 0, b: 0, a: 1}
   DrawWireframe: 1
 --- !u!137 &137970433896016728
 SkinnedMeshRenderer:
