@@ -27,6 +27,8 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
         if (TargetSpawn != null)
             SpawnOffsetFromRoot = TargetSpawn.transform.position - transform.position;
         var newSpawn = SpawnerConfig.SpawnEnemy(transform.position + SpawnOffsetFromRoot);
+        var randomSize = Random.Range(.5f, 1.5f);
+        newSpawn.transform.localScale *= randomSize;
     }
 
     void Start()

@@ -141,9 +141,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4163315633649130}
   - component: {fileID: 95917052192949566}
+  - component: {fileID: 136683122795721642}
   - component: {fileID: 195865030120654384}
   - component: {fileID: 114436938229565894}
-  - component: {fileID: 136683122795721642}
   - component: {fileID: 114127598152120876}
   m_Layer: 0
   m_Name: LarvaEnemyPrefab
@@ -277,9 +277,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.710846, y: 0.1, z: -88.14198}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 58.45, y: 4.3, z: -170.72}
+  m_LocalScale: {x: 0.57428163, y: 0.57428163, z: 0.57428163}
   m_Children:
   - {fileID: 4647761303060946}
   - {fileID: 4681923212935056}

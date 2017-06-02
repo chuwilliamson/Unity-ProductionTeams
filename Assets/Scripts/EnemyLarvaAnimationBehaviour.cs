@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class EnemyLarvaAnimationBehaviour : MonoBehaviour
 {
-
     private Animator anim;
     public Stat HealthStat;
     NavMeshAgent agent;
@@ -15,6 +14,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour
         anim = GetComponent<Animator>();
         HealthStat = Instantiate(HealthStat);
         agent = GetComponent<NavMeshAgent>();
+        anim.SetFloat(HEALTH, HealthStat.Value);
     }
     //idle->move: attack dead
     private int SPEED = Animator.StringToHash("speed");
@@ -31,8 +31,8 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour
 
     private void Update()
     {
-
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
+        
     }
 }
