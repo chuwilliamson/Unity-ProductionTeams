@@ -7,7 +7,7 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyMovementBehaviour : MonoBehaviour
+public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 {
     private NavMeshAgent _NavMeshAgent;
     [SerializeField]
@@ -15,20 +15,15 @@ public class EnemyMovementBehaviour : MonoBehaviour
     public float MovementSpeed;
     public float DistanceFromTarget;
     public bool CanWalk;
-    enum States
+    private enum States
     {
-        idle, walk, attack, death
+        idle, walk, attack
     }
 
     [SerializeField]
     private States CurrentState;
 
     public EventEnemyLarvaAttack OnEnemyLarvaAttack;
-
-    void Awake()
-    {
-        EnemyFormationBehaviour.OnUnitStop.AddListener(StopMovement);
-    }
 
     void Start()
     {
@@ -45,21 +40,20 @@ public class EnemyMovementBehaviour : MonoBehaviour
             Gizmos.DrawLine(transform.position, _NavMeshAgent.destination);
     }
 
-    private Vector3 LastKnowVelocity;
-
     IEnumerator Idle()
     {
         int LoopCounter = 0;
         CurrentState = States.idle;
-        _NavMeshAgent.destination = transform.position;                        
+        _NavMeshAgent.isStopped = true;                        
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget > 3.0f && CanWalk)
-                yield return null;
+            transform.LookAt(TargetTower.position);
+            if (DistanceFromTarget > 3.0f)
+                yield return StartCoroutine("Walk");
             else
-                DoDamage();
+                Attack();            
             yield return null;
         }        
     }
@@ -68,33 +62,35 @@ public class EnemyMovementBehaviour : MonoBehaviour
     {
         int LoopCounter = 0;
         CurrentState = States.walk;
-        _NavMeshAgent.destination = TargetTower.position;          
+        _NavMeshAgent.isStopped = false;
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget <= 3.0f && !CanWalk)
+            if (DistanceFromTarget <= 3.0f)
                 yield return StartCoroutine("Idle");
             yield return null;
         }
     }
 
-    void DoDamage(/*Take in IDamageable type*/)
+    void Attack()
     {
-        //Waiting for interface to implemented
-        //Debug.Log("I'm da bes");
-    }
-
-    void StopMovement(GameObject obj, bool canMove)
-    {
-        if(obj != this.gameObject)
-            return;        
-        CanWalk = canMove;
+        CurrentState = States.attack;
+        if (TargetTower.GetComponent<IDamageable>() != null)
+        {
+            TargetTower.GetComponent<IDamageable>().TakeDamage(10);
+            OnEnemyLarvaAttack.Invoke(this.gameObject);
+        }
     }
 
     [System.Serializable]
     public class EventEnemyLarvaAttack : UnityEvent<GameObject>
     {
         
+    }
+
+    public void DoDamage(IDamageable target)
+    {
+        target.TakeDamage(10);
     }
 }
