@@ -141,6 +141,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4163315633649130}
   - component: {fileID: 95917052192949566}
+  - component: {fileID: 195865030120654384}
+  - component: {fileID: 114436938229565894}
+  - component: {fileID: 136683122795721642}
   m_Layer: 0
   m_Name: LarvaEnemyPrefab
   m_TagString: Untagged
@@ -274,8 +277,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -10.42, y: -3.1718065e-16, z: 14.284546}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4647761303060946}
   - {fileID: 4681923212935056}
@@ -493,6 +496,40 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114436938229565894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95dc175cd7e02d468929ba69aed5caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTower: {fileID: 0}
+  MovementSpeed: 10
+  DistanceFromTarget: 0
+  CanWalk: 0
+  CurrentState: 0
+  OnEnemyLarvaAttack:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: EnemyMovementBehaviour+EventEnemyLarvaAttack, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!136 &136683122795721642
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 6
+  m_Height: 14
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137094906645727134
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -547,3 +584,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -2.165285, y: 0.32404447, z: 0}
     m_Extent: {x: 3.7006145, y: 7.1852703, z: 3.1897552}
   m_DirtyAABB: 0
+--- !u!195 &195865030120654384
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 6
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 99
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
