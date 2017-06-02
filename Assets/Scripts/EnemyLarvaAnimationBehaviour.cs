@@ -1,35 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class EnemyLarvaAnimationBehaviour : MonoBehaviour {
+public class EnemyLarvaAnimationBehaviour : MonoBehaviour
+{
 
     private Animator anim;
-    public Stat health;
+    public Stat HealthStat;
+    NavMeshAgent agent;
     private void Start()
     {
         anim = GetComponent<Animator>();
-        health = Instantiate(health);
+        HealthStat = Instantiate(HealthStat);
+        GetComponent<TestLarvaAnimation>().OnAttack.AddListener(onAttack);
+        agent = GetComponent<NavMeshAgent>();
     }
     //idle->move: attack dead
-    private static int SPAWN = Animator.StringToHash("spawn");
-    private static int HEALTH = Animator.StringToHash("health");
-    private static readonly int ATTACK = Animator.StringToHash("attack");
+    private int SPEED = Animator.StringToHash("speed");
+    private int HEALTH = Animator.StringToHash("health");
+    private int ATTACK = Animator.StringToHash("attack");
 
-    public class EnemyLarvaAttack : UnityEvent<GameObject>
-    {
-    }
-
-    EnemyLarvaAttack OnAttack = new EnemyLarvaAttack();
+    public float animspeed;
     private void onAttack(GameObject go)
     {
-        if(go != this) return;
+        if(go != gameObject) return;
         anim.SetTrigger(ATTACK);
+        anim.SetFloat(HEALTH, HealthStat.Value);
     }
-    
+
     private void Update()
     {
-        
+
+        animspeed = agent.velocity.magnitude;
+        anim.SetFloat(SPEED, animspeed);
     }
 }

@@ -8,22 +8,40 @@ using UnityEditor;
 
 public class EditorNodeUpdate : MonoBehaviour
 {
+    public GameObject blocker;
+    List<GameObject> blockers;
+
+    public void Clear()
+    {
+        if(blockers == null)
+            blockers = new List<GameObject>();
+        if(blockers.Count > 0)
+        {
+            blockers.ForEach(DestroyImmediate);
+            blockers.Clear();
+        }
+    }
+
     public void UpdateNodes()
     {
         foreach (var node in FindObjectsOfType<NodeBehaviour>())
         {
+            var mat = node.GetComponent<Renderer>().material;
             if (node._NodeType == NodeBehaviour.NodeType.TurretBase)
             {
-                node.GetComponent<Renderer>().material.color = Color.white;
+                mat.SetColor(Shader.PropertyToID("color"), Color.white);
+                var go = Instantiate(blocker, node.transform.position, node.transform.rotation, node.transform);
+                blockers.Add(go);
             }
             else if (node._NodeType == NodeBehaviour.NodeType.Wall)
             {
-                node.GetComponent<Renderer>().material.color = Color.black;
+                mat.SetColor(Shader.PropertyToID("color"), Color.black);
             }
             else if (node._NodeType == NodeBehaviour.NodeType.Path)
             {
-                node.GetComponent<Renderer>().material.color = Color.green;
+                mat.SetColor(Shader.PropertyToID("color"), Color.green);
             }
+         
         }
     }
 }
@@ -34,10 +52,17 @@ class EditorNode : Editor
 {
     public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
         if (GUILayout.Button("Update Nodes"))
         {
             var refrence = target as EditorNodeUpdate;
             refrence.UpdateNodes();
+        }
+        if(GUILayout.Button("Clear Nodes"))
+        {
+            var refrence = target as EditorNodeUpdate;
+            refrence.Clear();
+
         }
     }
 }

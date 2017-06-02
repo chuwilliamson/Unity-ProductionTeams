@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: GameStateExit
   m_EditorClassIdentifier: 
   start: {fileID: 0}
-  Next: {fileID: 0}
+  Next: {fileID: 11400000, guid: d3c61090cc6f92642a38e95dc1eda0ab, type: 2}

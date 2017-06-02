@@ -141,6 +141,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4163315633649130}
   - component: {fileID: 95917052192949566}
+  - component: {fileID: 54108431780736498}
+  - component: {fileID: 136369566391568508}
+  - component: {fileID: 114713763109723356}
+  - component: {fileID: 195811750472497762}
+  - component: {fileID: 114049919128347960}
   m_Layer: 0
   m_Name: LarvaEnemyPrefab
   m_TagString: Untagged
@@ -273,9 +278,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4647761303060946}
   - {fileID: 4681923212935056}
@@ -476,6 +481,21 @@ Transform:
   m_Father: {fileID: 4431947176084620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54108431780736498
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95917052192949566
 Animator:
   serializedVersion: 3
@@ -485,7 +505,7 @@ Animator:
   m_GameObject: {fileID: 1654955964778480}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d4d57fb61d830bb4a96559a79e1f1db3, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd2473952cc77984192a478feb0e1467, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -493,6 +513,43 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114049919128347960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c013343c739fb4a43b6e14b187e4561f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
+--- !u!114 &114713763109723356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b22a0fdbe731f4f8fec82fc30f2ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!136 &136369566391568508
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.5596862
+  m_Height: 12.003903
+  m_Direction: 2
+  m_Center: {x: 0, y: 2.0596862, z: 0.42244375}
 --- !u!137 &137094906645727134
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -547,3 +604,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -2.165285, y: 0.32404447, z: 0}
     m_Extent: {x: 3.7006145, y: 7.1852703, z: 3.1897552}
   m_DirtyAABB: 0
+--- !u!195 &195811750472497762
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 6.05
+  m_Speed: 1.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 5.12
+  m_BaseOffset: -0.32
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: GameStateCombat
   m_EditorClassIdentifier: 
   start: {fileID: 0}
-  Next: {fileID: 0}
+  Next: {fileID: 11400000, guid: 195250df252620a4fa5d85fa928c65b2, type: 2}
