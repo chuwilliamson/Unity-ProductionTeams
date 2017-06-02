@@ -1,33 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyTowerSpawningBehaviour : MonoBehaviour
 {
     public EnemySpawner SpawnerConfig;
+    public GameObject TargetSpawn;
     public Vector3 SpawnOffsetFromRoot;
     [SerializeField]
     private float timer;
+
+    public EventEnemySpawn OnEnemySpawn;
+
+    void DoSpawnAnimation()
+    {
+        GetComponent<EnemyTowerAnimationBehaviour>().DoSpawn();
+    }
+    
+    public void Spawn(string value)
+    {
+        if(!canspawn)
+            return;
+        timer = 0;
+        if (TargetSpawn != null)
+            SpawnOffsetFromRoot = TargetSpawn.transform.position - transform.position;
+        var newSpawn = SpawnerConfig.SpawnEnemy(transform.position + SpawnOffsetFromRoot);
+    }
 
     void Start()
     {
         if (!SpawnerConfig)
         {
             Debug.LogError("No spawner config set. Setting the value to a default config");
-            SpawnerConfig = Instantiate(Resources.Load("DefualtEnemySpawnConfig")) as EnemySpawner;
+            SpawnerConfig = Instantiate(Resources.Load("DefaultEnemySpawnConfig")) as EnemySpawner;
         }
+
         SpawnerConfig = Instantiate(SpawnerConfig);
         SpawnerConfig.Initialize();
+        transform.LookAt(GameObject.FindGameObjectWithTag("PlayerTower").transform);
     }
 
+    bool canspawn;
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= SpawnerConfig.SpawnDelayInSeconds)
+        canspawn = timer >= SpawnerConfig.SpawnDelayInSeconds;
+        if (canspawn)
         {
-            timer = 0;
-            SpawnerConfig.SpawnEnemy(this.transform.position + SpawnOffsetFromRoot);   
+            DoSpawnAnimation();
         }
+            
+
+
     }
 
 #if UNITY_EDITOR    
@@ -47,4 +73,7 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
             Gizmos.DrawCube(this.transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));
     }
 #endif
+    [System.Serializable]
+    public class EventEnemySpawn : UnityEvent<GameObject>
+    { }
 }

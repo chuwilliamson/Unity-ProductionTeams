@@ -20,10 +20,12 @@ public class EnemyTowerAnimationBehaviour : MonoBehaviour
 	void Update ()
 	{
 	    anim.SetFloat(HEALTH, health.Value);
-        if(begin_spawn)
-	        anim.SetTrigger(SPAWN);
-        
 	}
+
+    public void DoSpawn()
+    {
+        anim.SetTrigger(SPAWN);
+    }
 
     public void SpawnDone()
     {

@@ -14,12 +14,12 @@ public class EnemySpawner : ScriptableObject
         IsInitialized = true;
     }
 
-    public void SpawnEnemy(Vector3 spawn)
+    public GameObject SpawnEnemy(Vector3 spawn)
     {
         if (!IsInitialized)
         {
             Debug.LogError("Scriptable Object was not Initialized properly. Be sure to invoke the Initialize function");
-            return;
+            return null;
         }
         GameObject enemy;
         if (EnemyPrefab == null)
@@ -27,8 +27,9 @@ public class EnemySpawner : ScriptableObject
             enemy = Instantiate(Resources.Load("DefaultEnemy")) as GameObject;
         }
         else
-            enemy = Instantiate(EnemyPrefab);
+            enemy = Instantiate(EnemyPrefab,spawn, Quaternion.identity);
 
-        enemy.transform.position = spawn;        
+        enemy.transform.position = spawn;
+        return enemy;
     }
 }
