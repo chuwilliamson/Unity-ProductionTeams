@@ -32,3 +32,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Animation/Materials.meta
+Assets/Models/Materials/YearOneProductionTeams_EnvironmentLayout_texture.mat
+Assets/Models/Materials/YearOneProductionTeams_EnvironmentLayout_texture.mat.meta
+Assets/Animation/Materials/AlienEnemyBaseDiffuse.mat
+Assets/Animation/Materials/AlienEnemyBaseDiffuse.mat.meta
