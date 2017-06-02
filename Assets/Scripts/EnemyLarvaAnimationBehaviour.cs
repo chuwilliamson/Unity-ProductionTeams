@@ -14,7 +14,6 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         HealthStat = Instantiate(HealthStat);
-        GetComponent<TestLarvaAnimation>().OnAttack.AddListener(onAttack);
         agent = GetComponent<NavMeshAgent>();
     }
     //idle->move: attack dead

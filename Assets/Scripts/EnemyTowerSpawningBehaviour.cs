@@ -7,34 +7,53 @@ using UnityEngine.Events;
 public class EnemyTowerSpawningBehaviour : MonoBehaviour
 {
     public EnemySpawner SpawnerConfig;
+    public GameObject TargetSpawn;
     public Vector3 SpawnOffsetFromRoot;
     [SerializeField]
     private float timer;
 
     public EventEnemySpawn OnEnemySpawn;
 
+    void DoSpawnAnimation()
+    {
+        GetComponent<EnemyTowerAnimationBehaviour>().DoSpawn();
+    }
+    
+    public void Spawn(string value)
+    {
+        if(!canspawn)
+            return;
+        timer = 0;
+        if (TargetSpawn != null)
+            SpawnOffsetFromRoot = TargetSpawn.transform.position - transform.position;
+        var newSpawn = SpawnerConfig.SpawnEnemy(transform.position + SpawnOffsetFromRoot);
+    }
 
     void Start()
     {
         if (!SpawnerConfig)
         {
             Debug.LogError("No spawner config set. Setting the value to a default config");
-            SpawnerConfig = Instantiate(Resources.Load("DefualtEnemySpawnConfig")) as EnemySpawner;
+            SpawnerConfig = Instantiate(Resources.Load("DefaultEnemySpawnConfig")) as EnemySpawner;
         }
+
         SpawnerConfig = Instantiate(SpawnerConfig);
         SpawnerConfig.Initialize();
+        transform.LookAt(GameObject.FindGameObjectWithTag("PlayerTower").transform);
     }
 
+    bool canspawn;
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= SpawnerConfig.SpawnDelayInSeconds)
+        canspawn = timer >= SpawnerConfig.SpawnDelayInSeconds;
+        if (canspawn)
         {
-            timer = 0;
-            var newSpawn = SpawnerConfig.SpawnEnemy(this.transform.position + SpawnOffsetFromRoot);
-            if(newSpawn != null)
-                OnEnemySpawn.Invoke(newSpawn);
+            DoSpawnAnimation();
         }
+            
+
+
     }
 
 #if UNITY_EDITOR    

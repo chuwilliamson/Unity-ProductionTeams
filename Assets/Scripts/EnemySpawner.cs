@@ -27,7 +27,7 @@ public class EnemySpawner : ScriptableObject
             enemy = Instantiate(Resources.Load("DefaultEnemy")) as GameObject;
         }
         else
-            enemy = Instantiate(EnemyPrefab);
+            enemy = Instantiate(EnemyPrefab,spawn, Quaternion.identity);
 
         enemy.transform.position = spawn;
         return enemy;
