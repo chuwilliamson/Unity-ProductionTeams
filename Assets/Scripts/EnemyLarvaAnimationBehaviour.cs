@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyLarvaAnimationBehaviour : MonoBehaviour
+public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 {
     readonly int ATTACK = Animator.StringToHash("attack");
 
@@ -31,7 +31,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour
 
     void onAttack(GameObject go)
     {
-        if (go != gameObject) return;
+        if(go != gameObject) return;
         anim.SetTrigger(ATTACK);
         anim.SetFloat(HEALTH, HealthStat.Value);
     }
@@ -50,5 +50,11 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour
     void MoveEnd()
     {
         agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        HealthStat.Value = HealthStat.Value - amount;
+        onAttack(gameObject);
     }
 }
