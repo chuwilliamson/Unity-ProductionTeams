@@ -1,38 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 public class EnemyLarvaAnimationBehaviour : MonoBehaviour
 {
-    private Animator anim;
-    public Stat HealthStat;
+    readonly int ATTACK = Animator.StringToHash("attack");
+
+    readonly int HEALTH = Animator.StringToHash("health");
+
+    //idle->move: attack dead
+    readonly int SPEED = Animator.StringToHash("speed");
+
     NavMeshAgent agent;
-    private void Start()
+    Animator anim;
+
+    public float MAXSPEED = 25f;
+
+    public Transform target;
+    public float animspeed;
+    public Stat HealthStat;
+    float startVelocity;
+    void Start()
     {
         anim = GetComponent<Animator>();
         HealthStat = Instantiate(HealthStat);
         agent = GetComponent<NavMeshAgent>();
         anim.SetFloat(HEALTH, HealthStat.Value);
+        startVelocity = agent.velocity.magnitude;
     }
-    //idle->move: attack dead
-    private int SPEED = Animator.StringToHash("speed");
-    private int HEALTH = Animator.StringToHash("health");
-    private int ATTACK = Animator.StringToHash("attack");
 
-    public float animspeed;
-    private void onAttack(GameObject go)
+
+    void onAttack(GameObject go)
     {
-        if(go != gameObject) return;
+        if (go != gameObject) return;
         anim.SetTrigger(ATTACK);
         anim.SetFloat(HEALTH, HealthStat.Value);
     }
 
-    private void Update()
+    void Update()
     {
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
-        
+    }
+
+    void MoveStart()
+    {
+        agent.velocity = agent.transform.forward * MAXSPEED;
+    }
+
+    void MoveEnd()
+    {
+        agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
     }
 }
