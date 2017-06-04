@@ -10,6 +10,8 @@ public class CombatGameState : GameState
     {
         game.SetText(this.name);
         SceneManager.LoadScene(2);
+        PlayerData.Instance.onGoldChanged.Invoke(PlayerData.Instance.Gold);
+        PlayerData.Instance.onExperienceChanged.Invoke(PlayerData.Instance.Experience);
     }
     public override void UpdateState(GameStateBehaviour game)
     {

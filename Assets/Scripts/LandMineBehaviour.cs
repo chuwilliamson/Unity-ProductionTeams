@@ -6,6 +6,7 @@ public class LandMineBehaviour : MonoBehaviour
 {
     public int DamageAmount;
     public GameObject explosion;
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

@@ -61,6 +61,8 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 
     private void DeathEnd()
     {
+        PlayerData.Instance.GainExperience(25);
+        PlayerData.Instance.GainGold(13);
         Destroy(gameObject, 1f);
     }
 }
