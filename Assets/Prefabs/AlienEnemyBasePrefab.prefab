@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 114551485225444650}
   - component: {fileID: 65483995977873546}
   - component: {fileID: 54491915910487974}
+  - component: {fileID: 82910813664706380}
   m_Layer: 0
   m_Name: AlienEnemyBasePrefab
   m_TagString: Untagged
@@ -699,16 +700,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704590338252530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -123.4, y: 0, z: 42.9}
-  m_LocalScale: {x: 4.951872, y: 4.951874, z: 4.951874}
+  m_LocalRotation: {x: -0, y: -0.99975747, z: -0, w: -0.022022942}
+  m_LocalPosition: {x: -19.5, y: 0, z: -11.387565}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4828415731853842}
   - {fileID: 4579903895560342}
   - {fileID: 4265335281273388}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 13.757001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -182.52399, z: 0}
 --- !u!4 &4125575453921282
 Transform:
   m_ObjectHideFlags: 1
@@ -1176,11 +1177,91 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704590338252530}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 3, z: 2}
   m_Center: {x: 0, y: 1.5, z: -0.024334908}
+--- !u!82 &82910813664706380
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704590338252530}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5eeb4df2ccbe0c54a97d487f81a916fd, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.095
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 242
+  DopplerLevel: 2.66
+  MinDistance: 0.1
+  MaxDistance: 5
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.832
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.6527778
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.91
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95754137891585814
 Animator:
   serializedVersion: 3
@@ -1221,15 +1302,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecabaee7b85cd73489372a28789cfc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnerConfig: {fileID: 11400000, guid: e1e217d416908de448d91a3ce7e298d8, type: 2}
-  TargetSpawn: {fileID: 1878149218147450}
-  SpawnOffsetFromRoot: {x: -13.5, y: 0.5, z: 0}
-  timer: 3
   OnEnemySpawn:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: EnemyTowerSpawningBehaviour+EventEnemySpawn, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  SpawnerConfig: {fileID: 11400000, guid: e1e217d416908de448d91a3ce7e298d8, type: 2}
+  SpawnOffsetFromRoot: {x: -13.5, y: 0.5, z: 0}
+  TargetSpawn: {fileID: 1878149218147450}
+  timer: 3
   GizmoColor: {r: 0, g: 0, b: 0, a: 1}
   DrawWireframe: 0
 --- !u!137 &137970433896016728
