@@ -3,23 +3,30 @@ using UnityEngine.AI;
 
 public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 {
-    readonly int ATTACK = Animator.StringToHash("attack");
+    private readonly int ATTACK = Animator.StringToHash("attack");
 
-    readonly int HEALTH = Animator.StringToHash("health");
+    private readonly int HEALTH = Animator.StringToHash("health");
 
     //idle->move: attack dead
-    readonly int SPEED = Animator.StringToHash("speed");
+    private readonly int SPEED = Animator.StringToHash("speed");
 
-    NavMeshAgent agent;
-    Animator anim;
-
-    public float MAXSPEED = 25f;
-
-    public Transform target;
+    private NavMeshAgent agent;
+    private Animator anim;
     public float animspeed;
     public Stat HealthStat;
-    float startVelocity;
-    void Start()
+
+    public float MAXSPEED = 25f;
+    private float startVelocity;
+
+    public Transform target;
+
+    public void TakeDamage(int amount)
+    {
+        HealthStat.Value = HealthStat.Value - amount;
+        onAttack(gameObject);
+    }
+
+    private void Start()
     {
         anim = GetComponent<Animator>();
         HealthStat = Instantiate(HealthStat);
@@ -29,32 +36,31 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     }
 
 
-    void onAttack(GameObject go)
+    private void onAttack(GameObject go)
     {
-        if(go != gameObject) return;
+        if (go != gameObject) return;
         anim.SetTrigger(ATTACK);
         anim.SetFloat(HEALTH, HealthStat.Value);
     }
 
-    void Update()
+    private void Update()
     {
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
     }
 
-    void MoveStart()
+    private void MoveStart()
     {
         agent.velocity = agent.transform.forward * MAXSPEED;
     }
 
-    void MoveEnd()
+    private void MoveEnd()
     {
         agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
     }
 
-    public void TakeDamage(int amount)
+    private void DeathEnd()
     {
-        HealthStat.Value = HealthStat.Value - amount;
-        onAttack(gameObject);
+        Destroy(gameObject, 1f);
     }
 }
