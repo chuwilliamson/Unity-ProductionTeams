@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTowerAnimationBehaviour : MonoBehaviour
+public class EnemyTowerAnimationBehaviour : MonoBehaviour, IDamageable
 {
 
     private Animator anim;
-    public Stat health;
+    public Stat HealthStat;
     public List<ParticleSystem> bloodParticles;
     public GameObject PrefabParticleSpawn;
     public Transform spawnTarget;
@@ -15,12 +15,14 @@ public class EnemyTowerAnimationBehaviour : MonoBehaviour
     public static int HEALTH = Animator.StringToHash("health");
     private AudioSource asource;
     public AudioClip spawnAudio;
+    public int ExperienceYield;
+    public int GoldYield;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        health = Instantiate(health);
-        anim.SetFloat(HEALTH, health.Value);
+        HealthStat = Instantiate(HealthStat);
+        anim.SetFloat(HEALTH, HealthStat.Value);
         asource = GetComponent<AudioSource>();
     }
 
@@ -31,12 +33,11 @@ public class EnemyTowerAnimationBehaviour : MonoBehaviour
         anim.SetTrigger(SPAWN_TRIGGER);
     }
 
-    public void ToggleBlood()
-    {
-        bloodParticles.ForEach(p => p.gameObject.SetActive(false));
-        bloodParticles.ForEach(p => p.gameObject.SetActive(true));
-    }
-
+    /// <summary>
+    /// called from animation clip
+    /// this will spawn a particle system at the apex of animation or play audio at the start
+    /// </summary>
+    /// <param name="value"></param>
     public void Spawn(string value)
     {
         if(value == "end")
@@ -51,4 +52,14 @@ public class EnemyTowerAnimationBehaviour : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        var newhealth = HealthStat.Value - amount;
+        HealthStat.Value = newhealth;
+        anim.SetFloat(HEALTH, newhealth);
+        if(newhealth >= 1) return;
+        PlayerData.Instance.GainExperience(ExperienceYield);
+        PlayerData.Instance.GainGold(GoldYield);
+        PlayerData.Instance.GainKills();
+    }
 }
