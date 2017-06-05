@@ -18,7 +18,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
     public float DistanceFromTarget;
     public bool CanWalk;
     [Tooltip("Distance the enemy must be from target to trigger a state change")]
-    public float DistanceToTrgger;
+    public float DistanceToTrigger;
     private enum States
     {
         idle, walk, attack
@@ -54,7 +54,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
             transform.LookAt(TargetTower.position);
-            if (DistanceFromTarget > DistanceToTrgger)
+            if (DistanceFromTarget > DistanceToTrigger)
             {
                 StopCoroutine("Attack");
                 yield return StartCoroutine("Walk");
@@ -74,7 +74,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget <= DistanceToTrgger)
+            if (DistanceFromTarget <= DistanceToTrigger)
                 yield return StartCoroutine("Idle");
             yield return null;
         }
