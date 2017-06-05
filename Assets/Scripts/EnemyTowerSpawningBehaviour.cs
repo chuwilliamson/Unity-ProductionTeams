@@ -1,60 +1,83 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class EnemyTowerSpawningBehaviour : MonoBehaviour
 {
+    private bool canspawn;
+
+    public EventEnemySpawn OnEnemySpawn;
     public EnemySpawner SpawnerConfig;
     public Vector3 SpawnOffsetFromRoot;
+    public GameObject TargetSpawn;
+    public float cooldown;
+
     [SerializeField]
     private float timer;
 
-    public EventEnemySpawn OnEnemySpawn;
-
-
-    void Start()
+    private void DoSpawnAnimation()
     {
-        if (!SpawnerConfig)
+        GetComponent<EnemyTowerAnimationBehaviour>().DoSpawn();
+    }
+
+    public void Spawn(string value)
+    {
+        if(value == "end")
+        {
+            if(!canspawn)
+                return;
+
+            if(TargetSpawn != null)
+                SpawnOffsetFromRoot = TargetSpawn.transform.position - transform.position;
+            var newSpawn = SpawnerConfig.SpawnEnemy(transform.position + SpawnOffsetFromRoot);
+            var randomSize = Random.Range(.5f, 1.5f);
+            newSpawn.transform.localScale *= randomSize;
+        }
+    }
+
+    private void Start()
+    {
+        if(!SpawnerConfig)
         {
             Debug.LogError("No spawner config set. Setting the value to a default config");
-            SpawnerConfig = Instantiate(Resources.Load("DefualtEnemySpawnConfig")) as EnemySpawner;
+            SpawnerConfig = Instantiate(Resources.Load("DefaultEnemySpawnConfig")) as EnemySpawner;
+
         }
+
         SpawnerConfig = Instantiate(SpawnerConfig);
         SpawnerConfig.Initialize();
+        cooldown = SpawnerConfig.SpawnDelayInSeconds;
+        transform.LookAt(GameObject.FindGameObjectWithTag("PlayerTower").transform);
     }
 
-    void Update()
+    private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= SpawnerConfig.SpawnDelayInSeconds)
-        {
-            timer = 0;
-            var newSpawn = SpawnerConfig.SpawnEnemy(this.transform.position + SpawnOffsetFromRoot);
-            if(newSpawn != null)
-                OnEnemySpawn.Invoke(newSpawn);
-        }
+        canspawn = timer >= SpawnerConfig.SpawnDelayInSeconds;
+        if(canspawn)
+            DoSpawnAnimation();
     }
 
-#if UNITY_EDITOR    
+    [Serializable]
+    public class EventEnemySpawn : UnityEvent<GameObject> { }
+
+#if UNITY_EDITOR
     [Tooltip("Changes the color of the gizmo that is drawn to screen to represent the spawn position of the enemy")]
     [SerializeField]
     private Color GizmoColor;
+
     [Tooltip("Specifies weather the gizmo will be drawn as a wire frame or filled in")]
     [SerializeField]
     private bool DrawWireframe = true;
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = GizmoColor;
         if(DrawWireframe)
-            Gizmos.DrawWireCube(this.transform.position + SpawnOffsetFromRoot, new Vector3(1,1,1));
+            Gizmos.DrawWireCube(transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));
         else
-            Gizmos.DrawCube(this.transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));
+            Gizmos.DrawCube(transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));
     }
 #endif
-    [System.Serializable]
-    public class EventEnemySpawn : UnityEvent<GameObject>
-    { }
 }

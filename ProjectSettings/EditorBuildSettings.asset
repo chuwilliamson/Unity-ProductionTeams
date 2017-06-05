@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/4.reserved.unity
     guid: 635f52e43b5f5594091b45312e356302
+  - enabled: 0
+    path: Assets/Scenes/5. Level.unity
+    guid: 0a7207fb1e1011c449940cd709102a81

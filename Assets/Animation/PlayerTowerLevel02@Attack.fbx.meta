@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: d2d2360d58540d4428febca4f405257c
+timeCreated: 1496621140
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BaseLevel
+    100002: HexCylinder
+    100004: HexCylinder2
+    100006: Level01
+    100008: Level01 1
+    100010: LevelSeparator
+    100012: LevelSeparator 1
+    100014: PlayerTower_Level01Root_AuxSHJnt
+    100016: PlayerTower_Level01Turret_AuxSHJnt
+    100018: PlayerTower_Level02Root_AuxSHJnt
+    100020: PlayerTower_Level02Turret_AuxSHJnt
+    100022: PlayerTower_Level03Root_AuxSHJnt
+    100024: PlayerTower_Level03Turret_AuxSHJnt
+    100026: PlayerTower_ROOTSHJnt
+    100028: PlayerTowerAllGRP
+    100030: PlayerTowerLevel01GRP
+    100032: //RootNode
+    100034: PlayerTowerLevel02GRP
+    100036: PowerCylinder
+    100038: PowerCylinder3
+    100040: Turret
+    100042: Turret 1
+    100044: Turret10
+    100046: Turret10 1
+    100048: Turret8
+    100050: Turret8 1
+    100052: Turret9
+    100054: Turret9 1
+    100056: TurretGun
+    100058: TurretGun 1
+    400000: BaseLevel
+    400002: HexCylinder
+    400004: HexCylinder2
+    400006: Level01
+    400008: Level01 1
+    400010: LevelSeparator
+    400012: LevelSeparator 1
+    400014: PlayerTower_Level01Root_AuxSHJnt
+    400016: PlayerTower_Level01Turret_AuxSHJnt
+    400018: PlayerTower_Level02Root_AuxSHJnt
+    400020: PlayerTower_Level02Turret_AuxSHJnt
+    400022: PlayerTower_Level03Root_AuxSHJnt
+    400024: PlayerTower_Level03Turret_AuxSHJnt
+    400026: PlayerTower_ROOTSHJnt
+    400028: PlayerTowerAllGRP
+    400030: PlayerTowerLevel01GRP
+    400032: //RootNode
+    400034: PlayerTowerLevel02GRP
+    400036: PowerCylinder
+    400038: PowerCylinder3
+    400040: Turret
+    400042: Turret 1
+    400044: Turret10
+    400046: Turret10 1
+    400048: Turret8
+    400050: Turret8 1
+    400052: Turret9
+    400054: Turret9 1
+    400056: TurretGun
+    400058: TurretGun 1
+    4300000: BaseLevel
+    4300002: LevelSeparator
+    4300004: Level01
+    4300006: Turret8
+    4300008: Turret
+    4300010: Turret9
+    4300012: Turret10
+    4300014: TurretGun
+    4300016: HexCylinder
+    4300018: LevelSeparator
+    4300020: Level01
+    4300022: Turret8
+    4300024: Turret
+    4300026: Turret9
+    4300028: Turret10
+    4300030: TurretGun
+    4300032: PowerCylinder
+    4300034: HexCylinder2
+    4300036: PowerCylinder3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: BaseLevel
+    13700002: HexCylinder
+    13700004: HexCylinder2
+    13700006: Level01
+    13700008: Level01 1
+    13700010: LevelSeparator
+    13700012: LevelSeparator 1
+    13700014: PowerCylinder
+    13700016: PowerCylinder3
+    13700018: Turret
+    13700020: Turret 1
+    13700022: Turret10
+    13700024: Turret10 1
+    13700026: Turret8
+    13700028: Turret8 1
+    13700030: Turret9
+    13700032: Turret9 1
+    13700034: TurretGun
+    13700036: TurretGun 1
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

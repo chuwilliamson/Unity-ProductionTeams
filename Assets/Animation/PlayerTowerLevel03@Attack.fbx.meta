@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: a5ed0e97119c1fd4e805d20a813887fc
+timeCreated: 1496621140
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BaseLevel
+    100002: CenterGuard
+    100004: HexCylinder
+    100006: HexCylinder2
+    100008: Level01
+    100010: Level01 1
+    100012: Level01 2
+    100014: LevelSeparator
+    100016: LevelSeparator 1
+    100018: LevelSeparator 2
+    100020: PlayerTower_Level01Root_AuxSHJnt
+    100022: PlayerTower_Level01Turret_AuxSHJnt
+    100024: PlayerTower_Level02Root_AuxSHJnt
+    100026: PlayerTower_Level02Turret_AuxSHJnt
+    100028: PlayerTower_Level03Root_AuxSHJnt
+    100030: PlayerTower_Level03Turret_AuxSHJnt
+    100032: PlayerTower_ROOTSHJnt
+    100034: PlayerTowerAllGRP
+    100036: PlayerTowerLevel01GRP
+    100038: PlayerTowerLevel02GRP
+    100040: //RootNode
+    100042: PlayerTowerLevel03GRP
+    100044: PowerCylinder
+    100046: PowerCylinder3
+    100048: SideGuard
+    100050: SideGuard4
+    100052: Turret
+    100054: Turret 1
+    100056: Turret 2
+    100058: Turret10
+    100060: Turret10 1
+    100062: Turret10 2
+    100064: Turret8
+    100066: Turret8 1
+    100068: Turret8 2
+    100070: Turret9
+    100072: Turret9 1
+    100074: Turret9 2
+    100076: TurretGun
+    100078: TurretGun 1
+    100080: TurretGun 2
+    400000: BaseLevel
+    400002: CenterGuard
+    400004: HexCylinder
+    400006: HexCylinder2
+    400008: Level01
+    400010: Level01 1
+    400012: Level01 2
+    400014: LevelSeparator
+    400016: LevelSeparator 1
+    400018: LevelSeparator 2
+    400020: PlayerTower_Level01Root_AuxSHJnt
+    400022: PlayerTower_Level01Turret_AuxSHJnt
+    400024: PlayerTower_Level02Root_AuxSHJnt
+    400026: PlayerTower_Level02Turret_AuxSHJnt
+    400028: PlayerTower_Level03Root_AuxSHJnt
+    400030: PlayerTower_Level03Turret_AuxSHJnt
+    400032: PlayerTower_ROOTSHJnt
+    400034: PlayerTowerAllGRP
+    400036: PlayerTowerLevel01GRP
+    400038: PlayerTowerLevel02GRP
+    400040: //RootNode
+    400042: PlayerTowerLevel03GRP
+    400044: PowerCylinder
+    400046: PowerCylinder3
+    400048: SideGuard
+    400050: SideGuard4
+    400052: Turret
+    400054: Turret 1
+    400056: Turret 2
+    400058: Turret10
+    400060: Turret10 1
+    400062: Turret10 2
+    400064: Turret8
+    400066: Turret8 1
+    400068: Turret8 2
+    400070: Turret9
+    400072: Turret9 1
+    400074: Turret9 2
+    400076: TurretGun
+    400078: TurretGun 1
+    400080: TurretGun 2
+    4300000: BaseLevel
+    4300002: LevelSeparator
+    4300004: Level01
+    4300006: Turret8
+    4300008: Turret
+    4300010: Turret9
+    4300012: Turret10
+    4300014: TurretGun
+    4300016: HexCylinder
+    4300018: LevelSeparator
+    4300020: Level01
+    4300022: Turret8
+    4300024: Turret
+    4300026: Turret9
+    4300028: Turret10
+    4300030: TurretGun
+    4300032: PowerCylinder
+    4300034: HexCylinder2
+    4300036: PowerCylinder3
+    4300038: LevelSeparator
+    4300040: Level01
+    4300042: Turret8
+    4300044: Turret
+    4300046: Turret9
+    4300048: Turret10
+    4300050: TurretGun
+    4300052: SideGuard4
+    4300054: CenterGuard
+    4300056: SideGuard
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: BaseLevel
+    13700002: CenterGuard
+    13700004: HexCylinder
+    13700006: HexCylinder2
+    13700008: Level01
+    13700010: Level01 1
+    13700012: Level01 2
+    13700014: LevelSeparator
+    13700016: LevelSeparator 1
+    13700018: LevelSeparator 2
+    13700020: PowerCylinder
+    13700022: PowerCylinder3
+    13700024: SideGuard
+    13700026: SideGuard4
+    13700028: Turret
+    13700030: Turret 1
+    13700032: Turret 2
+    13700034: Turret10
+    13700036: Turret10 1
+    13700038: Turret10 2
+    13700040: Turret8
+    13700042: Turret8 1
+    13700044: Turret8 2
+    13700046: Turret9
+    13700048: Turret9 1
+    13700050: Turret9 2
+    13700052: TurretGun
+    13700054: TurretGun 1
+    13700056: TurretGun 2
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

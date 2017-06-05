@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b466e713655375941b5748514a65de9d, type: 3}
   m_Name: GameStateCombat
   m_EditorClassIdentifier: 
-  start: {fileID: 0}
+  start: {fileID: 11400000}
   Next: {fileID: 11400000, guid: 195250df252620a4fa5d85fa928c65b2, type: 2}

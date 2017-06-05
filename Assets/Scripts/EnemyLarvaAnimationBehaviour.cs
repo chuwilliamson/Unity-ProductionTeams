@@ -1,39 +1,87 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
-public class EnemyLarvaAnimationBehaviour : MonoBehaviour
+public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 {
+    private readonly int ATTACK = Animator.StringToHash("attack");
 
+    private readonly int HEALTH = Animator.StringToHash("health");
+
+    //idle->move: attack dead
+    private readonly int SPEED = Animator.StringToHash("speed");
+
+    private NavMeshAgent agent;
     private Animator anim;
+    public float animspeed;
+    private AudioSource asource;
+    public AudioClip[] audioclips;
+    public AudioClip deathAudio;
     public Stat HealthStat;
-    NavMeshAgent agent;
+    public int GoldYield = 50;
+    public int ExperienceYield = 50;
+    public float MAXSPEED = 25f;
+    private float startVelocity;
+
+    public Transform target;
+
+
+    public void TakeDamage(int amount)
+    {
+        var newhealth = HealthStat.Value - amount;
+        HealthStat.Value = newhealth;
+        anim.SetFloat(HEALTH, newhealth);
+        if(newhealth >= 1) return;
+        PlayerData.Instance.GainExperience(ExperienceYield);
+        PlayerData.Instance.GainGold(GoldYield);
+        PlayerData.Instance.GainKills();
+    }
+
     private void Start()
     {
         anim = GetComponent<Animator>();
-        HealthStat = Instantiate(HealthStat);
-        GetComponent<TestLarvaAnimation>().OnAttack.AddListener(onAttack);
         agent = GetComponent<NavMeshAgent>();
-    }
-    //idle->move: attack dead
-    private int SPEED = Animator.StringToHash("speed");
-    private int HEALTH = Animator.StringToHash("health");
-    private int ATTACK = Animator.StringToHash("attack");
+        asource = GetComponent<AudioSource>();
 
-    public float animspeed;
+        HealthStat = Instantiate(HealthStat);
+        anim.SetFloat(HEALTH, HealthStat.Value);
+        startVelocity = agent.velocity.magnitude;
+        GetComponent<EnemyMovementBehaviour>().OnEnemyLarvaAttack.AddListener(onAttack);
+    }
+
+
     private void onAttack(GameObject go)
     {
-        if(go != gameObject) return;
-        anim.SetTrigger(ATTACK);
-        anim.SetFloat(HEALTH, HealthStat.Value);
+        Debug.Log("attack");
+        if (go != gameObject) return;
+            anim.SetTrigger(ATTACK);
     }
 
     private void Update()
     {
-
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
+    }
+
+    private void MoveStart()
+    {
+        agent.velocity = agent.transform.forward * MAXSPEED;
+
+        var randomclipindex = Random.Range(0, audioclips.Length - 1);
+        if(asource.isPlaying) return;
+        asource.clip = audioclips[randomclipindex];
+        asource.Play();
+    }
+
+    private void MoveEnd()
+    {
+        agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
+    }
+
+    private void DeathEnd()
+    {
+        asource.Stop();
+        asource.clip = deathAudio;
+        asource.Play();
+        Destroy(gameObject, 1f);
     }
 }
