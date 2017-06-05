@@ -756,10 +756,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95dc175cd7e02d468929ba69aed5caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyStats: {fileID: 11400000, guid: d6750da742bf3c94a9701682cc5af236, type: 2}
   TargetTower: {fileID: 0}
   MovementSpeed: 0.1
   DistanceFromTarget: 105.80319
   CanWalk: 0
+  DistanceToTrgger: 30
   CurrentState: 1
   OnEnemyLarvaAttack:
     m_PersistentCalls:

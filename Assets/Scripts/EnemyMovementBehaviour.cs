@@ -11,10 +11,14 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 {
     private NavMeshAgent _NavMeshAgent;
     [SerializeField]
+    public Stats EnemyStats;
+    [SerializeField]
     private Transform TargetTower;
     public float MovementSpeed;
     public float DistanceFromTarget;
     public bool CanWalk;
+    [Tooltip("Distance the enemy must be from target to trigger a state change")]
+    public float DistanceToTrgger;
     private enum States
     {
         idle, walk, attack
@@ -50,10 +54,13 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
             transform.LookAt(TargetTower.position);
-            if (DistanceFromTarget > 30.0f)
+            if (DistanceFromTarget > DistanceToTrgger)
+            {
+                StopCoroutine("Attack");
                 yield return StartCoroutine("Walk");
-            else
-                Attack();            
+            }
+            else if(CurrentState != States.attack)
+                StartCoroutine("Attack");           
             yield return null;
         }        
     }
@@ -67,19 +74,24 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget <= 30.0f)
+            if (DistanceFromTarget <= DistanceToTrgger)
                 yield return StartCoroutine("Idle");
             yield return null;
         }
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
+        int LoopCounter = 0;
         CurrentState = States.attack;
-        if (TargetTower.GetComponent<IDamageable>() != null)
+        while (LoopCounter <= 1000)
         {
-            TargetTower.GetComponent<IDamageable>().TakeDamage(10);
-            OnEnemyLarvaAttack.Invoke(this.gameObject);
+            if (TargetTower.GetComponent<IDamageable>() != null)
+            {                
+                TargetTower.GetComponent<IDamageable>().TakeDamage(10);
+                OnEnemyLarvaAttack.Invoke(this.gameObject);
+                yield return new WaitForSeconds(EnemyStats.Items["larvaenemyattackspeed"].Value);
+            }
         }
     }
 
