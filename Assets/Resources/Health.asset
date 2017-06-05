@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   _baseValue: 10
-  Name: Health
+  Name: health
   Value: 10

@@ -58,7 +58,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: <Root Transform>
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -99,6 +99,14 @@ ModelImporter:
       - time: 0.6736516
         functionName: Spawn
         data: end
+        objectReferenceParameter: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: Spawn
+        data: start
         objectReferenceParameter: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2,
           type: 2}
         floatParameter: 0
@@ -154,7 +162,7 @@ ModelImporter:
     globalScale: 0.1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

@@ -7,8 +7,8 @@ using UnityEngine.Assertions;
 [CreateAssetMenu(menuName = "Stats/Stats")]
 public class Stats : ScriptableObject, IEnumerable<Stat>
 {
-    readonly Dictionary<string, Stat> Items = new Dictionary<string, Stat>();
-    readonly Dictionary<int, Modifier> Modifiers = new Dictionary<int, Modifier>();
+    public readonly Dictionary<string, Stat> Items = new Dictionary<string, Stat>();
+    public readonly Dictionary<int, Modifier> Modifiers = new Dictionary<int, Modifier>();
 
     public Stat[] StatsArray;
 

@@ -53,12 +53,12 @@ public class MaxCamera : MonoBehaviour
     void LateUpdate()
     {
         // If Control and Alt and Middle button? ZOOM!
-        if(Input.GetMouseButton(2) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.LeftControl))
+        if(Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftAlt))
         {
-            desiredDistance -= Input.GetAxis("Mouse Y") * Time.deltaTime * zoomRate * 0.125f * Mathf.Abs(desiredDistance);
+            desiredDistance -= Input.GetAxis("Mouse X") * Time.deltaTime * zoomRate * 0.125f * Mathf.Abs(desiredDistance);
         }
         // If middle mouse and left alt are selected? ORBIT
-        else if(Input.GetMouseButton(2) && Input.GetKey(KeyCode.LeftAlt))
+        else if(Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftAlt))
         {
             xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
             yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
@@ -75,7 +75,8 @@ public class MaxCamera : MonoBehaviour
             transform.rotation = rotation;
         }
         // otherwise if middle mouse is selected, we pan by way of transforming the target in screenspace
-        else if(Input.GetMouseButton(2))
+        
+        else if(Input.GetMouseButton(1))
         {
             //grab the rotation of the camera so we can move in a psuedo local XY space
             target.rotation = transform.rotation;

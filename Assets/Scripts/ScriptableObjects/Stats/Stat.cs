@@ -11,7 +11,7 @@ public class Stat : ScriptableObject
     void OnEnable()
     {
         name = name.Contains("(Clone)") ? name.Replace("(Clone)", string.Empty) : name;
-        Name = name;
+        Name = name.ToLower();
         Value = _baseValue;
     }
 
