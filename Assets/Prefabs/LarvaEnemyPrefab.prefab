@@ -856,9 +856,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetTower: {fileID: 0}
   MovementSpeed: 0.1
-  DistanceFromTarget: 0
+  DistanceFromTarget: 105.80319
   CanWalk: 0
-  CurrentState: 0
+  CurrentState: 1
   OnEnemyLarvaAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -949,7 +949,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 5
-  m_BaseOffset: -0.4
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!198 &198332423768663608
@@ -10062,7 +10062,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 333550412
+  randomSeed: 739001722
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10928,7 +10928,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -10937,7 +10937,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 0.034482718, g: 1, b: 0, a: 1}
+        key1: {r: 0.034482718, g: 1, b: 0.969, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}

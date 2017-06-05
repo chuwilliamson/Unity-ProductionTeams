@@ -7,24 +7,23 @@ public class EnemyTowerAnimationBehaviour : MonoBehaviour
     
     private Animator anim;
     public Stat health;
+    public static int SPAWN_TRIGGER = Animator.StringToHash("spawn");
+    public static int SPAWN_STATE = Animator.StringToHash("Spawn");
+    public static int HEALTH = Animator.StringToHash("health");
+    
     private void Start()
     {
         anim = GetComponent<Animator>();
         health = Instantiate(health);
+        anim.SetFloat(HEALTH, health.Value);
     }
 
-    private static int SPAWN = Animator.StringToHash("spawn");
-    private static int HEALTH = Animator.StringToHash("health");
-	// Update is called once per frame
-    private bool begin_spawn;
-	void Update ()
-	{
-	    anim.SetFloat(HEALTH, health.Value);
-	}
-
+    
+    //called from spawner
     public void DoSpawn()
     {
-        anim.SetTrigger(SPAWN);
+        anim.SetTrigger(SPAWN_TRIGGER);
+        
     }
 
     public void SpawnDone()

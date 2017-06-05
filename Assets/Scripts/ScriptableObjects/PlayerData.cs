@@ -25,7 +25,10 @@ public class PlayerData : ScriptableSingleton<PlayerData>
 
     private void OnEnable()
     {
-        stats = stats ? Instantiate(stats) : Resources.FindObjectsOfTypeAll<Stats>().FirstOrDefault();
+        if(stats)
+            return;
+        stats = Resources.Load<Stats>("PLayerStats");
+        stats = Instantiate(stats);
     }
 
     public void GainExperience(int amount)
