@@ -50,7 +50,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
             transform.LookAt(TargetTower.position);
-            if (DistanceFromTarget > 3.0f)
+            if (DistanceFromTarget > 30.0f)
                 yield return StartCoroutine("Walk");
             else
                 Attack();            
@@ -67,7 +67,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         {
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
-            if (DistanceFromTarget <= 3.0f)
+            if (DistanceFromTarget <= 30.0f)
                 yield return StartCoroutine("Idle");
             yield return null;
         }

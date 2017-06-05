@@ -730,7 +730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animspeed: 0
-  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
   audioclips:
   - {fileID: 8300000, guid: 95aac3bc49faa4544ab6c7b29b02fa0b, type: 3}
   - {fileID: 8300000, guid: 0d7065ee12d0a2546a4ebac8eeda4554, type: 3}
@@ -741,7 +740,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6d196aea4abbec94c882572a2947c6be, type: 3}
   - {fileID: 8300000, guid: e13ec14a0dfbe0f4d94e554c0b72274c, type: 3}
   deathAudio: {fileID: 8300000, guid: e8dc4c0945ab02f4fa4efe8a4568818e, type: 3}
-  MAXSPEED: 15
+  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
+  GoldYield: 50
+  ExperienceYield: 50
+  MAXSPEED: 37.4
   target: {fileID: 0}
 --- !u!114 &114436938229565894
 MonoBehaviour:

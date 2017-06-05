@@ -30,7 +30,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         var newhealth = HealthStat.Value - amount;
         HealthStat.Value = newhealth;
         anim.SetFloat(HEALTH, newhealth);
-        if (newhealth >= 1) return;
+        if(newhealth >= 1) return;
         PlayerData.Instance.GainExperience(ExperienceYield);
         PlayerData.Instance.GainGold(GoldYield);
         PlayerData.Instance.GainKills();
@@ -45,13 +45,15 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         HealthStat = Instantiate(HealthStat);
         anim.SetFloat(HEALTH, HealthStat.Value);
         startVelocity = agent.velocity.magnitude;
+        GetComponent<EnemyMovementBehaviour>().OnEnemyLarvaAttack.AddListener(onAttack);
     }
 
 
-    private void onAttack(Object go)
+    private void onAttack(GameObject go)
     {
+        Debug.Log("attack");
         if (go != gameObject) return;
-        anim.SetTrigger(ATTACK);
+            anim.SetTrigger(ATTACK);
     }
 
     private void Update()
@@ -65,7 +67,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         agent.velocity = agent.transform.forward * MAXSPEED;
 
         var randomclipindex = Random.Range(0, audioclips.Length - 1);
-        if (asource.isPlaying) return;
+        if(asource.isPlaying) return;
         asource.clip = audioclips[randomclipindex];
         asource.Play();
     }
