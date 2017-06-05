@@ -348,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -83.0672, y: 0.4899925, z: -51.568485}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4647761303060946}
@@ -740,10 +740,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6d196aea4abbec94c882572a2947c6be, type: 3}
   - {fileID: 8300000, guid: e13ec14a0dfbe0f4d94e554c0b72274c, type: 3}
   deathAudio: {fileID: 8300000, guid: e8dc4c0945ab02f4fa4efe8a4568818e, type: 3}
-  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
-  GoldYield: 50
   ExperienceYield: 50
-  MAXSPEED: 37.4
+  GoldYield: 50
+  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
+  MAXSPEED: 10
   target: {fileID: 0}
 --- !u!114 &114436938229565894
 MonoBehaviour:

@@ -846,6 +846,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114160171851803496, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: ExperienceYield
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114160171851803496, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: GoldYield
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114160171851803496, guid: 970655629468b0e4d962f7dc536648b2,
+        type: 2}
+      propertyPath: HealthStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
   m_IsPrefabParent: 0

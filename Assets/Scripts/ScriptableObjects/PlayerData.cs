@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor;
+
 #endif
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "PlayerData")]
@@ -12,9 +12,9 @@ public class PlayerData : ScriptableSingleton<PlayerData>
     {
         Experience,
         Gold,
-        Kills,
+        Kills
     }
-    public class OnPlayerDataChanged : UnityEvent<Stat> { }
+
     public OnPlayerDataChanged onExperienceChanged = new OnPlayerDataChanged();
     public OnPlayerDataChanged onGoldChanged = new OnPlayerDataChanged();
     public OnPlayerDataChanged onKillsChanged = new OnPlayerDataChanged();
@@ -37,9 +37,14 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         get { return stats["kills"].Value; }
     }
 
-    private void OnEnable()
+    public int BossKills
     {
-        if(stats)
+        get { return stats["bosskills"].Value; }
+    }
+
+    void OnEnable()
+    {
+        if (stats)
             return;
         stats = Resources.Load<Stats>("PLayerStats");
         stats = Instantiate(stats);
@@ -51,13 +56,27 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         foreach (var stat in stats)
             onStatsChanged.Invoke(stat);
     }
+
+    public void ResetGame()
+    {
+        stats = Resources.Load<Stats>("PLayerStats");
+        stats = Instantiate(stats);
+    }
+
+    public void GainBossKills()
+    {
+        stats["bosskills"].Value++;
+        onKillsChanged.Invoke(stats["bosskills"]);
+        onStatsChanged.Invoke(stats["bosskills"]);
+    }
+
     public void GainKills()
     {
         stats["kills"].Value++;
         onKillsChanged.Invoke(stats["kills"]);
         onStatsChanged.Invoke(stats["kills"]);
-
     }
+
     public void GainExperience(int amount)
     {
         stats["experience"].Value += amount;
@@ -80,9 +99,13 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         Debug.Log("spend gold: " + amount + " gold is now: " + stats["gold"].Value);
     }
 
+    public class OnPlayerDataChanged : UnityEvent<Stat>
+    {
+    }
 
 
 #if UNITY_EDITOR
+
     [CustomEditor(typeof(PlayerData))]
     public class PlayerDataInspector : Editor
     {
@@ -90,13 +113,14 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         {
             base.OnInspectorGUI();
             var mytarget = target as PlayerData;
-            if(mytarget == null) return;
-            foreach(var stat in mytarget.stats)
+            if (mytarget == null) return;
+            foreach (var stat in mytarget.stats)
                 EditorGUILayout.LabelField(stat.Name, stat.Value.ToString());
-            if(mytarget.stats.Count < 1)
+            if (mytarget.stats.Count < 1)
                 EditorGUILayout.LabelField("none");
             Repaint();
         }
     }
+
 #endif
 }

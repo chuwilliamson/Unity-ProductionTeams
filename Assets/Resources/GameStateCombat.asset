@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Name: GameStateCombat
   m_EditorClassIdentifier: 
   start: {fileID: 11400000}
+  GoldGainPerSecond: 1
+  goldTimer: 1
   Next: {fileID: 11400000, guid: 195250df252620a4fa5d85fa928c65b2, type: 2}
+  Previous: {fileID: 11400000, guid: d3c61090cc6f92642a38e95dc1eda0ab, type: 2}
+  timer: 0.05656634

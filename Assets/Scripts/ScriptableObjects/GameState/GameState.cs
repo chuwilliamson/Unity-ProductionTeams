@@ -22,6 +22,7 @@ public class GameState : State
 
     public override void ToState(GameStateBehaviour game, IGameState state)
     {
+        game.StopAllCoroutines();
         Debug.Log("move to state::" + game.Current + "->" + state);
         game.Current.OnExit(game);
         game.Current = state;

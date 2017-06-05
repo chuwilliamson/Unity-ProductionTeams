@@ -8,13 +8,16 @@ public class GameStateBehaviour : MonoBehaviour
     public Text Text;
     public Slider Slider;
     public string currentState;
+    private void OnEnable()
+    {
+    }
+
     private void Start()
     {
-        DontDestroyOnLoad(this);
         Current = fsm.Start;
         UnityEngine.Assertions.Assert.IsNotNull(Current, "no");
         Current.OnEnter(this);
-        
+        PlayerData.Instance.ForceRefresh();
     }
     private void Update()
     {
@@ -24,11 +27,28 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void SetText(string value)
     {
+        if(Text != null)
         Text.text = value;
     }
 
     public void SetSlider(float value)
     {
+        if (Slider == null)
+        {
+            Debug.LogWarning("slider not set");
+            return;
+        }
+            
         Slider.value = value;
+    }
+
+    public bool LoseCondition
+    {
+        get { return FindObjectOfType<MotherBaseBehaviour>().HealthStat.Value < 1; }
+    }
+
+    public bool WinCondition
+    {
+        get {return PlayerData.Instance.BossKills >= 3; }
     }
 }

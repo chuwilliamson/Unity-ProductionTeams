@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/1.intro.unity
     guid: 43c2fc4a1ac51a94cb515b7f800ed2a7
   - enabled: 1
-    path: Assets/Scenes/2.combat.unity
-    guid: f376ef9517b8fef40ab4263fb61a1a7e
+    path: Assets/Scenes/2.combat-day.unity
+    guid: 4e73745ba00014f47a35082c7268d6f9
   - enabled: 1
     path: Assets/Scenes/3.credits.unity
     guid: 4c3b5a5e8f4b07e41b67747315b7644e
@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/5. Level.unity
     guid: 0a7207fb1e1011c449940cd709102a81
+  - enabled: 1
+    path: Assets/Scenes/2.combat.unity
+    guid: f376ef9517b8fef40ab4263fb61a1a7e

@@ -11,10 +11,15 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
     public AudioClip landClip;
     public AudioClip explosionClip;
     private AudioSource asource;
+    public GameObject landSmoke;
+    public Stat dropForce;
     private void Start()
     {
         enemiesinRadius = new List<IDamageable>();
         asource = GetComponent<AudioSource>();
+        if(!dropForce)
+            dropForce = Resources.Load<Stat>("DropForce");
+        dropForce = Instantiate(dropForce);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -33,9 +38,12 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
         {
             var rb = GetComponent<Rigidbody>();
             rb.freezeRotation = true;
+            
             asource.clip = landClip;
             asource.Play();
-
+            var smoke = Instantiate(landSmoke, transform.position, Quaternion.identity);
+            smoke.hideFlags = HideFlags.HideInHierarchy;
+            Destroy(smoke, 2);
         }
 
         if(collision.gameObject.CompareTag("Enemy"))
@@ -47,8 +55,9 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             asource.Play();
             enemiesinRadius.ForEach(DoDamage);
             var explosiongo = Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(explosiongo, 1f);
-            Destroy(gameObject, 1f);
+            explosiongo.hideFlags = HideFlags.HideInHierarchy;
+            Destroy(explosiongo, 2f);
+            Destroy(gameObject);
         }
     }
 
