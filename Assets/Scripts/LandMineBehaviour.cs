@@ -24,7 +24,11 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyLarvaAnimationBehaviour>().OnDead.AddListener(RemoveFromEnemyList);
             enemiesinRadius.Add(other.GetComponent<IDamageable>());
+        }
+            
     }
     private void OnTriggerExit(Collider other)
     {
@@ -32,6 +36,12 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             enemiesinRadius.Remove(other.GetComponent<IDamageable>());
     }
 
+    public void RemoveFromEnemyList(IDamageable enemy)
+    {
+        if (enemiesinRadius.Contains(enemy))
+            enemiesinRadius.Remove(enemy);
+        
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -41,9 +51,8 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             
             asource.clip = landClip;
             asource.Play();
-            var smoke = Instantiate(landSmoke, transform.position, Quaternion.identity);
-            smoke.hideFlags = HideFlags.HideInHierarchy;
-            Destroy(smoke, 2);
+            SpawnSmoke(gameObject);
+
         }
 
         if(collision.gameObject.CompareTag("Enemy"))
@@ -54,15 +63,25 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             asource.clip = explosionClip;
             asource.Play();
             enemiesinRadius.ForEach(DoDamage);
-            var explosiongo = Instantiate(explosion, transform.position, transform.rotation);
-            explosiongo.hideFlags = HideFlags.HideInHierarchy;
-            Destroy(explosiongo, 2f);
+            SpawnExplosion(gameObject);
             Destroy(gameObject);
         }
     }
 
-   
+    public void SpawnSmoke(GameObject target)
+    {
+        var smoke = Instantiate(landSmoke, target.transform.position, Quaternion.identity);
+        smoke.hideFlags = HideFlags.HideInHierarchy;
+        Destroy(smoke, 2);
+    }
 
+    public void SpawnExplosion(GameObject target)
+    {
+        var explosiongo = Instantiate(explosion, target.transform.position, transform.rotation);
+        explosiongo.hideFlags = HideFlags.HideInHierarchy;
+        Destroy(explosiongo, 2f);
+
+    }
     public void DoDamage(IDamageable target)
     {
         if(target == null) return;

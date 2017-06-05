@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -51,7 +52,7 @@ public class TowerShootingBehaviour : MonoBehaviour
         projectile.transform.position = TowerMuzzle.transform.position;
         OnShotFiredStart.Invoke(this.gameObject);        
         projectile.StartCoroutine(projectile.Travel(Target.position));
-        OnShotFiredLanded.Invoke(this.gameObject);          
+        OnShotFiredLanded.Invoke(Target.gameObject);          
         OnShotFiredEnded.Invoke(this.gameObject);
         StopCoroutine("Shoot");    
     }
@@ -66,12 +67,16 @@ public class TowerShootingBehaviour : MonoBehaviour
     }
 #endif
     
+    [Serializable]
     public class EventBeginFire : UnityEvent<GameObject>
     { }
+    [Serializable]
     public class EventShotStart : UnityEvent<GameObject>
     { }
+    [Serializable]
     public class EventShotLanded : UnityEvent<GameObject>
     { }
+    [Serializable]
     public class EventShotEnded : UnityEvent<GameObject>
     { }
 }

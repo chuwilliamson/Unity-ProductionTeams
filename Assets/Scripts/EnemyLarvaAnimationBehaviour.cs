@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 {
@@ -21,19 +22,35 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     public Stat HealthStat;
     public float MAXSPEED = 25f;
     float startVelocity;
+    Rigidbody rb;
 
     public Transform target;
 
+    public class EnemyLarvaDead : UnityEvent<IDamageable>
+    {
+    }
+
+    public bool dead;
+    public EnemyLarvaDead OnDead = new EnemyLarvaDead();
 
     public void TakeDamage(int amount)
     {
         var newhealth = HealthStat.Value - amount;
         HealthStat.Value = newhealth;
+        if(anim == null) return;
         anim.SetFloat(HEALTH, newhealth);
         if (newhealth >= 1) return;
+        dead = true;
         PlayerData.Instance.GainExperience(ExperienceYield);
         PlayerData.Instance.GainGold(GoldYield);
         PlayerData.Instance.GainKills();
+        OnDead.Invoke(this);
+        Destroy(GetComponent<EnemyMovementBehaviour>());
+        Destroy(agent);
+        rb.isKinematic = false;
+        animspeed = 0;
+        rb.AddExplosionForce(900f, transform.position, 5f);
+
     }
 
     void Start()
@@ -41,7 +58,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         asource = GetComponent<AudioSource>();
-
+        rb = GetComponent<Rigidbody>();
         HealthStat = Instantiate(HealthStat);
         anim.SetFloat(HEALTH, HealthStat.Value);
         startVelocity = agent.velocity.magnitude;
@@ -58,12 +75,15 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if(dead)
+            return;
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
     }
 
     void MoveStart()
     {
+        if(agent == null) return;
         agent.velocity = agent.transform.forward * MAXSPEED;
 
         var randomclipindex = Random.Range(0, audioclips.Length - 1);
@@ -74,6 +94,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 
     void MoveEnd()
     {
+        if(agent)
         agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
     }
 
@@ -82,6 +103,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         asource.Stop();
         asource.clip = deathAudio;
         asource.Play();
-        Destroy(gameObject, 1f);
+        
+        
     }
 }

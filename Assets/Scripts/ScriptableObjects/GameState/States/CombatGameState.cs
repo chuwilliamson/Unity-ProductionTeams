@@ -22,7 +22,7 @@ public class CombatGameState : GameState
     {
         base.OnExit(game);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public override void UpdateState(GameStateBehaviour game)
