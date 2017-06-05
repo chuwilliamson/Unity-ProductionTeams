@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbbff7503adbc74d8c8a414efda0cae, type: 3}
   m_Name: GameStateIntro
   m_EditorClassIdentifier: 
-  start: {fileID: 0}
+  start: {fileID: 11400000}
   Next: {fileID: 11400000, guid: 1b0f1f780871d014b92f98f76899a4af, type: 2}
