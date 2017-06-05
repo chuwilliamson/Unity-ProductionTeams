@@ -6,6 +6,7 @@ public class GameStateBehaviour : MonoBehaviour
     public IGameState Current;
     public GameState fsm;
     public Text Text;
+    public Slider Slider;
     public string currentState;
     private void Start()
     {
@@ -24,5 +25,10 @@ public class GameStateBehaviour : MonoBehaviour
     public void SetText(string value)
     {
         Text.text = value;
+    }
+
+    public void SetSlider(float value)
+    {
+        Slider.value = value;
     }
 }
