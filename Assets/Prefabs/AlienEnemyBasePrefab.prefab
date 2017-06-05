@@ -675,7 +675,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704590338252530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -123.4, y: 0, z: 42.9}
+  m_LocalPosition: {x: 0, y: 0, z: 24.19}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4579903895560342}
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   SpawnOffsetFromRoot: {x: -13.5, y: 0.5, z: 0}
   TargetSpawn: {fileID: 1761745430155596}
   cooldown: 0
-  timer: 3
+  timer: 0
   GizmoColor: {r: 0, g: 0, b: 0, a: 1}
   DrawWireframe: 0
 --- !u!137 &137970433896016728

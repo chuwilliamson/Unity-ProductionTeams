@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: LarvaEnemyAttackSpeed
   m_EditorClassIdentifier: 
   _baseValue: 3
-  Name: AttackSpeed
+  Name: larvaenemyattackspeed
   Value: 3

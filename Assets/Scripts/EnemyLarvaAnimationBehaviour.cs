@@ -3,24 +3,24 @@ using UnityEngine.AI;
 
 public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 {
-    private readonly int ATTACK = Animator.StringToHash("attack");
+    readonly int ATTACK = Animator.StringToHash("attack");
 
-    private readonly int HEALTH = Animator.StringToHash("health");
+    readonly int HEALTH = Animator.StringToHash("health");
 
     //idle->move: attack dead
-    private readonly int SPEED = Animator.StringToHash("speed");
+    readonly int SPEED = Animator.StringToHash("speed");
 
-    private NavMeshAgent agent;
-    private Animator anim;
+    NavMeshAgent agent;
+    Animator anim;
     public float animspeed;
-    private AudioSource asource;
+    AudioSource asource;
     public AudioClip[] audioclips;
     public AudioClip deathAudio;
-    public Stat HealthStat;
-    public int GoldYield = 50;
     public int ExperienceYield = 50;
+    public int GoldYield = 50;
+    public Stat HealthStat;
     public float MAXSPEED = 25f;
-    private float startVelocity;
+    float startVelocity;
 
     public Transform target;
 
@@ -30,13 +30,13 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         var newhealth = HealthStat.Value - amount;
         HealthStat.Value = newhealth;
         anim.SetFloat(HEALTH, newhealth);
-        if(newhealth >= 1) return;
+        if (newhealth >= 1) return;
         PlayerData.Instance.GainExperience(ExperienceYield);
         PlayerData.Instance.GainGold(GoldYield);
         PlayerData.Instance.GainKills();
     }
 
-    private void Start()
+    void Start()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -49,35 +49,35 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     }
 
 
-    private void onAttack(GameObject go)
+    void onAttack(GameObject go)
     {
-        Debug.Log("attack");
+        // Debug.Log("attack");
         if (go != gameObject) return;
-            anim.SetTrigger(ATTACK);
+        anim.SetTrigger(ATTACK);
     }
 
-    private void Update()
+    void Update()
     {
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
     }
 
-    private void MoveStart()
+    void MoveStart()
     {
         agent.velocity = agent.transform.forward * MAXSPEED;
 
         var randomclipindex = Random.Range(0, audioclips.Length - 1);
-        if(asource.isPlaying) return;
+        if (asource.isPlaying) return;
         asource.clip = audioclips[randomclipindex];
         asource.Play();
     }
 
-    private void MoveEnd()
+    void MoveEnd()
     {
         agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
     }
 
-    private void DeathEnd()
+    void DeathEnd()
     {
         asource.Stop();
         asource.clip = deathAudio;
