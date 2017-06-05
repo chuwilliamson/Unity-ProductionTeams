@@ -51,7 +51,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 
     private void onAttack(GameObject go)
     {
-        Debug.Log("attack");
+        //Debug.Log("attack");
         if (go != gameObject) return;
             anim.SetTrigger(ATTACK);
     }
