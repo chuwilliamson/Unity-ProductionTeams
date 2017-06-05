@@ -11,8 +11,10 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
     public EnemySpawner SpawnerConfig;
     public Vector3 SpawnOffsetFromRoot;
     public GameObject TargetSpawn;
+    public float cooldown;
 
-    [SerializeField] private float timer;
+    [SerializeField]
+    private float timer;
 
     private void DoSpawnAnimation()
     {
@@ -21,26 +23,31 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
 
     public void Spawn(string value)
     {
-        if (!canspawn)
-            return;
-        timer = 0;
-        if (TargetSpawn != null)
-            SpawnOffsetFromRoot = TargetSpawn.transform.position - transform.position;
-        var newSpawn = SpawnerConfig.SpawnEnemy(transform.position + SpawnOffsetFromRoot);
-        var randomSize = Random.Range(.5f, 1.5f);
-        newSpawn.transform.localScale *= randomSize;
+        if(value == "end")
+        {
+            if(!canspawn)
+                return;
+
+            if(TargetSpawn != null)
+                SpawnOffsetFromRoot = TargetSpawn.transform.position - transform.position;
+            var newSpawn = SpawnerConfig.SpawnEnemy(transform.position + SpawnOffsetFromRoot);
+            var randomSize = Random.Range(.5f, 1.5f);
+            newSpawn.transform.localScale *= randomSize;
+        }
     }
 
     private void Start()
     {
-        if (!SpawnerConfig)
+        if(!SpawnerConfig)
         {
             Debug.LogError("No spawner config set. Setting the value to a default config");
             SpawnerConfig = Instantiate(Resources.Load("DefaultEnemySpawnConfig")) as EnemySpawner;
+
         }
 
         SpawnerConfig = Instantiate(SpawnerConfig);
         SpawnerConfig.Initialize();
+        cooldown = SpawnerConfig.SpawnDelayInSeconds;
         transform.LookAt(GameObject.FindGameObjectWithTag("PlayerTower").transform);
     }
 
@@ -48,7 +55,7 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
     {
         timer += Time.deltaTime;
         canspawn = timer >= SpawnerConfig.SpawnDelayInSeconds;
-        if (canspawn)
+        if(canspawn)
             DoSpawnAnimation();
     }
 
@@ -57,15 +64,17 @@ public class EnemyTowerSpawningBehaviour : MonoBehaviour
 
 #if UNITY_EDITOR
     [Tooltip("Changes the color of the gizmo that is drawn to screen to represent the spawn position of the enemy")]
-    [SerializeField] private Color GizmoColor;
+    [SerializeField]
+    private Color GizmoColor;
 
-    [Tooltip("Specifies weather the gizmo will be drawn as a wire frame or filled in")] [SerializeField]
+    [Tooltip("Specifies weather the gizmo will be drawn as a wire frame or filled in")]
+    [SerializeField]
     private bool DrawWireframe = true;
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = GizmoColor;
-        if (DrawWireframe)
+        if(DrawWireframe)
             Gizmos.DrawWireCube(transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));
         else
             Gizmos.DrawCube(transform.position + SpawnOffsetFromRoot, new Vector3(1, 1, 1));

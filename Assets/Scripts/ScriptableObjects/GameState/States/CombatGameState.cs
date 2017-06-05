@@ -8,14 +8,13 @@ public class CombatGameState : GameState
     public State Next;
     public override void OnEnter(GameStateBehaviour game)
     {
+        Debug.Log("hello");
         game.SetText(this.name);
-        SceneManager.LoadScene(2);
-        PlayerData.Instance.onGoldChanged.Invoke(PlayerData.Instance.Gold);
-        PlayerData.Instance.onExperienceChanged.Invoke(PlayerData.Instance.Experience);
+        PlayerData.Instance.ForceRefresh();
+
     }
     public override void UpdateState(GameStateBehaviour game)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            ToState(game, Next);
+        
     }
 }

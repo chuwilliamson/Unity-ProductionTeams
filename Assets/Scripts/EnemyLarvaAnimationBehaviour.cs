@@ -13,34 +13,45 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     private NavMeshAgent agent;
     private Animator anim;
     public float animspeed;
+    private AudioSource asource;
+    public AudioClip[] audioclips;
+    public AudioClip deathAudio;
     public Stat HealthStat;
-
+    public int GoldYield = 50;
+    public int ExperienceYield = 50;
     public float MAXSPEED = 25f;
     private float startVelocity;
 
     public Transform target;
 
+
     public void TakeDamage(int amount)
     {
-        HealthStat.Value = HealthStat.Value - amount;
-        onAttack(gameObject);
+        var newhealth = HealthStat.Value - amount;
+        HealthStat.Value = newhealth;
+        anim.SetFloat(HEALTH, newhealth);
+        if (newhealth >= 1) return;
+        PlayerData.Instance.GainExperience(ExperienceYield);
+        PlayerData.Instance.GainGold(GoldYield);
+        PlayerData.Instance.GainKills();
     }
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        HealthStat = Instantiate(HealthStat);
         agent = GetComponent<NavMeshAgent>();
+        asource = GetComponent<AudioSource>();
+
+        HealthStat = Instantiate(HealthStat);
         anim.SetFloat(HEALTH, HealthStat.Value);
         startVelocity = agent.velocity.magnitude;
     }
 
 
-    private void onAttack(GameObject go)
+    private void onAttack(Object go)
     {
         if (go != gameObject) return;
         anim.SetTrigger(ATTACK);
-        anim.SetFloat(HEALTH, HealthStat.Value);
     }
 
     private void Update()
@@ -52,6 +63,11 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     private void MoveStart()
     {
         agent.velocity = agent.transform.forward * MAXSPEED;
+
+        var randomclipindex = Random.Range(0, audioclips.Length - 1);
+        if (asource.isPlaying) return;
+        asource.clip = audioclips[randomclipindex];
+        asource.Play();
     }
 
     private void MoveEnd()
@@ -61,8 +77,9 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 
     private void DeathEnd()
     {
-        PlayerData.Instance.GainExperience(25);
-        PlayerData.Instance.GainGold(13);
+        asource.Stop();
+        asource.clip = deathAudio;
+        asource.Play();
         Destroy(gameObject, 1f);
     }
 }

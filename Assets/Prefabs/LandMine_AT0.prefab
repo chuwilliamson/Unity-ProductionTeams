@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1459441896680784
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 208931166048678870}
   - component: {fileID: 82416604621599354}
   - component: {fileID: 111274928926895540}
+  - component: {fileID: 135182656317041252}
   m_Layer: 0
   m_Name: LandMine_AT0
   m_TagString: Player
@@ -250,15 +251,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308936891938868}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.047, z: -0.031}
+  m_LocalRotation: {x: 0.05012477, y: 0.57582265, z: -0.8129624, w: 0.070767544}
+  m_LocalPosition: {x: -0.0215, y: 0.0847, z: -0.0053}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4119499334527492}
   - {fileID: 4010393391747968}
   m_Father: {fileID: 4818738023390778}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 109.38, y: 180, z: 9.95}
 --- !u!4 &4488245579392532
 Transform:
   m_ObjectHideFlags: 1
@@ -331,7 +332,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542843884474966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.6, y: 0.801, z: -41.9}
+  m_LocalPosition: {x: -38.6, y: 12.99, z: -50.6}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4514165459322908}
@@ -432,18 +433,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 42361f7143002784080cdace75d20af6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4c609fba48424a18ab56c47b7941a05, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.964
-  m_Pitch: 1
+  m_Volume: 0.221
+  m_Pitch: 0.53
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 75
-  DopplerLevel: 5
-  MinDistance: 8.7
-  MaxDistance: 31.5
+  Priority: 227
+  DopplerLevel: 3.2
+  MinDistance: 5
+  MaxDistance: 21.46
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -497,18 +498,6 @@ AudioSource:
     - serializedVersion: 2
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.41355416
-      value: 0.55999875
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.89152026
-      value: 0.9150061
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -594,6 +583,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageAmount: 25
   explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
+  collided: 0
+  enemiesinRadius: []
+  landClip: {fileID: 8300000, guid: e4c609fba48424a18ab56c47b7941a05, type: 3}
+  explosionClip: {fileID: 8300000, guid: 95e838e0a30c748cb9d08f70fd02e578, type: 3}
+--- !u!135 &135182656317041252
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542843884474966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6094569
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198210352277696626
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -9879,7 +9884,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1587583173
+  randomSeed: 2057728559
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12843,7 +12848,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1713566368
+  randomSeed: -666899712
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15807,7 +15812,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -864277829
+  randomSeed: 286765563
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18771,7 +18776,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1914088056
+  randomSeed: -1908723273
   InitialModule:
     serializedVersion: 3
     enabled: 1

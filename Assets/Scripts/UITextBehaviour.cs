@@ -7,22 +7,21 @@ public class UITextBehaviour : MonoBehaviour
 {
     private Text text;
 
-    public string start;
-    
-    private void Start()
+    public Stat _stat;
+    private void Awake()
     {
         text = GetComponent<Text>();
-        if(start == "")
-            start = "";
+        PlayerData.Instance.onStatsChanged.AddListener(UpdateText);
+    }
+    private void Start()
+    {
         
-        PlayerData.Instance.onGoldChanged.AddListener(UpdateText);
-        PlayerData.Instance.onGoldChanged.Invoke(PlayerData.Instance.Gold);
-        PlayerData.Instance.onExperienceChanged.Invoke(PlayerData.Instance.Experience);
     }
 
-    private void UpdateText(int value)
+    private void UpdateText(Stat stat)
     {
-        text.text = start + ":" + value;
+        if(stat.Name == _stat.Name)
+            text.text = stat.Name + ":" + stat.Value;
     }
 
 }
