@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566966637210836}
   - component: {fileID: 137965946738383678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Level01 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4537054117262048}
   - component: {fileID: 137473084190477320}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Level01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4254754714420114}
   - component: {fileID: 137419827713595250}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LevelSeparator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4137458094517452}
   - component: {fileID: 137544516113369090}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PowerCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4188295493855950}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTowerAllGRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330556323743594}
   - component: {fileID: 137566531976341554}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HexCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4958161865827054}
   - component: {fileID: 137151905487411638}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BaseLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4706947752070386}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTower_Level01Root_AuxSHJnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4062212869904144}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTower_Level01Turret_AuxSHJnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4532317986998170}
   - component: {fileID: 137658481600225532}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PowerCylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4782509074102056}
   - component: {fileID: 137957959621865068}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Level01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4777094333781144}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTowerLevel02GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4630724022749920}
   - component: {fileID: 137415301348541466}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4230770490427450}
   - component: {fileID: 137662802202682524}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LevelSeparator 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119955699493264}
   - component: {fileID: 137245804198445314}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SideGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4516396376582522}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTower_ROOTSHJnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255452994721820}
   - component: {fileID: 137311817984408468}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretGun 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4855525545247182}
   - component: {fileID: 137253015685865826}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 65518393398897032}
   - component: {fileID: 208758534245194780}
   - component: {fileID: 82350336236445112}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SimpleTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937949738683928}
   - component: {fileID: 137719775712871142}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4671412238529184}
   - component: {fileID: 137357902936876944}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4405333843833412}
   - component: {fileID: 137779812870480808}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CenterGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4780658330376324}
   - component: {fileID: 137060696819630100}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretGun 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4080866769726278}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTowerLevel03GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4187766344094230}
   - component: {fileID: 137036907458700270}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LevelSeparator 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4590578735544710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerTowerLevel01GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4366495413461356}
   - component: {fileID: 137176932846612728}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4951454221949506}
   - component: {fileID: 137521356399009296}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SideGuard4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800858869067882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -61.53, y: 11.1, z: -21.500763}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4516396376582522}

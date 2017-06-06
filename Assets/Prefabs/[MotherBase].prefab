@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33619202249125678}
   - component: {fileID: 23835383435172324}
   - component: {fileID: 114701064032755472}
+  - component: {fileID: 114560126677133966}
   m_Layer: 0
   m_Name: BubbleShieldPrefab
   m_TagString: Untagged
@@ -70,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473253909353798}
   m_LocalRotation: {x: -0, y: 0.1944425, z: -0, w: 0.98091394}
-  m_LocalPosition: {x: 0.061160896, y: -0.16402265, z: -0.08755237}
-  m_LocalScale: {x: 0.027800446, y: 0.02780045, z: 0.02780045}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 4577172819010292}
   m_RootOrder: 0
@@ -166,6 +167,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthStat: {fileID: 11400000, guid: 7d9dd6574c4e2c043a704d9423034bfe, type: 2}
+--- !u!114 &114560126677133966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473253909353798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f67f440da8dab47a290bf61da50d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114701064032755472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theta: 0
-  speed: 0.5
+  speed: 4.69
 --- !u!135 &135020176170340006
 SphereCollider:
   m_ObjectHideFlags: 1

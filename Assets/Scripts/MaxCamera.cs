@@ -6,18 +6,39 @@
 // --01-18-2010 - create temporary target, if none supplied at start
 
 using UnityEngine;
-using System.Collections;
-
 
 [AddComponentMenu("Camera-Control/3dsMax Camera Style")]
 public class MaxCamera : MonoBehaviour
 {
+    float currentDistance;
+    Quaternion currentRotation;
+    float desiredDistance;
+    Quaternion desiredRotation;
+    public float distance = 5.0f;
+    public float maxDistance = 20;
+    public float minDistance = .6f;
+    public float panSpeed = 0.3f;
+    Vector3 position;
+    Quaternion rotation;
+
+    public Transform target;
+    public Vector3 targetOffset;
+
+    float xDeg;
+    public float xSpeed = 200.0f;
+    float yDeg;
+    public int yMaxLimit = 80;
+    public int yMinLimit = -80;
+    public float ySpeed = 200.0f;
+    public float zoomDampening = 5.0f;
+    public int zoomRate = 40;
 
 
     void Start()
     {
         Init();
     }
+
     void OnEnable()
     {
         Init();
@@ -26,10 +47,10 @@ public class MaxCamera : MonoBehaviour
     public void Init()
     {
         //If there is no target, create a temporary target at 'distance' from the cameras current viewpoint
-        if(!target)
+        if (!target)
         {
-            GameObject go = new GameObject("Cam Target");
-            go.transform.position = transform.position + (transform.forward * distance);
+            var go = new GameObject("Cam Target");
+            go.transform.position = transform.position + transform.forward * distance;
             target = go.transform;
         }
 
@@ -53,12 +74,13 @@ public class MaxCamera : MonoBehaviour
     void LateUpdate()
     {
         // If Control and Alt and Middle button? ZOOM!
-        if(Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftAlt))
+        if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftAlt))
         {
-            desiredDistance -= Input.GetAxis("Mouse X") * Time.deltaTime * zoomRate * 0.125f * Mathf.Abs(desiredDistance);
+            desiredDistance -= Input.GetAxis("Mouse X") * Time.deltaTime * zoomRate * 0.125f *
+                               Mathf.Abs(desiredDistance);
         }
         // If middle mouse and left alt are selected? ORBIT
-        else if(Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftAlt))
+        else if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftAlt))
         {
             xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
             yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
@@ -75,13 +97,23 @@ public class MaxCamera : MonoBehaviour
             transform.rotation = rotation;
         }
         // otherwise if middle mouse is selected, we pan by way of transforming the target in screenspace
-        
-        else if(Input.GetMouseButton(1))
+
+        else if (Input.GetMouseButton(1))
         {
             //grab the rotation of the camera so we can move in a psuedo local XY space
             target.rotation = transform.rotation;
             target.Translate(Vector3.right * -Input.GetAxis("Mouse X") * panSpeed);
             target.Translate(transform.up * -Input.GetAxis("Mouse Y") * panSpeed, Space.World);
+        }
+        
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+        var move = new Vector3(horizontal, vertical, 0);
+        if (move.magnitude > 0)
+        {
+            target.rotation = transform.rotation;
+            target.Translate(Vector3.right * move.x * panSpeed);
+            target.Translate(Vector3.up * move.y * panSpeed);
         }
 
         ////////Orbit Position
@@ -98,34 +130,12 @@ public class MaxCamera : MonoBehaviour
         transform.position = position;
     }
 
-    private static float ClampAngle(float angle, float min, float max)
+    static float ClampAngle(float angle, float min, float max)
     {
-        if(angle < -360)
+        if (angle < -360)
             angle += 360;
-        if(angle > 360)
+        if (angle > 360)
             angle -= 360;
         return Mathf.Clamp(angle, min, max);
     }
-
-    public Transform target;
-    public Vector3 targetOffset;
-    public float distance = 5.0f;
-    public float maxDistance = 20;
-    public float minDistance = .6f;
-    public float xSpeed = 200.0f;
-    public float ySpeed = 200.0f;
-    public int yMinLimit = -80;
-    public int yMaxLimit = 80;
-    public int zoomRate = 40;
-    public float panSpeed = 0.3f;
-    public float zoomDampening = 5.0f;
-
-    private float xDeg = 0.0f;
-    private float yDeg = 0.0f;
-    private float currentDistance;
-    private float desiredDistance;
-    private Quaternion currentRotation;
-    private Quaternion desiredRotation;
-    private Quaternion rotation;
-    private Vector3 position;
 }

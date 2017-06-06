@@ -39,7 +39,6 @@ public class CameraClickBehaviour : MonoBehaviour
                 : Instantiate(LandMinePrefab, hit.point + Vector3.up * 15f, Quaternion.identity);
             var rb = go.GetComponent<Rigidbody>();
             var dropforce = 25f;
-
             dropforce = go.GetComponent<LandMineBehaviour>().dropForce.Value;
             rb.AddForce(Vector3.down * dropforce, ForceMode.Impulse);
 
