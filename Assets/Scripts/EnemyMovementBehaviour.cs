@@ -9,11 +9,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 {
-    private NavMeshAgent _NavMeshAgent;
+    public NavMeshAgent _NavMeshAgent;
     [SerializeField]
     public Stats EnemyStats;
     [SerializeField]
-    private Transform TargetTower;
+    public Transform TargetTower;
     public float MovementSpeed;
     public float DistanceFromTarget;
     public bool CanWalk;
@@ -30,25 +30,21 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     public EventEnemyLarvaAttack OnEnemyLarvaAttack;
 
-    void Start()
+    void Awake()
     {
-        _NavMeshAgent = GetComponent<NavMeshAgent>();
-        var targets = GameObject.FindGameObjectsWithTag("PlayerTower");
-        var targs = targets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
-        TargetTower = targs.FirstOrDefault().transform;
-        _NavMeshAgent.destination = TargetTower.position;        
+        _NavMeshAgent = GetComponent<NavMeshAgent>();                
         _NavMeshAgent.speed = MovementSpeed;
-        StartCoroutine("Idle");
     }
 
-    void OnDrawGizmos()
+    void Start()
     {
-        if(_NavMeshAgent)
-            Gizmos.DrawLine(transform.position, _NavMeshAgent.destination);
+        StartCoroutine("Idle");
     }
 
     IEnumerator Idle()
     {
+        if (TargetTower == null)
+            yield return null;
         int LoopCounter = 0;
         CurrentState = States.idle;
         _NavMeshAgent.isStopped = true;                        
@@ -72,18 +68,10 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     private void Update()
     {
-        
-            //ToDo: need dylan to make this better
-            var targets = GameObject.FindGameObjectsWithTag("PlayerTower");
-            var targs = targets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
-            TargetTower = targs.FirstOrDefault().transform;
-            _NavMeshAgent.destination = TargetTower.position;
-        
-
         if (TargetTower.GetComponent<IDamageable>() == null || CurrentState != States.attack)
             return;
 
-        if(canAttack)
+        if (canAttack)
             attackTimer += Time.deltaTime;
 
         if (attackTimer >= EnemyStats.Items["larvaenemyattackspeed"].Value)
@@ -93,7 +81,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         }
     }
 
-   
+
 
     IEnumerator Walk()
     {

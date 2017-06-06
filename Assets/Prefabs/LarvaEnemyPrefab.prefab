@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 114127598152120876}
   - component: {fileID: 54435006518297154}
   - component: {fileID: 82841836553968662}
+  - component: {fileID: 114926339122725144}
   m_Layer: 0
   m_Name: LarvaEnemyPrefab
   m_TagString: Enemy
@@ -348,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -68.58354, y: 0, z: -106.3}
+  m_LocalPosition: {x: -55.8, y: 0, z: -106.3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4647761303060946}
@@ -758,12 +759,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95dc175cd7e02d468929ba69aed5caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NavMeshAgent: {fileID: 0}
   EnemyStats: {fileID: 11400000, guid: d6750da742bf3c94a9701682cc5af236, type: 2}
   TargetTower: {fileID: 0}
   MovementSpeed: 0.1
   DistanceFromTarget: 105.80319
   CanWalk: 0
-  DistanceToTrigger: 11
+  DistanceToTrigger: 1
   CurrentState: 1
   OnEnemyLarvaAttack:
     m_PersistentCalls:
@@ -772,6 +774,20 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   attackTimer: 0
   canAttack: 1
+--- !u!114 &114926339122725144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654955964778480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25931c2d77566884cb6d815d00233e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MovementBehaviour: {fileID: 0}
+  TargetGameObject: {fileID: 0}
+  TargetPosition: {x: 0, y: 0, z: 0}
 --- !u!136 &136683122795721642
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -852,7 +868,7 @@ NavMeshAgent:
   m_Acceleration: 100
   avoidancePriority: 99
   m_AngularSpeed: 120
-  m_StoppingDistance: 10
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
