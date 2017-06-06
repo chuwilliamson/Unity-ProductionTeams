@@ -348,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -54.6, y: 0.09, z: -46.8}
+  m_LocalPosition: {x: -113.76, y: 0.09, z: -59.48}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4647761303060946}
@@ -770,6 +770,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: EnemyMovementBehaviour+EventEnemyLarvaAttack, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  attackTimer: 0
+  canAttack: 1
 --- !u!136 &136683122795721642
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -850,7 +852,7 @@ NavMeshAgent:
   m_Acceleration: 100
   avoidancePriority: 99
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 30
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
