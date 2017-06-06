@@ -497,11 +497,6 @@ Prefab:
       propertyPath: m_Name
       value: LarvaEnemyPrefab (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114436938229565894, guid: 59de8ec9a400f0140b49257eeaf930b2,
-        type: 2}
-      propertyPath: DistanceToTrigger
-      value: 21
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59de8ec9a400f0140b49257eeaf930b2, type: 2}
   m_IsPrefabParent: 0
