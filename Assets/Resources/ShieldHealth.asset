@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a361b491b9e000409cfeac725989fff, type: 3}
-  m_Name: MotherBaseHealth
+  m_Name: ShieldHealth
   m_EditorClassIdentifier: 
-  _baseValue: 781
-  Name: motherbasehealth
-  Value: 781
+  _baseValue: 5
+  Name: shieldhealth
+  Value: 5

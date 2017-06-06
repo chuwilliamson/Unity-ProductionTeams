@@ -19,6 +19,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
     public bool CanWalk;
     [Tooltip("Distance the enemy must be from target to trigger a state change")]
     public float DistanceToTrigger;
+   
     private enum States
     {
         idle, walk, attack
@@ -64,7 +65,18 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
             yield return null;
         }        
     }
+    private void Update()
+    {
+        if (TargetTower == null)
+        {
+            //ToDo: need dylan to make this better
+            var targets = GameObject.FindGameObjectsWithTag("PlayerTower");
+            var targs = targets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
+            TargetTower = targs.FirstOrDefault().transform;
 
+        }
+            
+    }
     IEnumerator Walk()
     {
         int LoopCounter = 0;

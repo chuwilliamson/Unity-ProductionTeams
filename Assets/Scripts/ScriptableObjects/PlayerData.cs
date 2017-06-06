@@ -47,8 +47,7 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         if (stats)
             return;
         stats = Resources.Load<Stats>("PLayerStats");
-        stats = Instantiate(stats);
-        Debug.Log("enabled");
+        stats = Instantiate(stats); 
     }
 
     public void ForceRefresh()
@@ -96,7 +95,7 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         stats["gold"].Value -= amount;
         onGoldChanged.Invoke(stats["gold"]);
         onStatsChanged.Invoke(stats["gold"]);
-        Debug.Log("spend gold: " + amount + " gold is now: " + stats["gold"].Value);
+       // Debug.Log("spend gold: " + amount + " gold is now: " + stats["gold"].Value);
     }
 
     public class OnPlayerDataChanged : UnityEvent<Stat>
