@@ -28,24 +28,22 @@ public class ProjectileBehaviour : MonoBehaviour
         if (_ProjectileParticleSystem == null)
             yield return null;
         transform.LookAt(position);
-        yield return new WaitForSeconds(ProjectileStats.Items["projectileflighttime"].Value);
-        yield return new WaitForSeconds(ProjectileStats.Items["projectilelifetime"].Value);
-        Destroy(gameObject);        
-        StopCoroutine(Travel(position));
+        Destroy(gameObject,2 );        
+       
     }
 
-
+    
     private IEnumerator OnParticleCollision(GameObject other)
     {
         var numCollisions = _ProjectileParticleSystem.GetCollisionEvents(other, CollisionEvents);
         var explosion = Instantiate(_ExplosionParticleSystem, CollisionEvents[0].intersection, Quaternion.identity);
-        if (other.GetComponent<IDamageable>() == null)
-        {
-            yield return new WaitForSeconds(1.0f);
-            Destroy(_ProjectileParticleSystem.gameObject);
-            StopAllCoroutines();
-            yield return null;
-        }
-        other.GetComponent<IDamageable>().TakeDamage(ProjectileStats.Items["projectileattackpower"].Value);
+        
+        Destroy(explosion.gameObject, 2f);
+        
+        
+        if(other.GetComponent<IDamageable>() != null)
+            other.GetComponent<IDamageable>().TakeDamage(ProjectileStats.Items["projectileattackpower"].Value);
+        yield return null;
     }
+ 
 }

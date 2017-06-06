@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class RotateBubble : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        var dir = Vector3.zero;
+        Vector3 dir;
 	    switch (rotationAxis)
 	    {
             case Direction.Forward:
@@ -30,7 +31,9 @@ public class RotateBubble : MonoBehaviour
             case Direction.Up:
                 dir = Vector3.up;
                 break;
-        }
+	        default:
+	            throw new ArgumentOutOfRangeException();
+	    }
 
 	    theta += Time.deltaTime * speed;
 	    transform.Rotate(dir, theta * Time.deltaTime);

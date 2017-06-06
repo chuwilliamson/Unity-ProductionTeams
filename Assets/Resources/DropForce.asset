@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a361b491b9e000409cfeac725989fff, type: 3}
   m_Name: DropForce
   m_EditorClassIdentifier: 
-  _baseValue: 603
+  _baseValue: 33
   Name: dropforce
-  Value: 603
+  Value: 33
