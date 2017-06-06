@@ -78,7 +78,7 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
         if(collision.gameObject.CompareTag("Ragdoll"))
         {
             rb.isKinematic = true;
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             rb.isKinematic = false;
             rb.AddForce(Vector3.down * 15f, ForceMode.Impulse);
         }

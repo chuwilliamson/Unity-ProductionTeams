@@ -34,7 +34,7 @@ public class RotateBubble : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
 
-        theta += Time.deltaTime * speed;
-        transform.Rotate(dir, theta * Time.deltaTime);
+        theta += Time.deltaTime;
+        transform.Rotate(dir, speed * Time.deltaTime );
     }
 }
