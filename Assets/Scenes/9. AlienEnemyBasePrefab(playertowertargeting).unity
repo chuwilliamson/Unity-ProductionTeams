@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theta: 0
+  speed: 0.5
 --- !u!1 &386577038
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +925,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114552561079909204, guid: 48f29a454298f9546b6e061a048c0890,
+        type: 2}
+      propertyPath: ProjectilePrefab
+      value: 
+      objectReference: {fileID: 114529132335220884, guid: 35a662feae6464d47b3f4c794b46ed73,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f29a454298f9546b6e061a048c0890, type: 2}
   m_IsPrefabParent: 0

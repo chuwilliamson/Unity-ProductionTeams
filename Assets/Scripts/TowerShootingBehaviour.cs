@@ -49,6 +49,7 @@ public class TowerShootingBehaviour : MonoBehaviour
             return;
         OnShotFiredBegin.Invoke(this.gameObject);        
         var projectile = Instantiate(ProjectilePrefab) as ProjectileBehaviour;
+        projectile.Owner = TowerMuzzle;
         projectile.transform.position = TowerMuzzle.transform.position;
         OnShotFiredStart.Invoke(this.gameObject);        
         projectile.StartCoroutine(projectile.Travel(Target.position));
