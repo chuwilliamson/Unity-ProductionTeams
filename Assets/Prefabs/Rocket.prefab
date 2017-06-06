@@ -146,11 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609c0fcf28fb8d9498356c7402b65827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileStats: {fileID: 11400000, guid: 742eba37e7e4bf946833220e4b217cf5, type: 2}
-  _ProjectileParticleSystem: {fileID: 0}
   _ExplosionParticleSystem: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 2}
+  _ProjectileParticleSystem: {fileID: 0}
   Owner: {fileID: 0}
+  ProjectileStats: {fileID: 11400000, guid: 742eba37e7e4bf946833220e4b217cf5, type: 2}
 --- !u!198 &198032885977678128
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -160,9 +160,9 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 2
   simulationSpeed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -3290,7 +3290,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -6326,7 +6326,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -9451,7 +9451,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
