@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 208931166048678870}
   - component: {fileID: 82416604621599354}
   - component: {fileID: 135182656317041252}
+  - component: {fileID: 114056393697866278}
   m_Layer: 2
   m_Name: LandMine_AT0
   m_TagString: Player
@@ -379,7 +380,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542843884474966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -60.6, y: 0.3, z: -53.4}
+  m_LocalPosition: {x: -60.6, y: 4.02, z: -53.4}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4514165459322908}
@@ -616,6 +617,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114056393697866278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542843884474966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb71cc9c2ef2f8543b133fdc65aed797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
 --- !u!114 &114814067122101734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -627,13 +640,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c98efacf5ad1749b36c7e36d9204df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageAmount: 25
-  explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
   collided: 0
-  landClip: {fileID: 8300000, guid: e4c609fba48424a18ab56c47b7941a05, type: 3}
-  explosionClip: {fileID: 8300000, guid: 95e838e0a30c748cb9d08f70fd02e578, type: 3}
-  landSmoke: {fileID: 1435637881069060, guid: 98c1f35afdbd62b408154c094b69f257, type: 2}
+  landed: 0
+  DamageAmount: 25
   dropForce: {fileID: 11400000, guid: f6368b71a6672734c864d95dbfb0cd71, type: 2}
+  explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
+  explosionClip: {fileID: 8300000, guid: 95e838e0a30c748cb9d08f70fd02e578, type: 3}
+  landClip: {fileID: 8300000, guid: e4c609fba48424a18ab56c47b7941a05, type: 3}
+  landSmoke: {fileID: 1435637881069060, guid: 98c1f35afdbd62b408154c094b69f257, type: 2}
 --- !u!135 &135182656317041252
 SphereCollider:
   m_ObjectHideFlags: 1

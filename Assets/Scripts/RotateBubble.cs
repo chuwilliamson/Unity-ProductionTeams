@@ -1,27 +1,26 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateBubble : MonoBehaviour
 {
-    public float theta = 0;
-
     public enum Direction
     {
         Right,
         Up,
-        Forward,
+        Forward
     }
 
     public Direction rotationAxis;
     public float speed = 0.5f;
-	// Update is called once per frame
-	void Update ()
-	{
+
+    public float theta;
+
+    // Update is called once per frame
+    void Update()
+    {
         Vector3 dir;
-	    switch (rotationAxis)
-	    {
+        switch (rotationAxis)
+        {
             case Direction.Forward:
                 dir = Vector3.forward;
                 break;
@@ -31,11 +30,11 @@ public class RotateBubble : MonoBehaviour
             case Direction.Up:
                 dir = Vector3.up;
                 break;
-	        default:
-	            throw new ArgumentOutOfRangeException();
-	    }
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
 
-	    theta += Time.deltaTime * speed;
-	    transform.Rotate(dir, theta * Time.deltaTime);
+        theta += Time.deltaTime * speed;
+        transform.Rotate(dir, theta * Time.deltaTime);
     }
 }

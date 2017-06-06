@@ -2,27 +2,29 @@
 
 public class CameraClickBehaviour : MonoBehaviour
 {
-    public LayerMask groundMask;
-    public LayerMask mineMask;
-    public GameObject LandMinePrefab;
-    public GameObject TowerPrefab;
     public int cost;
+    public LayerMask groundMask;
+    public GameObject LandMinePrefab;
+    public LayerMask mineMask;
 
-    private void Start()
+    public bool TowerMode;
+    public GameObject TowerPrefab;
+
+    void Start()
     {
         groundMask = LayerMask.NameToLayer("Ground");
         mineMask = LayerMask.NameToLayer("LandMine");
     }
 
-    public bool TowerMode = false;
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        if(Input.GetMouseButtonDown(2)) TowerMode = !TowerMode;
-        if(!Input.GetMouseButtonDown(0)) return;
+        if (Input.GetMouseButtonDown(2)) TowerMode = !TowerMode;
+        if(Input.GetKey(KeyCode.LeftAlt)) return;
+        if (!Input.GetMouseButtonDown(0)) return;
 
 
-        if(PlayerData.Instance.Gold - cost <= 0)
+        if (PlayerData.Instance.Gold - cost <= 0)
         {
             Debug.Log("you are low on cash");
             return;
@@ -32,9 +34,9 @@ public class CameraClickBehaviour : MonoBehaviour
 
         RaycastHit hit;
 
-        if(Physics.Raycast(screenToWorld, out hit))
+        if (Physics.Raycast(screenToWorld, out hit))
         {
-            var go = (TowerMode)
+            var go = TowerMode
                 ? Instantiate(TowerPrefab, hit.point + Vector3.up * 15f, Quaternion.identity)
                 : Instantiate(LandMinePrefab, hit.point + Vector3.up * 15f, Quaternion.identity);
             var rb = go.GetComponent<Rigidbody>();

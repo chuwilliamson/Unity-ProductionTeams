@@ -10,7 +10,14 @@ public class IntroGameState : GameState
     public override void OnEnter(GameStateBehaviour game)
     {
         base.OnEnter(game);
+        UIButtonClicked.OnButtonClicked.AddListener(
+            delegate(string val)
+            {
+                if(val == "startgame") ToState(game, Next);
+            });
     }
+
+    
 
     public override void OnExit(GameStateBehaviour game)
     {
@@ -39,11 +46,5 @@ public class IntroGameState : GameState
 
         PlayerData.Instance.ForceRefresh();
         yield return null;
-    }
-    public override void UpdateState(GameStateBehaviour game)
-    {
-        base.UpdateState(game);
-        if (Input.GetKeyDown(KeyCode.E))
-            ToState(game, Next);
     }
 }

@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 public class GameStateBehaviour : MonoBehaviour
 {
-    
     public IGameState Current;
     public GameState fsm;
     public Text Text;
@@ -41,7 +40,7 @@ public class GameStateBehaviour : MonoBehaviour
             
         Slider.value = value;
     }
-
+    
     public bool LoseCondition
     {
         get { return FindObjectOfType<MotherBaseBehaviour>().HealthStat.Value < 1; }
