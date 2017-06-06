@@ -4,6 +4,7 @@ using System.Deployment.Internal;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class TowerTargetingBehaviour : MonoBehaviour
 {
@@ -12,14 +13,20 @@ public class TowerTargetingBehaviour : MonoBehaviour
 
     public List<EnemyMovementBehaviour> Targets;
     private EnemyMovementBehaviour CurrentTarget;
+    private Quaternion DefaultOrientation;
     [SerializeField]
     private GameObject RotationJoint;    
 
     public EventTargetChanged OnTargetChanged = new EventTargetChanged();
+    [Range(-1.0f,0.0f)]
+    public float MinVerticalRotation;
+    [Range(0.0f, 1.0f)]
+    public float MaxVerticalRotation;
 
     void Start()
     {
         GetComponent<SphereCollider>().radius = TowerTargetingStats.Items["towerrange"].Value;
+        DefaultOrientation = RotationJoint.transform.rotation;
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,14 +49,18 @@ public class TowerTargetingBehaviour : MonoBehaviour
     }
 
     void Update()
-    {
-        if (!CurrentTarget)
+    {        
+        if (!CurrentTarget || CurrentTarget.GetComponent<EnemyLarvaAnimationBehaviour>().dead)
         {
+            RotationJoint.transform.rotation = Quaternion.Slerp(RotationJoint.transform.rotation, DefaultOrientation, TowerTargetingStats.Items["towerrotationspeed"].Value * Time.deltaTime);
             FindClosestTarget();
             return;
         }
-        var tarRotation = Quaternion.LookRotation(CurrentTarget.transform.position - RotationJoint.transform.position);
-        RotationJoint.transform.rotation = Quaternion.Slerp(RotationJoint.transform.rotation, tarRotation, TowerTargetingStats.Items["towerrotationspeed"].Value * Time.deltaTime);
+        
+        var targetRotation = Quaternion.LookRotation(CurrentTarget.transform.position - RotationJoint.transform.position);
+        targetRotation.x = Mathf.Clamp(targetRotation.x, MinVerticalRotation, MaxVerticalRotation);
+        targetRotation.z = Mathf.Clamp(targetRotation.z, MinVerticalRotation, MaxVerticalRotation);
+        RotationJoint.transform.rotation = Quaternion.Slerp(RotationJoint.transform.rotation, targetRotation, TowerTargetingStats.Items["towerrotationspeed"].Value * Time.deltaTime);        
     }
 
 #if UNITY_EDITOR
@@ -69,8 +80,12 @@ public class TowerTargetingBehaviour : MonoBehaviour
                 temp.RemoveAt(i);
         }
         Targets = temp;
-        if(Targets == null || Targets.Count == 0)
-            return;
+        if (Targets == null || Targets.Count == 0)
+        {
+            CurrentTarget = null;
+            OnTargetChanged.Invoke(null);
+            return;            
+        }
         Targets = Targets.OrderBy(x => x.DistanceFromTarget).ToList();
         CurrentTarget = Targets[0];
         if (!CurrentTarget)

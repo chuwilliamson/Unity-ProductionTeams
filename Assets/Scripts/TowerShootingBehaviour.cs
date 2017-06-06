@@ -27,6 +27,11 @@ public class TowerShootingBehaviour : MonoBehaviour
 
     void ChangeTarget(GameObject target)
     {
+        if (target == null)
+        {
+            Target = null;
+            return;
+        }
         Target = target.transform;
     }
 
@@ -45,7 +50,7 @@ public class TowerShootingBehaviour : MonoBehaviour
 
     void Shoot()
     {
-        if(!Target)
+        if(Target == null)
             return;
         OnShotFiredBegin.Invoke(this.gameObject);        
         var projectile = Instantiate(ProjectilePrefab) as ProjectileBehaviour;
