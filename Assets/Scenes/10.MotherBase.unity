@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -162,6 +162,19 @@ Prefab:
     - target: {fileID: 1473253909353798, guid: ab1b59ba217273e4687e5a4aecea4139, type: 2}
       propertyPath: m_TagString
       value: PlayerTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877725204599824, guid: ab1b59ba217273e4687e5a4aecea4139, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23835383435172324, guid: ab1b59ba217273e4687e5a4aecea4139,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473253909353798, guid: ab1b59ba217273e4687e5a4aecea4139, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 135020176170340006, guid: ab1b59ba217273e4687e5a4aecea4139, type: 2}
@@ -699,6 +712,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
   m_IsPrefabParent: 0
@@ -806,6 +823,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41533b07c6b8af14d9672e8fa098533c, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1631099902 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4577172819010292, guid: ab1b59ba217273e4687e5a4aecea4139,
+    type: 2}
+  m_PrefabInternal: {fileID: 31047023}
+--- !u!1 &1891049096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1891049097}
+  - component: {fileID: 1891049098}
+  m_Layer: 0
+  m_Name: LightSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891049097
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891049096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 0.028571434, y: 0.028571434, z: 0.028571434}
+  m_Children: []
+  m_Father: {fileID: 1631099902}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891049098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891049096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f9924139f7ab40bf43bc4f65cef17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1818675478023548, guid: 89521b5e9e3687446ad375ea906adb89, type: 2}
 --- !u!1 &2031480613
 GameObject:
   m_ObjectHideFlags: 0
