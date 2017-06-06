@@ -5,54 +5,47 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 public class ProjectileBehaviour : MonoBehaviour
 {
-    public Stats ProjectileStats;
-    public ParticleSystem _ProjectileParticleSystem;
     public ParticleSystem _ExplosionParticleSystem;
+    public ParticleSystem _ProjectileParticleSystem;
+    private readonly List<ParticleCollisionEvent> CollisionEvents = new List<ParticleCollisionEvent>();
     public GameObject Owner;
-    private List<ParticleCollisionEvent> CollisionEvents = new List<ParticleCollisionEvent>();
+    public Stats ProjectileStats;
 
-    void Start()
-    {        
+    private void Start()
+    {
         _ProjectileParticleSystem = GetComponent<ParticleSystem>();
     }
 
-    void Update()
+    private void Update()
     {
-        this.transform.position = Owner.transform.position;
+        if (Owner == null)
+            return;
+        transform.position = Owner.transform.position;
     }
 
     public IEnumerator Travel(Vector3 position)
     {
         if (_ProjectileParticleSystem == null)
-        {            
             yield return null;
-        }
         transform.LookAt(position);
-        _ProjectileParticleSystem.Play();        
         yield return new WaitForSeconds(ProjectileStats.Items["projectileflighttime"].Value);
-        _ProjectileParticleSystem.Stop();
-        yield return new WaitForSeconds(ProjectileStats.Items["projectilelifetime"].Value);        
-        _ExplosionParticleSystem.Stop();
-        Destroy(_ExplosionParticleSystem.gameObject);                
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds(ProjectileStats.Items["projectilelifetime"].Value);
+        Destroy(gameObject);        
         StopCoroutine(Travel(position));
     }
 
 
-    IEnumerator OnParticleCollision(GameObject other)
+    private IEnumerator OnParticleCollision(GameObject other)
     {
-        int numCollisions = _ProjectileParticleSystem.GetCollisionEvents(other, CollisionEvents);
-        _ExplosionParticleSystem = Instantiate(_ExplosionParticleSystem) as ParticleSystem;
-        _ExplosionParticleSystem.transform.position = CollisionEvents[0].intersection;     
-        _ExplosionParticleSystem.Play();
+        var numCollisions = _ProjectileParticleSystem.GetCollisionEvents(other, CollisionEvents);
+        var explosion = Instantiate(_ExplosionParticleSystem, CollisionEvents[0].intersection, Quaternion.identity);
         if (other.GetComponent<IDamageable>() == null)
         {
             yield return new WaitForSeconds(1.0f);
-            Destroy(_ExplosionParticleSystem.gameObject);
             Destroy(_ProjectileParticleSystem.gameObject);
             StopAllCoroutines();
             yield return null;
         }
-        other.GetComponent<IDamageable>().TakeDamage(ProjectileStats.Items["projectileattackpower"].Value);        
+        other.GetComponent<IDamageable>().TakeDamage(ProjectileStats.Items["projectileattackpower"].Value);
     }
 }
