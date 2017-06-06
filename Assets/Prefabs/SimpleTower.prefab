@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 65518393398897032}
   - component: {fileID: 208758534245194780}
   - component: {fileID: 82350336236445112}
+  - component: {fileID: 114976088086445700}
   m_Layer: 2
   m_Name: SimpleTower
   m_TagString: Untagged
@@ -1485,6 +1486,18 @@ MonoBehaviour:
     m_TypeName: TowerShootingBehaviour+EventShotEnded, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   timer: 0.02
+--- !u!114 &114976088086445700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800858869067882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb71cc9c2ef2f8543b133fdc65aed797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
 --- !u!135 &135259279311998928
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2859,5 +2872,5 @@ NavMeshObstacle:
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 1.32, y: 0, z: 3.28}
   m_TimeToStationary: 0.5

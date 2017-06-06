@@ -32,8 +32,10 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     void Start()
     {
-        _NavMeshAgent = GetComponent<NavMeshAgent>();        
-        TargetTower = GameObject.FindGameObjectWithTag("PlayerTower").transform;
+        _NavMeshAgent = GetComponent<NavMeshAgent>();
+        var targets = GameObject.FindGameObjectsWithTag("PlayerTower");
+        var targs = targets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
+        TargetTower = targs.FirstOrDefault().transform;
         _NavMeshAgent.destination = TargetTower.position;        
         _NavMeshAgent.speed = MovementSpeed;
         StartCoroutine("Idle");
@@ -56,27 +58,43 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
             DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
             transform.LookAt(TargetTower.position);
             if (DistanceFromTarget > DistanceToTrigger)
-            {
-                StopCoroutine("Attack");
+            {                
                 yield return StartCoroutine("Walk");
             }
             else if(CurrentState != States.attack)
-                StartCoroutine("Attack");           
+                CurrentState = States.attack;
             yield return null;
         }        
     }
+
+    public float attackTimer;
+    public bool canAttack = true;
+
     private void Update()
     {
-        if (TargetTower == null)
-        {
+        
             //ToDo: need dylan to make this better
             var targets = GameObject.FindGameObjectsWithTag("PlayerTower");
             var targs = targets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
             TargetTower = targs.FirstOrDefault().transform;
+            _NavMeshAgent.destination = TargetTower.position;
+        
 
+        if (TargetTower.GetComponent<IDamageable>() == null || CurrentState != States.attack)
+            return;
+
+        if(canAttack)
+            attackTimer += Time.deltaTime;
+
+        if (attackTimer >= EnemyStats.Items["larvaenemyattackspeed"].Value)
+        {
+            canAttack = false;
+            OnEnemyLarvaAttack.Invoke(this.gameObject);
         }
-            
     }
+
+   
+
     IEnumerator Walk()
     {
         int LoopCounter = 0;
@@ -92,19 +110,20 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         }
     }
 
-    IEnumerator Attack()
+    public void ResetAttackTimer()
     {
-        int LoopCounter = 0;
-        CurrentState = States.attack;
-        while (LoopCounter <= 1000)
-        {
-            if (TargetTower.GetComponent<IDamageable>() != null)
-            {                
-                TargetTower.GetComponent<IDamageable>().TakeDamage(10);
-                OnEnemyLarvaAttack.Invoke(this.gameObject);
-                yield return new WaitForSeconds(EnemyStats.Items["larvaenemyattackspeed"].Value);
-            }
-        }
+        attackTimer = 0;
+        canAttack = false;
+    }
+
+    public void StartAttackTimer()
+    {
+        canAttack = true;
+    }
+
+    public void DoDamage()
+    {
+        TargetTower.GetComponent<IDamageable>().TakeDamage(10);
     }
 
     [System.Serializable]

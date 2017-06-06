@@ -56,6 +56,21 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         GetComponent<EnemyMovementBehaviour>().OnEnemyLarvaAttack.AddListener(onAttack);
     }
 
+    public void AttackAnimation(string value)
+    {
+        if (value == "start")
+        {
+            GetComponent<EnemyMovementBehaviour>().ResetAttackTimer();
+        }
+        if (value == "contact")
+        {
+            GetComponent<EnemyMovementBehaviour>().DoDamage();
+        }
+        if (value == "end")
+        {
+            GetComponent<EnemyMovementBehaviour>().StartAttackTimer();
+        }
+    }
 
     void onAttack(GameObject go)
     {

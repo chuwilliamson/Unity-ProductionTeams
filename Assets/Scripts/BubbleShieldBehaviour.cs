@@ -14,4 +14,8 @@ public class BubbleShieldBehaviour : MonoBehaviour
     void onDamaged(Stat s)
     {
     }
+    private void OnDestroy()
+    {
+        Destroy(transform.parent.gameObject);
+    }
 }

@@ -348,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -54.6, y: 0.09, z: -46.8}
+  m_LocalPosition: {x: -68.58354, y: 0, z: -106.3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4647761303060946}
@@ -617,7 +617,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   ExperienceYield: 50
   GoldYield: 50
   HealthStat: {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
-  MAXSPEED: 50
+  MAXSPEED: 20
   ragdollPrefab: {fileID: 1961412622297466, guid: b3701dfd90c30cc46bb9d6c9dae3df23,
     type: 2}
 --- !u!114 &114436938229565894
@@ -763,13 +763,15 @@ MonoBehaviour:
   MovementSpeed: 0.1
   DistanceFromTarget: 105.80319
   CanWalk: 0
-  DistanceToTrigger: 30
+  DistanceToTrigger: 11
   CurrentState: 1
   OnEnemyLarvaAttack:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: EnemyMovementBehaviour+EventEnemyLarvaAttack, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  attackTimer: 0
+  canAttack: 1
 --- !u!136 &136683122795721642
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -850,7 +852,7 @@ NavMeshAgent:
   m_Acceleration: 100
   avoidancePriority: 99
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
