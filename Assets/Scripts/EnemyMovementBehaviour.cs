@@ -6,15 +6,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(EnemyTargetSelectionBehaviour))]
 public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 {
-    public NavMeshAgent _NavMeshAgent;
+    private EnemyTargetSelectionBehaviour SelectTartgetBehaviour;
     [SerializeField]
     public Stats EnemyStats;
     [SerializeField]
     public Transform TargetTower;
-    public float MovementSpeed;
     public float DistanceFromTarget;    
     [Tooltip("Distance the enemy must be from target to trigger a state change")]
     public float DistanceToTrigger;
@@ -29,10 +28,10 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     public EventEnemyLarvaAttack OnEnemyLarvaAttack;
 
-    void Awake()
+    void Start()
     {
-        _NavMeshAgent = GetComponent<NavMeshAgent>();                
-        _NavMeshAgent.speed = MovementSpeed;
+        SelectTartgetBehaviour = GetComponent<EnemyTargetSelectionBehaviour>();        
+        SelectTartgetBehaviour.SearchForTarget();
     }
 
     private float attackTimer;
@@ -40,6 +39,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     private void Update()
     {
+        if(TargetTower == null)
+            return;
         if (TargetTower.GetComponent<IDamageable>() == null || CurrentState != States.attack)
             return;
 
@@ -59,11 +60,13 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
             yield return null;
         int LoopCounter = 0;
         CurrentState = States.idle;
-        _NavMeshAgent.isStopped = true;                        
+        SelectTartgetBehaviour.Agent.isStopped = true;                        
         while (LoopCounter <= 1000)
         {
+            if (TargetTower == null)
+                continue;
             LoopCounter++;
-            DistanceFromTarget = Vector3.Distance(transform.position, _NavMeshAgent.destination);
+            DistanceFromTarget = Vector3.Distance(transform.position, SelectTartgetBehaviour.TargetPosition);
             transform.LookAt(TargetTower.position);
             if (DistanceFromTarget > DistanceToTrigger)
             {                
@@ -79,11 +82,14 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
     {
         int LoopCounter = 0;
         CurrentState = States.walk;
-        _NavMeshAgent.isStopped = false;
+        SelectTartgetBehaviour.Agent.isStopped = false;
+        canAttack = false;
         while (LoopCounter <= 1000)
         {
+            if (TargetTower == null)
+                continue;
             LoopCounter++;
-            DistanceFromTarget = Vector3.Distance(transform.position, _NavMeshAgent.destination);
+            DistanceFromTarget = Vector3.Distance(transform.position, SelectTartgetBehaviour.TargetPosition);
             if (DistanceFromTarget <= DistanceToTrigger)
                 yield return StartCoroutine("Idle");
             yield return null;
@@ -110,6 +116,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     public void Attack()
     {
+        if(TargetTower == null)
+            return;
         DoDamage(TargetTower.GetComponent<IDamageable>());
     }  
 
