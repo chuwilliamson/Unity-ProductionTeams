@@ -34,8 +34,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         SelectTartgetBehaviour.SearchForTarget();
     }
 
-    private float attackTimer;
-    private bool canAttack = true;
+    public float attackTimer;
+    public bool canAttack = true;
 
     private void Update()
     {
@@ -83,7 +83,6 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         int LoopCounter = 0;
         CurrentState = States.walk;
         SelectTartgetBehaviour.Agent.isStopped = false;
-        canAttack = false;
         while (LoopCounter <= 1000)
         {
             if (TargetTower == null)
