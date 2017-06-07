@@ -349,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.8, y: 0, z: -106.3}
+  m_LocalPosition: {x: -63.3, y: 0, z: -120.99687}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4647761303060946}
@@ -759,12 +759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95dc175cd7e02d468929ba69aed5caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _NavMeshAgent: {fileID: 0}
   EnemyStats: {fileID: 11400000, guid: d6750da742bf3c94a9701682cc5af236, type: 2}
   TargetTower: {fileID: 0}
-  MovementSpeed: 0.1
   DistanceFromTarget: 105.80319
-  CanWalk: 0
   DistanceToTrigger: 1
   CurrentState: 1
   OnEnemyLarvaAttack:
@@ -784,8 +781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Agent: {fileID: 0}
-  TargetGameObject: {fileID: 0}
-  TargetPosition: {x: 0, y: 0, z: 0}
   OnTargetChanged:
     m_PersistentCalls:
       m_Calls:
@@ -802,6 +797,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: EnemyTargetSelectionBehaviour+EventEnemyTargetChanged, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  TargetGameObject: {fileID: 0}
+  TargetPosition: {x: 0, y: 0, z: 0}
+  NavLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!136 &136683122795721642
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,69 +8,67 @@ using UnityEngine.Events;
 public class EnemyTargetSelectionBehaviour : MonoBehaviour
 {
     public NavMeshAgent Agent;
-    public GameObject TargetGameObject;
-    public Vector3 TargetPosition;
 
     public EventEnemyTargetChanged OnTargetChanged = new EventEnemyTargetChanged();
-
-    void Start()
+    public GameObject TargetGameObject;
+    public Vector3 TargetPosition;
+    public LayerMask NavLayerMask;
+    
+    private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        SearchForTarget();
     }
 
-    void SearchForTarget()
+    public void SearchForTarget()
     {
         var validTargets = GameObject.FindGameObjectsWithTag("PlayerTower").ToList();
-        if (validTargets == null || validTargets.Count == 0)
-        {
+        if (validTargets.Count < 1 )
             return;
-        }
         var sortedValidTargets = validTargets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
         TargetGameObject = sortedValidTargets.FirstOrDefault();
         OnTargetChanged.Invoke(TargetGameObject);
         GetDestinationTarget();
     }
 
-    void GetDestinationTarget()
+    private void GetDestinationTarget()
     {
         RaycastHit objectHit;
-
-        if (Physics.Raycast(transform.position, (TargetGameObject.transform.position - transform.position).normalized, out objectHit))
+        var direction = (TargetGameObject.transform.position - transform.position);
+        if (Physics.Raycast(transform.position, direction, out objectHit, Mathf.Infinity, NavLayerMask))
         {
             if (objectHit.collider.gameObject == TargetGameObject)
             {
                 var hitPoint = objectHit.point;
-                TargetPosition = new Vector3(hitPoint.x, transform.position.y, hitPoint.z);
+                TargetPosition = new Vector3(hitPoint.x, 0, hitPoint.z);
                 Agent.destination = TargetPosition;
             }
         }
-    }
-
-    void Update()
-    {
-        if (TargetGameObject == null)
+        else
         {
-            SearchForTarget();
-            return;
+            //todo:: should come up with an alternative for if we miss the raycast, we will set the larva to another layer for now            
         }
     }
+
+    private void Update()
+    {
+        SearchForTarget();
+    }
+
 #if UNITY_EDITOR
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         if (TargetGameObject)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, TargetPosition);
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(transform.position, TargetGameObject.transform.position);
+            //Gizmos.color = Color.yellow;
+            //Gizmos.DrawLine(transform.position, TargetGameObject.transform.position);
         }
     }
 #endif
 
-    [System.Serializable]
+    [Serializable]
     public class EventEnemyTargetChanged : UnityEvent<GameObject>
     {
-
     }
 }

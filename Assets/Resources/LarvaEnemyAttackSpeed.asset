@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a361b491b9e000409cfeac725989fff, type: 3}
   m_Name: LarvaEnemyAttackSpeed
   m_EditorClassIdentifier: 
-  _baseValue: 3
+  _baseValue: 1
   Name: larvaenemyattackspeed
-  Value: 3
+  Value: 1
