@@ -56,7 +56,7 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
             return;
         }
     }
-
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         if (TargetGameObject)
@@ -67,6 +67,7 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
             Gizmos.DrawLine(transform.position, TargetGameObject.transform.position);
         }
     }
+#endif
 
     [System.Serializable]
     public class EventEnemyTargetChanged : UnityEvent<GameObject>
