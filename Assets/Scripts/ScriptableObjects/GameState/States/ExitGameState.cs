@@ -11,7 +11,8 @@ public class ExitGameState : GameState
         
         gsb = game;
         game.SetText("game over");
-        SceneManager.LoadScene(3);
+        if(SceneManager.GetActiveScene().buildIndex != 3)
+            SceneManager.LoadScene(3);
         game.StartCoroutine(Countdown());
 
     }
@@ -19,9 +20,8 @@ public class ExitGameState : GameState
     public override void UpdateState(GameStateBehaviour game)
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             ToState(game, Next);
-        }
+        
     }
 
     public override void OnExit(GameStateBehaviour game)

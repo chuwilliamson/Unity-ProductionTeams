@@ -11,10 +11,5 @@ public class RagdollBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.AddExplosionForce(force, transform.position, 5f);
     }
-    private void OnDisable()
-    {
-        var bp = Instantiate(bloodPool, transform.position, Quaternion.identity);
-        Destroy(bp, 5);
-        Destroy(gameObject, 1);
-    }
+
 }

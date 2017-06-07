@@ -7,10 +7,7 @@ public class GameStateBehaviour : MonoBehaviour
     public Text Text;
     public Slider Slider;
     public string currentState;
-    private void OnEnable()
-    {
-    }
-
+    
     private void Start()
     {
         Current = fsm.Start;
@@ -18,6 +15,7 @@ public class GameStateBehaviour : MonoBehaviour
         Current.OnEnter(this);
         PlayerData.Instance.ForceRefresh();
     }
+
     private void Update()
     {
         Current.UpdateState(this);

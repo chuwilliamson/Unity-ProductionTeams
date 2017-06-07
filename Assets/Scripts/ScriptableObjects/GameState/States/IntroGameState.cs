@@ -10,41 +10,33 @@ public class IntroGameState : GameState
     public override void OnEnter(GameStateBehaviour game)
     {
         base.OnEnter(game);
+        if(SceneManager.GetActiveScene().buildIndex != 1)
+            SceneManager.LoadScene(1);
+        if(UIButtonClicked.OnButtonClicked == null)
+            return;
         UIButtonClicked.OnButtonClicked.AddListener(
             delegate(string val)
             {
                 if(val == "startgame") ToState(game, Next);
             });
+        game.SetText("Welcome to the game. Click the button to begin.");
     }
 
-    
-
-    public override void OnExit(GameStateBehaviour game)
+    public override void UpdateState(GameStateBehaviour game)
     {
-        Debug.Log("exit intro");
-        SceneManager.LoadScene(2);
-    }
-
-    IEnumerator LoadLvl(GameStateBehaviour game)
-    {
-        if(combatSceneLoad == null)
-            combatSceneLoad = SceneManager.LoadSceneAsync(2);
-        combatSceneLoad.allowSceneActivation = false;
-
-        while(!combatSceneLoad.isDone)
+        base.UpdateState(game);
+        if (UIButtonClicked.OnButtonClicked == null)
         {
-            game.SetSlider(combatSceneLoad.progress * 100);
-            if(combatSceneLoad.progress >= .9f)
+            try
             {
-                game.SetSlider(100);
-                game.SetText("Press Any Key to Start");
-                if(Input.GetKeyDown(KeyCode.E))
-                    ToState(game, Next);
+                UIButtonClicked.OnButtonClicked.AddListener(
+                    delegate(string val)
+                    {
+                        if (val == "startgame") ToState(game, Next);
+                    });
             }
-            yield return null;
+            catch{}
         }
-
-        PlayerData.Instance.ForceRefresh();
-        yield return null;
+    
     }
 }

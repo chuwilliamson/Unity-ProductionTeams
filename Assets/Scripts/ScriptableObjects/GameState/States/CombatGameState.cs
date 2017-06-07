@@ -13,16 +13,18 @@ public class CombatGameState : GameState
     public override void OnEnter(GameStateBehaviour game)
     {
         base.OnEnter(game);
+        if(SceneManager.GetActiveScene().buildIndex != 2)
+            SceneManager.LoadScene(2);
         game.SetText(name);
         PlayerData.Instance.ForceRefresh();
         Time.timeScale = 1f;
+        
     }
 
     public override void OnExit(GameStateBehaviour game)
     {
         base.OnExit(game);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
     }
 
     public override void UpdateState(GameStateBehaviour game)

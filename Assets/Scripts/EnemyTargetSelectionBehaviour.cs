@@ -25,6 +25,8 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
         if (validTargets.Count < 1 )
             return;
         var sortedValidTargets = validTargets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
+        if(TargetGameObject == sortedValidTargets.FirstOrDefault())
+            return;
         TargetGameObject = sortedValidTargets.FirstOrDefault();
         OnTargetChanged.Invoke(TargetGameObject);
         GetDestinationTarget();
@@ -52,6 +54,15 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
     private void Update()
     {
         SearchForTarget();
+        if (Agent.isOnOffMeshLink)
+        {
+            Agent.speed = 25f;
+            
+        }
+        else
+        {
+            Agent.speed = 1f;
+        }
     }
 
 #if UNITY_EDITOR
