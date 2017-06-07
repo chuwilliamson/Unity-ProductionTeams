@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(EnemyMovementBehaviour))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyTargetSelectionBehaviour : MonoBehaviour
 {
-    public EnemyMovementBehaviour _MovementBehaviour;
+    public NavMeshAgent Agent;
     public GameObject TargetGameObject;
     public Vector3 TargetPosition;
 
+    public EventEnemyTargetChanged OnTargetChanged = new EventEnemyTargetChanged();
+
     void Start()
     {
-        _MovementBehaviour = GetComponent<EnemyMovementBehaviour>();
+        Agent = GetComponent<NavMeshAgent>();
         SearchForTarget();
     }
 
@@ -25,7 +29,7 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
         }
         var sortedValidTargets = validTargets.OrderBy(x => Vector3.Distance(transform.position, x.transform.position));
         TargetGameObject = sortedValidTargets.FirstOrDefault();
-        _MovementBehaviour.TargetTower = TargetGameObject.transform;
+        OnTargetChanged.Invoke(TargetGameObject);
         GetDestinationTarget();
     }
 
@@ -39,7 +43,7 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
             {
                 var hitPoint = objectHit.point;
                 TargetPosition = new Vector3(hitPoint.x, transform.position.y, hitPoint.z);
-                _MovementBehaviour._NavMeshAgent.destination =TargetPosition;
+                Agent.destination = TargetPosition;
             }
         }
     }
@@ -62,6 +66,11 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(transform.position, TargetGameObject.transform.position);
         }
+    }
+
+    [System.Serializable]
+    public class EventEnemyTargetChanged : UnityEvent<GameObject>
+    {
 
     }
 }

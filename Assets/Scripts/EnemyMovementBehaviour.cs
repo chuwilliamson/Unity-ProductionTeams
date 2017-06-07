@@ -15,8 +15,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
     [SerializeField]
     public Transform TargetTower;
     public float MovementSpeed;
-    public float DistanceFromTarget;
-    public bool CanWalk;
+    public float DistanceFromTarget;    
     [Tooltip("Distance the enemy must be from target to trigger a state change")]
     public float DistanceToTrigger;
    
@@ -36,9 +35,22 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         _NavMeshAgent.speed = MovementSpeed;
     }
 
-    void Start()
+    private float attackTimer;
+    private bool canAttack = true;
+
+    private void Update()
     {
-        StartCoroutine("Idle");
+        if (TargetTower.GetComponent<IDamageable>() == null || CurrentState != States.attack)
+            return;
+
+        if (canAttack)
+            attackTimer += Time.deltaTime;
+
+        if (attackTimer >= EnemyStats.Items["larvaenemyattackspeed"].Value)
+        {
+            canAttack = false;            
+            OnEnemyLarvaAttack.Invoke(this.gameObject);
+        }
     }
 
     IEnumerator Idle()
@@ -51,7 +63,7 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
-            DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
+            DistanceFromTarget = Vector3.Distance(transform.position, _NavMeshAgent.destination);
             transform.LookAt(TargetTower.position);
             if (DistanceFromTarget > DistanceToTrigger)
             {                
@@ -63,26 +75,6 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         }        
     }
 
-    public float attackTimer;
-    public bool canAttack = true;
-
-    private void Update()
-    {
-        if (TargetTower.GetComponent<IDamageable>() == null || CurrentState != States.attack)
-            return;
-
-        if (canAttack)
-            attackTimer += Time.deltaTime;
-
-        if (attackTimer >= EnemyStats.Items["larvaenemyattackspeed"].Value)
-        {
-            canAttack = false;
-            OnEnemyLarvaAttack.Invoke(this.gameObject);
-        }
-    }
-
-
-
     IEnumerator Walk()
     {
         int LoopCounter = 0;
@@ -91,11 +83,18 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         while (LoopCounter <= 1000)
         {
             LoopCounter++;
-            DistanceFromTarget = Vector3.Distance(transform.position, TargetTower.position);
+            DistanceFromTarget = Vector3.Distance(transform.position, _NavMeshAgent.destination);
             if (DistanceFromTarget <= DistanceToTrigger)
                 yield return StartCoroutine("Idle");
             yield return null;
         }
+    }
+
+    public void ChangeTarget(GameObject otherTarget)
+    {
+        StopAllCoroutines();
+        TargetTower = otherTarget.transform;
+        StartCoroutine("Idle");
     }
 
     public void ResetAttackTimer()
@@ -109,19 +108,19 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         canAttack = true;
     }
 
-    public void DoDamage()
+    public void Attack()
     {
-        TargetTower.GetComponent<IDamageable>().TakeDamage(10);
+        DoDamage(TargetTower.GetComponent<IDamageable>());
+    }  
+
+    public void DoDamage(IDamageable target)
+    {
+        target.TakeDamage(10);
     }
 
     [System.Serializable]
     public class EventEnemyLarvaAttack : UnityEvent<GameObject>
     {
-        
-    }
 
-    public void DoDamage(IDamageable target)
-    {
-        target.TakeDamage(10);
     }
 }

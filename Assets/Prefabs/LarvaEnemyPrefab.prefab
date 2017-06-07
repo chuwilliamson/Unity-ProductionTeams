@@ -196,9 +196,9 @@ GameObject:
   - component: {fileID: 195865030120654384}
   - component: {fileID: 114436938229565894}
   - component: {fileID: 114127598152120876}
+  - component: {fileID: 114926339122725144}
   - component: {fileID: 54435006518297154}
   - component: {fileID: 82841836553968662}
-  - component: {fileID: 114926339122725144}
   m_Layer: 0
   m_Name: LarvaEnemyPrefab
   m_TagString: Enemy
@@ -772,8 +772,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: EnemyMovementBehaviour+EventEnemyLarvaAttack, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  attackTimer: 0
-  canAttack: 1
 --- !u!114 &114926339122725144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -785,9 +783,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25931c2d77566884cb6d815d00233e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MovementBehaviour: {fileID: 0}
+  Agent: {fileID: 0}
   TargetGameObject: {fileID: 0}
   TargetPosition: {x: 0, y: 0, z: 0}
+  OnTargetChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114436938229565894}
+        m_MethodName: ChangeTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: EnemyTargetSelectionBehaviour+EventEnemyTargetChanged, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!136 &136683122795721642
 CapsuleCollider:
   m_ObjectHideFlags: 1
