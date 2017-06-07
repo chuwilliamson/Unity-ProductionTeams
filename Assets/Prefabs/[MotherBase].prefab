@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54503747623348508}
   - component: {fileID: 135808976735600768}
   - component: {fileID: 114809959347062344}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleShieldPrefab
   m_TagString: PlayerTower
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4205903529945276}
   - component: {fileID: 208776959905769234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NavCarve (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 54403821821730440}
   - component: {fileID: 135638592937000564}
   - component: {fileID: 114263718697866276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleShieldPrefab (1)
   m_TagString: PlayerTower
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 114701064032755472}
   - component: {fileID: 114560126677133966}
   - component: {fileID: 114225019694154742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleShieldPrefab-Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626914809707800}
   - component: {fileID: 208239823212665452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NavCarve (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330887555496022}
   - component: {fileID: 208223225003278328}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NavCarve (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 135568788852618996}
   - component: {fileID: 114694186975289640}
   - component: {fileID: 114214229862715860}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleShieldPrefab (2)
   m_TagString: PlayerTower
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4447624943260264}
   - component: {fileID: 208741094190014456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NavCarve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207560598689698}
   - component: {fileID: 208364382283150508}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NavCarve (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 54429719568805926}
   - component: {fileID: 135481297772765924}
   - component: {fileID: 114470874170652996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BubbleShieldPrefab (3)
   m_TagString: PlayerTower
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 23899197454935138}
   - component: {fileID: 114119710238806970}
   - component: {fileID: 54969219626628630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: '[MotherBase]'
   m_TagString: PlayerTower
   m_Icon: {fileID: 0}
