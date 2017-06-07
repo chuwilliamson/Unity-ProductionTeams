@@ -64,7 +64,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         }
         if (value == "contact")
         {
-            GetComponent<EnemyMovementBehaviour>().DoDamage();
+            GetComponent<EnemyMovementBehaviour>().Attack();
         }
         if (value == "end")
         {
