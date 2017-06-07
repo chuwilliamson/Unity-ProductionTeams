@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 208758534245194780}
   - component: {fileID: 82350336236445112}
   - component: {fileID: 114976088086445700}
+  - component: {fileID: 114640281256830784}
   m_Layer: 2
   m_Name: SimpleTower
   m_TagString: Untagged
@@ -916,13 +917,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571070031690662}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.7475128, y: 0.5, z: 3.3414764}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4773606214735726}
   m_Father: {fileID: 4565488602763626}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90.00001}
 --- !u!4 &4427956909271070
 Transform:
   m_ObjectHideFlags: 1
@@ -1074,7 +1075,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800858869067882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.2, y: 0, z: -70.5}
+  m_LocalPosition: {x: -72, y: 0, z: -50.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4409547661381462}
@@ -1383,7 +1384,7 @@ Animator:
   m_GameObject: {fileID: 1800858869067882}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4cd025011af6bd249be34f3f68b57615, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef75bd3f107334148910c343c1cab005, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1486,6 +1487,17 @@ MonoBehaviour:
     m_TypeName: TowerShootingBehaviour+EventShotEnded, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   timer: 0.02
+--- !u!114 &114640281256830784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800858869067882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42e82aec6edcd942b9284b17d931f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114976088086445700
 MonoBehaviour:
   m_ObjectHideFlags: 1

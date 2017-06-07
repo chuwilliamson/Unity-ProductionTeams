@@ -109,6 +109,47 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: 9145afd0918a011479f61bc699610df6, type: 2}
+--- !u!1 &25022310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 25022312}
+  - component: {fileID: 25022311}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &25022311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25022310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14268289b04e064997cc5d68ddf8b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epicTimes: 0.2
+--- !u!4 &25022312
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 25022310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -56.2, y: 0, z: -70.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 48
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &26710396
 Prefab:
   m_ObjectHideFlags: 0
@@ -934,6 +975,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98c1f35afdbd62b408154c094b69f257, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &749985318 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1800858869067882, guid: 48f29a454298f9546b6e061a048c0890,
+    type: 2}
+  m_PrefabInternal: {fileID: 1262983460}
+--- !u!114 &749985331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 749985318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b6bbb112f75744890c3e482b1ebb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ac: {fileID: 0}
+  shotFired: {fileID: 8300000, guid: 757bd8d3393e940f7a1fdf26999c6787, type: 3}
 --- !u!1001 &752646544
 Prefab:
   m_ObjectHideFlags: 0
@@ -1421,7 +1480,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
@@ -1453,7 +1512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5adfed4ce541c034888cee4f8a8945fb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.065
+  m_Volume: 0.536
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2265,7 +2324,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
@@ -2311,7 +2370,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1800858869067882, guid: 48f29a454298f9546b6e061a048c0890, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82350336236445112, guid: 48f29a454298f9546b6e061a048c0890,
+        type: 2}
+      propertyPath: MinDistance
+      value: 12.967361
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f29a454298f9546b6e061a048c0890, type: 2}
@@ -3722,7 +3786,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1704590338252530, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970655629468b0e4d962f7dc536648b2, type: 2}
