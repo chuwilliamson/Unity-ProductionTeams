@@ -762,13 +762,15 @@ MonoBehaviour:
   EnemyStats: {fileID: 11400000, guid: d6750da742bf3c94a9701682cc5af236, type: 2}
   TargetTower: {fileID: 0}
   DistanceFromTarget: 105.80319
-  DistanceToTrigger: 1
+  DistanceToTrigger: 3
   CurrentState: 1
   OnEnemyLarvaAttack:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: EnemyMovementBehaviour+EventEnemyLarvaAttack, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  attackTimer: 0
+  canAttack: 1
 --- !u!114 &114926339122725144
 MonoBehaviour:
   m_ObjectHideFlags: 1
