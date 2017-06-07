@@ -40,6 +40,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     private void Update()
     {
+        if(TargetTower == null)
+            return;
         if (TargetTower.GetComponent<IDamageable>() == null || CurrentState != States.attack)
             return;
 
@@ -62,6 +64,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         _NavMeshAgent.isStopped = true;                        
         while (LoopCounter <= 1000)
         {
+            if (TargetTower == null)
+                break;
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, _NavMeshAgent.destination);
             transform.LookAt(TargetTower.position);
@@ -82,6 +86,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
         _NavMeshAgent.isStopped = false;
         while (LoopCounter <= 1000)
         {
+            if (TargetTower == null)
+                break;
             LoopCounter++;
             DistanceFromTarget = Vector3.Distance(transform.position, _NavMeshAgent.destination);
             if (DistanceFromTarget <= DistanceToTrigger)
@@ -110,6 +116,8 @@ public class EnemyMovementBehaviour : MonoBehaviour, IDamager
 
     public void Attack()
     {
+        if(TargetTower == null)
+            return;
         DoDamage(TargetTower.GetComponent<IDamageable>());
     }  
 
