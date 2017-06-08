@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 4270433799639106}
   - component: {fileID: 95486580918589986}
   m_Layer: 0
-  m_Name: LarvaLoad
+  m_Name: LarvaLoadPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

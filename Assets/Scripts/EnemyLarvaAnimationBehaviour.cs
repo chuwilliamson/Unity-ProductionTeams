@@ -25,7 +25,6 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     public float MAXSPEED = 25f;
     public EnemyLarvaDead OnDead = new EnemyLarvaDead();
     public GameObject ragdollPrefab;
-    private Rigidbody rb;
     private float startVelocity;
 
     public void TakeDamage(int amount)
@@ -49,7 +48,6 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         asource = GetComponent<AudioSource>();
-        rb = GetComponent<Rigidbody>();
         HealthStat = Instantiate(HealthStat);
         anim.SetFloat(HEALTH, HealthStat.Value);
         startVelocity = agent.speed;

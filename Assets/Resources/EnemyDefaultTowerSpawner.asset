@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a018fd0557bf2428c5708064439034, type: 3}
   m_Name: EnemyDefaultTowerSpawner
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
-  SpawnDelayInSeconds: 5
+  EnemyPrefab: {fileID: 1654955964778480, guid: 59de8ec9a400f0140b49257eeaf930b2,
+    type: 2}
+  SpawnDelayInSeconds: 1

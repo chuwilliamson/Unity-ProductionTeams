@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 54435006518297154}
   - component: {fileID: 82841836553968662}
   m_Layer: 0
-  m_Name: LarvaEnemyPrefab
+  m_Name: EnemyLarvaPrefab
   m_TagString: Enemy
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -298,8 +298,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654955964778480}
   m_LocalRotation: {x: -0.020443885, y: -0.006902031, z: 0.00013883047, w: -0.9997672}
-  m_LocalPosition: {x: -109.615234, y: 3.035, z: -70.15}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -109.53, y: 0.18, z: -64.04}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4984615652377250}
   - {fileID: 4647761303060946}
@@ -538,18 +538,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 25275ce4d1462764583a54ac13df88fb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7549ccc73d310944bb94ac06ac3d1ea9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.221
-  m_Pitch: 0.53
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 227
-  DopplerLevel: 3.2
-  MinDistance: 5
-  MaxDistance: 21.46
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 5.5
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -590,7 +590,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

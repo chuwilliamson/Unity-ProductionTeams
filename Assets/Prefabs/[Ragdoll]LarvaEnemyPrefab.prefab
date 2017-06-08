@@ -253,8 +253,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4659136094681314}
-  - component: {fileID: 136325731935888304}
   - component: {fileID: 114648002804421650}
+  - component: {fileID: 136325731935888304}
   - component: {fileID: 54592174413667750}
   m_Layer: 0
   m_Name: '[Ragdoll]LarvaEnemyPrefab'

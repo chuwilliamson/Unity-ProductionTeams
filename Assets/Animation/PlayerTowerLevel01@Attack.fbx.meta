@@ -52,7 +52,7 @@ ModelImporter:
     4300012: Turret10
     4300014: TurretGun
     4300016: HexCylinder
-    7400000: Take 001
+    7400000: Attack
     9500000: //RootNode
     13700000: BaseLevel
     13700002: HexCylinder
@@ -85,7 +85,89 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.2450331
+        functionName: OnRecoilStart
+        data: 
+        objectReferenceParameter: {fileID: 1800858869067882, guid: 48f29a454298f9546b6e061a048c0890,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.397351
+        functionName: OnRecoilEnd
+        data: 
+        objectReferenceParameter: {fileID: 1800858869067882, guid: 48f29a454298f9546b6e061a048c0890,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt/PlayerTower_Level01Root_AuxSHJnt
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt/PlayerTower_Level01Root_AuxSHJnt/PlayerTower_Level01Turret_AuxSHJnt
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt/PlayerTower_Level01Root_AuxSHJnt/PlayerTower_Level02Root_AuxSHJnt
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt/PlayerTower_Level01Root_AuxSHJnt/PlayerTower_Level02Root_AuxSHJnt/PlayerTower_Level02Turret_AuxSHJnt
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt/PlayerTower_Level01Root_AuxSHJnt/PlayerTower_Level02Root_AuxSHJnt/PlayerTower_Level03Root_AuxSHJnt
+        weight: 1
+      - path: PlayerTower_ROOTSHJnt/PlayerTower_Level01Root_AuxSHJnt/PlayerTower_Level02Root_AuxSHJnt/PlayerTower_Level03Root_AuxSHJnt/PlayerTower_Level03Turret_AuxSHJnt
+        weight: 1
+      - path: PlayerTowerAllGRP
+        weight: 1
+      - path: PlayerTowerAllGRP/BaseLevel
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/HexCylinder
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/Level01
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/LevelSeparator
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/Turret
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/Turret8
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/Turret9
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/Turret10
+        weight: 1
+      - path: PlayerTowerAllGRP/PlayerTowerLevel01GRP/TurretGun
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

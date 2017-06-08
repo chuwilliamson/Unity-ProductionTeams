@@ -8,9 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a018fd0557bf2428c5708064439034, type: 3}
-  m_Name: EnemyLarvaSpawner 1
+  m_Script: {fileID: 11500000, guid: 18490f98190b5b34b8807ba61c1a08f1, type: 3}
+  m_Name: AudioPlayOneShot
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 1654955964778480, guid: 59de8ec9a400f0140b49257eeaf930b2,
-    type: 2}
-  SpawnDelayInSeconds: 2

@@ -439,7 +439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1720086164003272
 GameObject:
   m_ObjectHideFlags: 1
@@ -1225,16 +1225,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: df5af5ad87cf9d5438e14e9ac98cc55e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.221
-  m_Pitch: 0
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 227
-  DopplerLevel: 3.2
-  MinDistance: 5
-  MaxDistance: 21.46
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 5.5
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1275,7 +1275,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

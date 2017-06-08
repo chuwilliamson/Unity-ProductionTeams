@@ -5,18 +5,34 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class TowerAudioBehaviour : MonoBehaviour
 {
-    public AudioSource ac;
+    private AudioSource audioSource;
     public AudioClip shotFired;
+    public AudioClip targetAcquired;
 
     private void Start()
     {
-        ac = GetComponent<AudioSource>();
-        GetComponent<TowerShootingBehaviour>().OnShotFiredBegin.AddListener(PlayShotFired);
+        audioSource = GetComponent<AudioSource>();
     }
+
     // Use this for initialization
     public void PlayShotFired(GameObject go)
     {
-        ac.clip = shotFired;
-        ac.Play();
+        PlayClip(shotFired);
+    }
+
+    public GameObject target;
+    public void PlayTargetAcquired(GameObject go)
+    {
+        if(go == null)
+            return;
+        
+        PlayClip(targetAcquired);
+    }
+
+    private void PlayClip(AudioClip ac)
+    {
+        audioSource.Stop();
+        audioSource.clip = ac;
+        audioSource.Play();
     }
 }

@@ -34,6 +34,7 @@ public class TowerTargetingBehaviour : MonoBehaviour
         if (other.GetComponent<EnemyMovementBehaviour>())
         {
             Targets.Add(other.GetComponent<EnemyMovementBehaviour>());
+
         }
         FindClosestTarget();
     }
@@ -95,6 +96,7 @@ public class TowerTargetingBehaviour : MonoBehaviour
         OnTargetChanged.Invoke(CurrentTarget.gameObject);
     }
 
+    [System.Serializable]
     public class EventTargetChanged : UnityEvent<GameObject>
     { }
 }   
