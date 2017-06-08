@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d7cdf6e61326ff44f91f71353be18a37
+timeCreated: 1496894305
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Edge Racer Expanded Super-Italic
+  fontNames:
+  - Edge Racer Expanded Super-Italic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
