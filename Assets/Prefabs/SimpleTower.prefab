@@ -1076,7 +1076,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800858869067882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.2, y: 0, z: -70.5}
+  m_LocalPosition: {x: -42.3, y: 0, z: -45.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4409547661381462}
@@ -1307,13 +1307,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 025aa80ce83394dbb984ac462d965da6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.221
+  m_Volume: 0.681
   m_Pitch: 0.53
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 227
+  Priority: 8
   DopplerLevel: 3.2
   MinDistance: 5
   MaxDistance: 21.46
@@ -1345,7 +1345,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 0.281
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1407,7 +1407,7 @@ MonoBehaviour:
   TowerTargetingStats: {fileID: 11400000, guid: 25d59aae223fb3d428dba0573898db59,
     type: 2}
   Targets: []
-  RotationJoint: {fileID: 1932629978500944}
+  RotationJoint: {fileID: 1800858869067882}
   MinVerticalRotation: -0.1
   MaxVerticalRotation: 0.1
 --- !u!114 &114254900054231180

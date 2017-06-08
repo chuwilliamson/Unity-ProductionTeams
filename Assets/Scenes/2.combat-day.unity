@@ -445,11 +445,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d9c66be5037f8540a4b3ab2e7a0445d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &75210874 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1800858869067882, guid: 48f29a454298f9546b6e061a048c0890,
-    type: 2}
-  m_PrefabInternal: {fileID: 1262983460}
 --- !u!1 &141357826
 GameObject:
   m_ObjectHideFlags: 0
@@ -12216,11 +12211,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114091206412828832, guid: 48f29a454298f9546b6e061a048c0890,
-        type: 2}
-      propertyPath: RotationJoint
-      value: 
-      objectReference: {fileID: 75210874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48f29a454298f9546b6e061a048c0890, type: 2}
   m_IsPrefabParent: 0
