@@ -22,7 +22,7 @@ GameObject:
   m_Layer: 0
   m_Name: JumpPoint-End
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -3701561207968579530, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -38,7 +38,7 @@ GameObject:
   m_Layer: 0
   m_Name: JumpPoint-Start
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -982381405332843317, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -49,7 +49,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349851080297758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.69, y: 5.04, z: -12.86}
+  m_LocalPosition: {x: 0.06, y: -7.42, z: -10.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4485955337236598}
@@ -61,8 +61,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377293952600500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -91.97131, y: 10.079308, z: -2.9033356}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 102.33, y: 8.19, z: -41.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4259398248141230}
@@ -81,7 +81,7 @@ OffMeshLink:
   m_AgentTypeID: 0
   m_Start: {fileID: 4485955337236598}
   m_End: {fileID: 4259398248141230}
-  m_CostOverride: -1
+  m_CostOverride: -3
   m_BiDirectional: 0
   m_Activated: 1
   m_AutoUpdatePositions: 1

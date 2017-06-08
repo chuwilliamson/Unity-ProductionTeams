@@ -30,8 +30,6 @@ public class CombatGameState : GameState
 
     public override void UpdateState(GameStateBehaviour game)
     {
-        if(SceneManager.GetActiveScene().buildIndex != 2)
-            return;
         if (timer >= goldTimer)
         {
             timer = 0;
@@ -39,29 +37,25 @@ public class CombatGameState : GameState
         }
 
         timer += Time.deltaTime;
-        var wincondition = game.WinCondition;
-        var losecondition = game.LoseCondition;
-        if (wincondition)
+        
+        if (game.WinCondition)
         {
             game.Text.gameObject.SetActive(true);
             game.SetText("You win. r To restart");
             game.Text.transform.localPosition = Vector3.zero;
             Time.timeScale = .1f;
-
         }
             
-        if (losecondition)
+        if(game.LoseCondition)
         {
             game.SetText("You lose. r To restart");
-            Time.timeScale = 0f;
+            Time.timeScale = .1f;
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             ToState(game, Previous);
             PlayerData.Instance.ResetGame();
         }
-            
 
         if (Input.GetKeyDown(KeyCode.Escape))
             ToState(game, Next);

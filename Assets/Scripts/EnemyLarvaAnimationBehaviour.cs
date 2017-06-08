@@ -96,9 +96,9 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 
     private void MoveEnd()
     {
-        if (agent)
+        if(agent == null) return;
             agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
-        agent.GetComponent<EnemyTargetSelectionBehaviour>().SearchForTarget();
+        agent.SetDestination(GetComponent<EnemyTargetSelectionBehaviour>().TargetPosition);
     }
 
     private void DeathEnd()
