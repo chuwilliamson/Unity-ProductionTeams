@@ -54,15 +54,7 @@ public class EnemyTargetSelectionBehaviour : MonoBehaviour
     private void Update()
     {
         SearchForTarget();
-        if (Agent.isOnOffMeshLink)
-        {
-            Agent.speed = 25f;
-            
-        }
-        else
-        {
-            Agent.speed = 1f;
-        }
+ 
     }
 
 #if UNITY_EDITOR

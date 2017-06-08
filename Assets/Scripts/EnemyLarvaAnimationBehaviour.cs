@@ -4,17 +4,17 @@ using UnityEngine.Events;
 
 public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
 {
-    readonly int ATTACK = Animator.StringToHash("attack");
+    private readonly int ATTACK = Animator.StringToHash("attack");
 
-    readonly int HEALTH = Animator.StringToHash("health");
+    private readonly int HEALTH = Animator.StringToHash("health");
 
     //idle->move: attack dead
-    readonly int SPEED = Animator.StringToHash("speed");
+    private readonly int SPEED = Animator.StringToHash("speed");
 
-    NavMeshAgent agent;
-    Animator anim;
+    private NavMeshAgent agent;
+    private Animator anim;
     public float animspeed;
-    AudioSource asource;
+    private AudioSource asource;
     public AudioClip[] audioclips;
 
     public bool dead;
@@ -25,8 +25,8 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     public float MAXSPEED = 25f;
     public EnemyLarvaDead OnDead = new EnemyLarvaDead();
     public GameObject ragdollPrefab;
-    Rigidbody rb;
-    float startVelocity;
+    private Rigidbody rb;
+    private float startVelocity;
 
     public void TakeDamage(int amount)
     {
@@ -44,7 +44,7 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
-    void Start()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -52,39 +52,38 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody>();
         HealthStat = Instantiate(HealthStat);
         anim.SetFloat(HEALTH, HealthStat.Value);
-        startVelocity = agent.velocity.magnitude;
+        startVelocity = agent.speed;
         GetComponent<EnemyMovementBehaviour>().OnEnemyLarvaAttack.AddListener(onAttack);
     }
 
     public void AttackAnimation(string value)
     {
         if (value == "start")
-        {
             GetComponent<EnemyMovementBehaviour>().ResetAttackTimer();
-        }
         if (value == "contact")
-        {
             GetComponent<EnemyMovementBehaviour>().Attack();
-        }
         if (value == "end")
-        {
             GetComponent<EnemyMovementBehaviour>().StartAttackTimer();
-        }
     }
 
-    void onAttack(GameObject go)
+    private void onAttack(GameObject go)
     {
         if (go != gameObject) return;
         anim.SetTrigger(ATTACK);
     }
 
-    void LateUpdate()
+    private void Update()
+    {
+        agent.speed = agent.isOnOffMeshLink ? MAXSPEED : startVelocity;
+    }
+
+    private void LateUpdate()
     {
         animspeed = agent.velocity.magnitude;
         anim.SetFloat(SPEED, animspeed);
     }
 
-    void MoveStart()
+    private void MoveStart()
     {
         if (agent == null) return;
         agent.velocity = agent.transform.forward * MAXSPEED;
@@ -95,13 +94,14 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
         asource.Play();
     }
 
-    void MoveEnd()
+    private void MoveEnd()
     {
         if (agent)
             agent.velocity = Vector3.ClampMagnitude(agent.velocity, startVelocity);
+        agent.GetComponent<EnemyTargetSelectionBehaviour>().SearchForTarget();
     }
 
-    void DeathEnd()
+    private void DeathEnd()
     {
         asource.Stop();
         asource.clip = deathAudio;
@@ -109,7 +109,5 @@ public class EnemyLarvaAnimationBehaviour : MonoBehaviour, IDamageable
     }
 
 
-    public class EnemyLarvaDead : UnityEvent<IDamageable>
-    {
-    }
+    public class EnemyLarvaDead : UnityEvent<IDamageable> { }
 }
