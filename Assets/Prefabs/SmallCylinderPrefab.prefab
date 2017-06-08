@@ -22,9 +22,11 @@ GameObject:
   - component: {fileID: 33844567265608708}
   - component: {fileID: 23087857047725722}
   - component: {fileID: 95396612013224350}
-  m_Layer: 0
+  - component: {fileID: 65572805758851036}
+  - component: {fileID: 114533103879119764}
+  m_Layer: 10
   m_Name: SmallCylinderPrefab
-  m_TagString: Untagged
+  m_TagString: PlayerTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210290805975880}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -73.84, y: -0.12, z: -98.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,6 +83,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210290805975880}
   m_Mesh: {fileID: 4300000, guid: 9763ebf54a7a7644d9f57ecde8820379, type: 3}
+--- !u!65 &65572805758851036
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210290805975880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.91973, y: 3.5975742, z: 2.91973}
+  m_Center: {x: 0, y: 1.7907906, z: 0}
 --- !u!95 &95396612013224350
 Animator:
   serializedVersion: 3
@@ -98,3 +112,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114533103879119764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210290805975880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db48c574ae1d864398dcf52a33c2577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthStat: {fileID: 11400000, guid: 7d9dd6574c4e2c043a704d9423034bfe, type: 2}
+  deathParticles: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
+    type: 2}

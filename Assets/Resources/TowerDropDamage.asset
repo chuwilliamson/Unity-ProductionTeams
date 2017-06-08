@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a361b491b9e000409cfeac725989fff, type: 3}
-  m_Name: MotherBaseHealth
+  m_Name: TowerDropDamage
   m_EditorClassIdentifier: 
-  _baseValue: 100
-  Name: motherbasehealth
-  Value: 100
+  _baseValue: 250
+  Name: towerdropdamage
+  Value: 250

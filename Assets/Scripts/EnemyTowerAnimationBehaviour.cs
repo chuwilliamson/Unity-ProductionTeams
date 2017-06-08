@@ -25,7 +25,6 @@ public class EnemyTowerAnimationBehaviour : MonoBehaviour, IDamageable
         if (newhealth >= 1) return;
         PlayerData.Instance.GainExperience(ExperienceYield);
         PlayerData.Instance.GainGold(GoldYield);
-        PlayerData.Instance.GainKills();
         PlayerData.Instance.GainBossKills();
     }
 

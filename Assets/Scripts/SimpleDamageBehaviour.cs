@@ -29,7 +29,7 @@ public class SimpleDamageBehaviour : MonoBehaviour, IDamageable
         OnDead.AddListener(onDied);
     }
 
-    private void onDied(Stat s)
+    protected virtual void onDied(Stat s)
     {
         Destroy(gameObject);
     }

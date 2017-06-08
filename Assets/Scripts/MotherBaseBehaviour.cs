@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class MotherBaseBehaviour : SimpleDamageBehaviour
 {
-    public override void TakeDamage(int amount)
+    public GameObject deathParticles;
+
+    protected override void onDied(Stat s)
     {
-        base.TakeDamage(amount);
+        var go = Instantiate(deathParticles, transform.position, Quaternion.identity);
+        Destroy(go, 2f);
+        base.onDied(s);
     }
+
     // Use this for initialization 
 }

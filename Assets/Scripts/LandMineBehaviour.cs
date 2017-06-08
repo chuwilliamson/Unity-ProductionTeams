@@ -6,19 +6,22 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
     AudioSource asource;
     public bool collided;
     public bool landed;
-    public int DamageAmount;
+    public Stat damage;
+    public Stat goldCost;
     public Stat dropForce;
     public List<IDamageable> enemiesinRadius;
-    public GameObject explosion;
+    //audioclips
     public AudioClip explosionClip;
     public AudioClip landClip;
+    //particles
+    public GameObject explosion;
     public GameObject landSmoke;
     Rigidbody rb;
 
     public void DoDamage(IDamageable target)
     {
         if(target == null) return;
-        target.TakeDamage(DamageAmount);
+        target.TakeDamage(damage.Value);
     }
 
     void Start()

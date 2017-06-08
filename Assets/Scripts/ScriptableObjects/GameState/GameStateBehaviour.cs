@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 public class GameStateBehaviour : MonoBehaviour
 {
@@ -44,8 +45,15 @@ public class GameStateBehaviour : MonoBehaviour
         get { return FindObjectOfType<MotherBaseBehaviour>().HealthStat.Value < 1; }
     }
 
+    [SerializeField]
+    private int sum;
     public bool WinCondition
     {
-        get {return PlayerData.Instance.BossKills >= 3; }
+        get
+        {
+            var spawners = FindObjectsOfType<EnemyTowerSpawningBehaviour>();
+            sum = spawners.Sum(s => s.maxEnemies);
+            return PlayerData.Instance.BossKills >= 3 && PlayerData.Instance.Kills >= sum;
+        }
     }
 }

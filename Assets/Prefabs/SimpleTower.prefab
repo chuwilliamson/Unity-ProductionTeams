@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 82350336236445112}
   - component: {fileID: 114976088086445700}
   - component: {fileID: 114640281256830784}
+  - component: {fileID: 114800984721271352}
   m_Layer: 2
   m_Name: SimpleTower
   m_TagString: Untagged
@@ -1075,7 +1076,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800858869067882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -72, y: 0, z: -50.5}
+  m_LocalPosition: {x: -56.2, y: 0, z: -70.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4409547661381462}
@@ -1293,8 +1294,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.403748, y: 2.819398, z: 10.54297}
-  m_Center: {x: 0.5, y: 1.6341987, z: 3.2966847}
+  m_Size: {x: 9.245838, y: 2.819398, z: 9.995232}
+  m_Center: {x: 0.006219864, y: 1.6341987, z: 0.034763336}
 --- !u!82 &82350336236445112
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1304,7 +1305,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e4c609fba48424a18ab56c47b7941a05, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 025aa80ce83394dbb984ac462d965da6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.221
   m_Pitch: 0.53
@@ -1422,11 +1423,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collided: 0
   landed: 0
-  DamageAmount: 25
+  damage: {fileID: 11400000, guid: d6eb0e8bd9cb2de4e843b88df19b3cc0, type: 2}
+  goldCost: {fileID: 11400000, guid: 9dac84029b8280b4f83995455edb89c0, type: 2}
   dropForce: {fileID: 11400000, guid: e4197bd1f17bf2b45a87b1743b72b67f, type: 2}
-  explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
   explosionClip: {fileID: 8300000, guid: 47cf73de08e26464e984173bc489e11d, type: 3}
   landClip: {fileID: 8300000, guid: e4c609fba48424a18ab56c47b7941a05, type: 3}
+  explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
   landSmoke: {fileID: 1435637881069060, guid: 98c1f35afdbd62b408154c094b69f257, type: 2}
 --- !u!114 &114552561079909204
 MonoBehaviour:
@@ -1498,6 +1500,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42e82aec6edcd942b9284b17d931f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114800984721271352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800858869067882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b6bbb112f75744890c3e482b1ebb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ac: {fileID: 0}
+  shotFired: {fileID: 8300000, guid: 757bd8d3393e940f7a1fdf26999c6787, type: 3}
 --- !u!114 &114976088086445700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2879,10 +2894,10 @@ NavMeshObstacle:
   m_GameObject: {fileID: 1800858869067882}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 4.75, y: 1.985, z: 4.35}
+  m_Shape: 0
+  m_Extents: {x: 3.41, y: 1, z: 3.41}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 1.32, y: 0, z: 3.28}
+  m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5

@@ -13,6 +13,7 @@ public class CombatGameState : GameState
     public override void OnEnter(GameStateBehaviour game)
     {
         base.OnEnter(game);
+        game.Text.gameObject.SetActive(false);
         if(SceneManager.GetActiveScene().buildIndex != 2)
             SceneManager.LoadScene(2);
         game.SetText(name);
@@ -41,7 +42,14 @@ public class CombatGameState : GameState
         var wincondition = game.WinCondition;
         var losecondition = game.LoseCondition;
         if (wincondition)
+        {
+            game.Text.gameObject.SetActive(true);
             game.SetText("You win. r To restart");
+            game.Text.transform.localPosition = Vector3.zero;
+            Time.timeScale = .1f;
+
+        }
+            
         if (losecondition)
         {
             game.SetText("You lose. r To restart");
