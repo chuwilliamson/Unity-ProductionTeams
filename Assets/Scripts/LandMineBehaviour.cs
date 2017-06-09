@@ -4,23 +4,42 @@ using UnityEngine;
 public class LandMineBehaviour : MonoBehaviour, IDamager
 {
     AudioSource asource;
+
     public bool collided;
-    public bool landed;
-    public Stat damage;
-    public Stat goldCost;
-    public Stat dropForce;
+
+    [SerializeField] Stat damage;
+
+    [SerializeField] Stat dropForce;
+
     public List<IDamageable> enemiesinRadius;
-    //audioclips
-    public AudioClip explosionClip;
-    public AudioClip landClip;
+
     //particles
     public GameObject explosion;
+
+    //audioclips
+    public AudioClip explosionClip;
+
+    [SerializeField] Stat gold;
+
+
+    public AudioClip landClip;
+    public bool landed;
     public GameObject landSmoke;
     Rigidbody rb;
 
+    public int DropForce
+    {
+        get { return dropForce.Value; }
+    }
+
+    public int GoldCost
+    {
+        get { return gold.Value; }
+    }
+
     public void DoDamage(IDamageable target)
     {
-        if(target == null) return;
+        if (target == null) return;
         target.TakeDamage(damage.Value);
     }
 
@@ -28,7 +47,7 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
     {
         enemiesinRadius = new List<IDamageable>();
         asource = GetComponent<AudioSource>();
-        if(!dropForce)
+        if (!dropForce)
             dropForce = Resources.Load<Stat>("DropForce");
         dropForce = Instantiate(dropForce);
         rb = GetComponent<Rigidbody>();
@@ -36,7 +55,7 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyLarvaAnimationBehaviour>().OnDead.AddListener(RemoveFromEnemyList);
             enemiesinRadius.Add(other.GetComponent<IDamageable>());
@@ -45,21 +64,21 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
 
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
             RemoveFromEnemyList(other.GetComponent<IDamageable>());
     }
 
     public void RemoveFromEnemyList(IDamageable enemy)
     {
-        if(enemiesinRadius.Contains(enemy))
+        if (enemiesinRadius.Contains(enemy))
             enemiesinRadius.Remove(enemy);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            if(landed) return;
+            if (landed) return;
             landed = true;
             rb.freezeRotation = true;
             asource.clip = landClip;
@@ -67,9 +86,9 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             SpawnSmoke(gameObject);
         }
 
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            if(collided) return;
+            if (collided) return;
             collided = true;
             asource.clip = explosionClip;
             asource.Play();
@@ -78,7 +97,7 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             GetComponent<SimpleDamageBehaviour>().TakeDamage(25);
         }
 
-        if(collision.gameObject.CompareTag("Ragdoll"))
+        if (collision.gameObject.CompareTag("Ragdoll"))
         {
             rb.isKinematic = true;
             collision.gameObject.SetActive(false);
@@ -86,7 +105,7 @@ public class LandMineBehaviour : MonoBehaviour, IDamager
             rb.AddForce(Vector3.down * 15f, ForceMode.Impulse);
         }
     }
- 
+
 
     public void SpawnSmoke(GameObject target)
     {

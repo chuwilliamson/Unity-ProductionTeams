@@ -6,21 +6,19 @@ using UnityEditor;
 #endif
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "PlayerData")]
-public class PlayerData : ScriptableSingleton<PlayerData>
+public class PlayerData : ScriptableSingleton<PlayerData>, IDamageable
 {
-    public enum PlayerDataStats
-    {
-        Experience,
-        Gold,
-        Kills
-    }
-
     public OnPlayerDataChanged onExperienceChanged = new OnPlayerDataChanged();
     public OnPlayerDataChanged onGoldChanged = new OnPlayerDataChanged();
     public OnPlayerDataChanged onKillsChanged = new OnPlayerDataChanged();
     public OnPlayerDataChanged onStatsChanged = new OnPlayerDataChanged();
 
     public Stats stats;
+
+    public int Health
+    {
+        get { return stats["playerhealth"].Value; }
+    }
 
     public int Gold
     {
@@ -42,12 +40,24 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         get { return stats["bosskills"].Value; }
     }
 
+    public void TakeDamage(int amount)
+    {
+        var mod = CreateInstance<StatModifier>();
+
+        mod.stat = stats["playerhealth"];
+        //negative to do damage
+        mod.value = -amount;
+        mod.type = Modifier.ModType.ADD;
+        stats.AddModifier(stats.Modifiers.Count, mod);
+        onStatsChanged.Invoke(stats["playerhealth"]);
+    }
+
     void OnEnable()
     {
         if (stats)
             return;
-        stats = Resources.Load<Stats>("PLayerStats");
-        stats = Instantiate(stats); 
+        stats = Resources.Load<Stats>("PlayerStats");
+        stats = Instantiate(stats);
     }
 
     public void ForceRefresh()
@@ -58,7 +68,7 @@ public class PlayerData : ScriptableSingleton<PlayerData>
 
     public void ResetGame()
     {
-        stats = Resources.Load<Stats>("PLayerStats");
+        stats = Resources.Load<Stats>("PlayerStats");
         stats = Instantiate(stats);
     }
 
@@ -95,7 +105,7 @@ public class PlayerData : ScriptableSingleton<PlayerData>
         stats["gold"].Value -= amount;
         onGoldChanged.Invoke(stats["gold"]);
         onStatsChanged.Invoke(stats["gold"]);
-       // Debug.Log("spend gold: " + amount + " gold is now: " + stats["gold"].Value);
+        // Debug.Log("spend gold: " + amount + " gold is now: " + stats["gold"].Value);
     }
 
     public class OnPlayerDataChanged : UnityEvent<Stat>

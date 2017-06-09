@@ -12,7 +12,7 @@ public class UIPlayerStatText : UITextBehaviour
     protected override void UpdateText(Stat stat)
     {
         if(stat.Name == _stat.Name)
-            displayText = _stat.Name + ":" + stat.Value;
+            displayText = _stat.Name + " : " + stat.Value;
         base.UpdateText(stat);
     }
 }

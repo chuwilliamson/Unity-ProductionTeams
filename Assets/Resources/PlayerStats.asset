@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   StatsArray:
-  - {fileID: 11400000, guid: 5ec8174a41dd6414393b7b6e980858e6, type: 2}
+  - {fileID: 11400000, guid: 5e08c7ca7ad6c234da10d6634db67e3e, type: 2}
   - {fileID: 11400000, guid: 184fde73fa499ce4ba126d2eb7fa25e6, type: 2}
   - {fileID: 11400000, guid: b0862312fe20ffe428d9a0c3a536393c, type: 2}
   - {fileID: 11400000, guid: 9c66c8f833cc1cf4ebe0309e5e02cd65, type: 2}

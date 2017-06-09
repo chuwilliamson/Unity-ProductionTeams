@@ -12,7 +12,7 @@ public class UIMotherBaseTextPrompt : UITextBehaviour
     
     protected override void UpdateText(Stat stat)
     {
-        displayText = "MotherBase Health" + " : " + stat.Value;
+        displayText = "Health" + " : " + stat.Value;
         base.UpdateText(stat);
     }
 }

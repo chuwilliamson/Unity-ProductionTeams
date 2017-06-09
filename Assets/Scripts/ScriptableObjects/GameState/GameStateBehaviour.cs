@@ -42,7 +42,7 @@ public class GameStateBehaviour : MonoBehaviour
     
     public bool LoseCondition
     {
-        get { return FindObjectOfType<MotherBaseBehaviour>().HealthStat.Value < 1; }
+        get { return PlayerData.Instance.Health < 1; }
     }
 
     [SerializeField]

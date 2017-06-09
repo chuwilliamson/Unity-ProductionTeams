@@ -48,8 +48,13 @@ public class CombatGameState : GameState
             
         if(game.LoseCondition)
         {
-            game.SetText("You lose. r To restart");
+            game.SetText("You lose. Press Any Key To Restart");
             Time.timeScale = .1f;
+            if (Input.anyKey)
+                PlayerData.Instance.ResetGame();
+          
+            
+            
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {

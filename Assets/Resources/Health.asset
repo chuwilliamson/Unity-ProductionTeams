@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseValue: 10
   Name: health
-  Value: 10
+  Value: -290
