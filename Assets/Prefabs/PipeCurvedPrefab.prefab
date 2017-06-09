@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23983517930558686}
   - component: {fileID: 95617861105950438}
   m_Layer: 0
-  m_Name: PipeCurvedMesh
+  m_Name: PipeCurvedPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

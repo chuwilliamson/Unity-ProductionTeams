@@ -1,18 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
 public class WeaponTextBehaviour : MonoBehaviour
 {
     Text text;
-    private void Start()
+    public GameObject landmine;
+    public GameObject turret;
+
+    private void Awake()
     {
         text = GetComponent<Text>();
     }
 
     public void SetText(string value)
     {
-        text.text = value;
+        landmine.SetActive(false);
+        turret.SetActive(false);
+    
+        if (value.ToLower().Contains("landmine"))
+            landmine.SetActive(true);
+        else
+            turret.SetActive(true);
+
+        Debug.Log(value);
     }
 
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23941866712550300}
   - component: {fileID: 95275038737231428}
   m_Layer: 0
-  m_Name: PipeStraightMesh
+  m_Name: PipeStraightPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,7 +19,7 @@ public class IntroGameState : GameState
             {
                 if(val == "startgame") ToState(game, Next);
             });
-        game.SetText("Welcome to the game. Click the button to begin.");
+         
     }
 
     public override void UpdateState(GameStateBehaviour game)
