@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 96dc419268757334dbc4f45bb108de05
-timeCreated: 1496893922
+timeCreated: 1496957811
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,13 @@ TextureImporter:
     21300006: SquareButton_Highlighted
     21300008: Horizontal_Disabled
     21300010: HorizontalButton_Normal
+    21300012: SquareButton_BlackBG
+    21300014: SquareButton_Empty
+    21300016: SquareButton_BlackFill
+    21300018: TurretIcon_Highlighted
+    21300020: TurretIcon_Normal
+    21300022: LandmineIcon_Highlighted
+    21300024: LandmineIcon_Normal
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -84,7 +91,7 @@ TextureImporter:
         width: 876
         height: 191
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -97,7 +104,7 @@ TextureImporter:
         width: 876
         height: 191
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -110,7 +117,7 @@ TextureImporter:
         width: 211
         height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -123,7 +130,7 @@ TextureImporter:
         width: 211
         height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -136,7 +143,7 @@ TextureImporter:
         width: 211
         height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -148,6 +155,97 @@ TextureImporter:
         y: 622
         width: 876
         height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SquareButton_BlackBG
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 414
+        width: 211
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SquareButton_Empty
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 414
+        width: 211
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SquareButton_BlackFill
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 433
+        width: 184
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TurretIcon_Highlighted
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 233
+        width: 150
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TurretIcon_Normal
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 20
+        width: 149
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LandmineIcon_Highlighted
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 243
+        width: 161
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LandmineIcon_Normal
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 32
+        width: 159
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
