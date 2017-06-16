@@ -49,7 +49,7 @@ public class CameraClickBehaviour : MonoBehaviour
         var prefabToSpawn = (currentMode == TowerMode.Tower) ? TowerPrefab : LandMinePrefab;
         var purchaseCost = prefabToSpawn.GetComponent<LandMineBehaviour>().GoldCost;
 
-        if (!Physics.Raycast(screenToWorld, out hit)) return;
+        if(!Physics.Raycast(screenToWorld, out hit)) return;
         var costToPurchase = PlayerData.Instance.Gold - purchaseCost;
         if (costToPurchase <= 0)
         {

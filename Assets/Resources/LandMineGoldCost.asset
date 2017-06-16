@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a361b491b9e000409cfeac725989fff, type: 3}
   m_Name: LandMineGoldCost
   m_EditorClassIdentifier: 
-  _baseValue: 1099
+  _baseValue: 50
   Name: landminegoldcost
-  Value: 1099
+  Value: 50

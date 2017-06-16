@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a361b491b9e000409cfeac725989fff, type: 3}
   m_Name: TowerGoldCost
   m_EditorClassIdentifier: 
-  _baseValue: 250
+  _baseValue: 150
   Name: towergoldcost
-  Value: 250
+  Value: 150
